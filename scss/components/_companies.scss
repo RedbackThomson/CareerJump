@@ -1,0 +1,30 @@
+$logo-hover-padding: 0.5rem;
+
+.companies {
+  text-align: center;
+  position: relative;
+  padding-bottom: 5rem;
+
+  &__grid {
+    align-items: center;
+    justify-content: center;    
+  }
+
+  &__logo {
+    max-height: 8rem;
+    border: none !important;
+    background: none !important;
+
+    &--padded {
+      padding: 1.25rem;
+
+      &:hover {
+        padding: calc(1.25rem + #{$logo-hover-padding}) !important;
+      }
+    }
+
+    &:hover {
+      padding: $logo-hover-padding;
+    }
+  }
+}

@@ -1,0 +1,30 @@
+.footer {
+  margin: 3rem 0 3rem;
+
+  &__links {
+    list-style: none;
+    padding: 0;
+  }
+
+  &__link {
+    color: $header-color;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &__link-item {
+    &:not(:first-child) {
+      margin-top: 1rem;
+
+      @include media-breakpoint-up(md) {
+        margin-top: 0;
+      }
+    }
+    &--logo {
+      img {
+        width: 7rem;
+      }
+    }
+  }
+}

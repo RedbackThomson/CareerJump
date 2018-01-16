@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Karla:400,600|Poppins');
+@import 'bootstrap-overrides';
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+$border-radius: 0.3rem;
+
+$white: #fff;
+
+$jobmeet-dark-blue: #4180AB;
+$jobmeet-light-blue: #8AB3CF;
+
+$jobmeet-gradient: linear-gradient(to right top, $jobmeet-dark-blue, $jobmeet-light-blue);
+
+$link-active: $white;
+$link-inactive: transparentize($link-active, 0.2);
+
+$header-color: #5A5A5A;
+
+$hero-font-color: $white;
+
+$contact-underline: #FEEFAE;
+
+$faq-border-color: #E1E1E1;
+$faq-question-color: #78777C;

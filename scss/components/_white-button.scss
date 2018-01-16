@@ -1,0 +1,25 @@
+.white-button {
+  min-width: 10rem;
+  padding: 0.5rem 1rem;
+  margin: 1.5rem 5px 1.5rem 0;
+  box-shadow: 0 0 0 5px rgba(255,255,255, 0.7);
+  border-radius: $border-radius;
+  background: transparent;
+  color: $white;
+  display: inline-block;
+  transition: background 100ms linear, color 100ms linear;
+  
+  &:hover {
+    cursor: pointer;
+    background: $white;
+    color: $jobmeet-dark-blue;
+    text-decoration: none;
+    border-width: 2px;
+  }
+
+  &--inline {
+    display: inline;
+    margin: 0;
+    min-width: 0;
+  }
+}
