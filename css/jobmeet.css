@@ -5471,7 +5471,7 @@ h1 {
     margin: 0 auto;
     background-image: url(../assets/squiggle-page.svg);
     background-size: 780px;
-    background-position: top center;
+    background-position: bottom center;
     background-repeat: repeat-y;
     overflow: hidden; }
     @media (min-width: 768px) {
