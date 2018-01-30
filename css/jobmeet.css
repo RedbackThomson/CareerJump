@@ -5458,14 +5458,18 @@ h1 {
 
 .about {
   margin: 5rem 0;
-  text-align: center; }
+  text-align: center;
+  position: relative; }
+  @media (min-width: 768px) {
+    .about {
+      margin: 8rem 0 4rem; } }
   .about:before {
     content: '';
     position: absolute;
     z-index: -1;
     top: 0;
     left: 0;
-    height: 100%;
+    height: 100vh;
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
@@ -5479,9 +5483,6 @@ h1 {
         max-width: none;
         background-image: url(../assets/squiggle-page.svg);
         background-size: 85%; } }
-  @media (min-width: 768px) {
-    .about {
-      margin: 8rem 0; } }
   .about__header {
     margin-bottom: 2rem; }
   .about__contents {
@@ -5517,7 +5518,8 @@ h1 {
     line-height: 2rem;
     text-align: left;
     cursor: pointer;
-    font-size: 1.1rem; }
+    font-size: 1.1rem;
+    background: #fff; }
     .accordian__label::after {
       position: absolute;
       right: 1.5rem;
@@ -5534,10 +5536,11 @@ h1 {
   .accordian__content {
     max-height: 0;
     overflow: hidden;
-    border: 0 solid #4180AB;
+    border: 0 solid #FC466B;
     border-radius: 0.3rem;
     text-align: left;
     padding: 0;
+    background: #fff;
     transition: max-height .35s, padding 0s 0.24s, border-width 0s 0.24s; }
 
 .companies {
@@ -5560,11 +5563,11 @@ h1 {
 
 .contact {
   text-align: center;
-  background: linear-gradient(to right top, #4180AB, #8AB3CF);
+  background: linear-gradient(to right top, #FC466B, #3F5EFB);
   height: 18rem;
   position: relative; }
   .contact--sponsor {
-    background: linear-gradient(to right top, #4180AB, #8AB3CF); }
+    background: linear-gradient(to right top, #FC466B, #3F5EFB); }
   .contact__link {
     color: #fff;
     text-decoration-style: wavy;
@@ -5605,7 +5608,7 @@ h1 {
     font-size: 1.3rem;
     line-height: 1.2;
     height: 10rem;
-    background: linear-gradient(to right top, #4180AB, #8AB3CF);
+    background: linear-gradient(to right top, #FC466B, #3F5EFB);
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
     display: flex;
@@ -5642,7 +5645,7 @@ h1 {
     .event__host-link {
       color: #000; }
       .event__host-link:hover {
-        color: #4180AB;
+        color: #FC466B;
         text-decoration: none; }
 
 .faq {
@@ -5684,13 +5687,13 @@ h1 {
   margin-bottom: 1rem; }
 
 .hamburger__link-item--cta {
-  background-color: #4180AB;
+  background-color: #FC466B;
   border-radius: 0.3rem; }
 
 .hamburger__link {
-  color: #4180AB; }
+  color: #FC466B; }
   .hamburger__link:hover {
-    color: #4180AB;
+    color: #FC466B;
     text-decoration: none; }
   .hamburger__link--no-color {
     color: inherit; }
@@ -5700,7 +5703,7 @@ h1 {
 
 .hero {
   width: 100%;
-  background: linear-gradient(to right top, #4180AB, #8AB3CF);
+  background: linear-gradient(to right top, #FC466B, #3F5EFB);
   color: #fff;
   position: relative; }
   @media (min-width: 768px) {
@@ -5738,7 +5741,7 @@ h1 {
     flex-direction: column;
     justify-content: center; }
   .hero__logo {
-    margin: 5rem 0 1rem;
+    margin: 0 0 1rem;
     font-size: 2.5rem; }
   .hero__location {
     text-transform: uppercase;
@@ -5747,6 +5750,8 @@ h1 {
     font-size: 1rem; }
   .hero__feature-image {
     padding-bottom: 3em; }
+  .hero__cta {
+    margin-top: 1rem; }
 
 .nav {
   padding: 2rem 0; }
@@ -5767,6 +5772,25 @@ h1 {
   .nav__logo {
     height: 2rem; }
 
+.rounded-input {
+  border-radius: 0.3rem;
+  display: inline;
+  width: auto;
+  min-width: 10rem;
+  padding: 0.49rem 1rem;
+  margin-right: 1rem;
+  box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.7);
+  border-radius: 0.3rem;
+  background: transparent;
+  color: #fff;
+  display: inline-block;
+  transition: background 100ms linear, color 100ms linear; }
+  .rounded-input::placeholder {
+    color: #fff; }
+  .rounded-input:focus {
+    border-color: #FC466B;
+    box-shadow: 0 0 0 5px rgba(252, 70, 107, 0.25); }
+
 .white-button {
   min-width: 10rem;
   padding: 0.5rem 1rem;
@@ -5780,7 +5804,7 @@ h1 {
   .white-button:hover {
     cursor: pointer;
     background: #fff;
-    color: #4180AB;
+    color: #FC466B;
     text-decoration: none;
     border-width: 2px; }
   .white-button--inline {
