@@ -77,15 +77,17 @@
             <div class="hero__date">
               No more lines. Attend a career fair and get hired in tech from the comfort of your home.
             </div>
-            <form class="hero__cta" method="post" target="_blank"
-              action="https://online.us17.list-manage.com/subscribe/post?u=8532b1a36690f15d851e99f6b&amp;id=f50beee1db">
+            <div class="hero__cta">
               Sign up with your .edu address for priority access.
-              <input type="text" name="EMAIL" class="form-control rounded-input" placeholder="example@email.edu" required>
-              <div style="position: absolute; left: -5000px;" aria-hidden="true">
-                <input type="text" name="sanity-check" tabindex="-1" value="">
-              </div>
-              <input type="submit" class="btn white-button" value="Get Early Access!">
-            </form>
+              <form class="hero__fields" method="post" target="_blank"
+              action="https://online.us17.list-manage.com/subscribe/post?u=8532b1a36690f15d851e99f6b&amp;id=f50beee1db">
+                <input type="text" name="EMAIL" class="hero__email form-control rounded-input" placeholder="example@email.edu" required>
+                <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                  <input type="text" name="sanity-check" tabindex="-1" value="">
+                </div>
+                <input type="submit" class="btn white-button" value="Get Early Access!">
+              </form>
+            </div>
           </div>
         </div>
       </div>

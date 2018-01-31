@@ -68,4 +68,14 @@
   &__cta {
     margin-top: 1rem;
   }
+
+  &__fields {
+    display: flex;
+    flex-direction: row;
+    margin-top: 0.3rem;
+  }
+
+  &__email {
+    flex: 1;
+  }
 }
