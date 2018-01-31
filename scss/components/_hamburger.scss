@@ -24,16 +24,16 @@
     }
 
     &--cta {
-      background-color: $jobmeet-dark-blue;
+      background-color: $primary-dark;
       border-radius: $border-radius;
     }
   }
 
   &__link {
-    color: $jobmeet-dark-blue;
+    color: $primary-dark;
 
     &:hover {
-      color: $jobmeet-dark-blue;
+      color: $primary-dark;
       text-decoration: none;
     }
 

@@ -5943,7 +5943,7 @@ h1 {
   display: inline-block;
   transition: background 100ms linear, color 100ms linear; }
   .rounded-input::placeholder {
-    color: #FC466B; }
+    color: #feaabb; }
   .rounded-input:focus {
     border-color: #FC466B;
     box-shadow: 0 0 0 5px rgba(252, 70, 107, 0.25); }

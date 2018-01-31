@@ -21,7 +21,7 @@ $event-border-radius: 1rem;
     font-size: 1.3rem;
     line-height: 1.2;
     height: 10rem;
-    background: $jobmeet-gradient;
+    background: $careerjump-gradient;
     border-top-left-radius: $event-border-radius;
     border-top-right-radius: $event-border-radius;
     display: flex;
@@ -70,7 +70,7 @@ $event-border-radius: 1rem;
       color: $black;
 
       &:hover {
-        color: $jobmeet-dark-blue;
+        color: $primary-dark;
         text-decoration: none;
       }
     }

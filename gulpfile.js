@@ -14,7 +14,7 @@ gulp.task('serve', ['sass'], function() {
 
 // Compile sass into CSS & auto-inject into browsers
 gulp.task('sass', function() {
-    return gulp.src("scss/jobmeet.scss")
+    return gulp.src("scss/careerjump.scss")
         .pipe(sass())
         .pipe(gulp.dest("css"))
         .pipe(browserSync.stream());

@@ -9,16 +9,16 @@
   box-shadow: 0 0 0 5px rgba(255,255,255, 0.7);
   border-radius: $border-radius;
   background: $white;
-  color: $jobmeet-dark-blue;
+  color: $primary-dark;
   display: inline-block;
   transition: background 100ms linear, color 100ms linear;
 
   &::placeholder {
-    color: $jobmeet-dark-blue;
+    color: lighten($primary-dark, 20%);
   }
 
   &:focus {
-    border-color: $jobmeet-dark-blue;
-    box-shadow: 0 0 0 5px transparentize($jobmeet-dark-blue, 0.75);
+    border-color: $primary-dark;
+    box-shadow: 0 0 0 5px transparentize($primary-dark, 0.75);
   }
 }
