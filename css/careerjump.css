@@ -5749,7 +5749,7 @@ h1 {
     line-height: 1.7; }
 
 .event {
-  min-height: 25rem;
+  min-height: 20rem;
   box-shadow: 0px 0px 18px 10px rgba(0, 0, 0, 0.05);
   border-radius: 1rem;
   display: flex;
@@ -5759,8 +5759,10 @@ h1 {
   margin-bottom: 1rem;
   background: #fff; }
   @media (min-width: 768px) {
-    .event:not(:last-child) {
-      margin-right: 2rem; } }
+    .event {
+      min-height: 25rem; }
+      .event:not(:last-child) {
+        margin-right: 2rem; } }
   .event__header {
     background: linear-gradient(to right top, #a2cc6d, #C6E0A6);
     flex: 0.6;
