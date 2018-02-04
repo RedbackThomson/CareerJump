@@ -1,0 +1,3 @@
+@mixin step-gradient($base-color) {
+  background: linear-gradient(to right top, darken($base-color, 15%), $base-color);
+}

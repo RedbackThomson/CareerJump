@@ -19,10 +19,11 @@ $event-shadow: 0px 0px 18px 10px rgba(0,0,0,0.05);
   }
 
   &__header {
+    @include step-gradient($step-1-color);
+
     flex: 0.6;
     font-size: 1.3rem;
     line-height: 1.2;
-    background: $careerjump-light-gradient;
     border-top-left-radius: $event-border-radius;
     border-top-right-radius: $event-border-radius;
     display: flex;
@@ -37,15 +38,24 @@ $event-shadow: 0px 0px 18px 10px rgba(0,0,0,0.05);
       color: $white;
       padding: 0 1rem;
     }
+
+    &--secondary {
+      @include step-gradient($step-2-color);
+    }
+
+    &--tertiary {
+      @include step-gradient($step-3-color);
+    }
   }
 
   &__part {
     $part-size: 5rem;
+    $background-darken: 0%;
 
     color: $primary-light;
     font-size: 1rem;
     padding-bottom: 1rem;
-    background: #D6DAFF;
+    background: darken($step-1-color, $background-darken);
     text-align: center;
     width: $part-size;
     height: $part-size;
@@ -53,6 +63,19 @@ $event-shadow: 0px 0px 18px 10px rgba(0,0,0,0.05);
     line-height: $part-size;
     margin: 0 auto (-0.5 * $part-size);
     box-shadow: $event-shadow;
+
+    img {
+      max-height: ($part-size - 1rem);
+      max-width: ($part-size - 1rem);
+    }
+
+    &--secondary {
+      background: darken($step-2-color, $background-darken);
+    }
+
+    &--tertiary {
+      background: darken($step-3-color, $background-darken);
+    }
   }
 
   &__description {

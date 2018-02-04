@@ -33,7 +33,6 @@
     border-radius: $border-radius;
     border: 2px solid $faq-border-color;
     font-weight: 500;
-    line-height: 2rem;
     text-align: left;
     cursor: pointer;
     font-size: 1.1rem;
@@ -48,7 +47,7 @@
       height: 3.5rem;
       font-size: 2rem;
       color: $faq-border-color;
-      line-height: 3.5rem;
+      line-height: 3.7rem;
       text-align: center;
       transition: transform .35s;
       transform-origin: center;
@@ -58,7 +57,7 @@
   &__content {
     max-height: 0;
     overflow: hidden;
-    border: 0 solid $primary-dark;
+    border: 0 solid $primary-light;
     border-radius: $border-radius;
     text-align: left;
     padding: 0;
