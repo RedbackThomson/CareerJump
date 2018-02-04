@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Karla:400,600|Poppins");
+@import url("https://fonts.googleapis.com/css?family=Karla:400,600|Poppins:300,400");
 /*!
  * Bootstrap v4.0.0 (https://getbootstrap.com)
  * Copyright 2011-2018 The Bootstrap Authors
@@ -5619,7 +5619,7 @@ h1 {
   position: relative; }
   @media (min-width: 768px) {
     .about {
-      margin: 8rem 0 4rem; } }
+      margin: 5rem 0 4rem; } }
   .about:before {
     content: '';
     position: absolute;
@@ -5729,7 +5729,8 @@ h1 {
     text-decoration-style: wavy;
     position: relative; }
     .contact__link:hover {
-      text-decoration: none; }
+      text-decoration: none;
+      color: #FC466B; }
     .contact__link:after {
       display: block;
       content: '';
@@ -5877,7 +5878,7 @@ h1 {
   position: relative; }
   @media (min-width: 768px) {
     .hero {
-      min-height: 30rem; } }
+      min-height: 27.5rem; } }
   .hero:before {
     display: block;
     content: '';
@@ -5918,7 +5919,7 @@ h1 {
   .hero__date {
     font-size: 1rem; }
   .hero__feature-image {
-    max-height: 25rem; }
+    max-height: 15rem; }
   .hero__cta {
     margin-top: 1rem; }
   .hero__fields {
@@ -5959,7 +5960,8 @@ h1 {
   background: #fff;
   color: #FC466B;
   display: inline-block;
-  transition: background 100ms linear, color 100ms linear; }
+  transition: background 100ms linear, color 100ms linear;
+  font-weight: 300; }
   .rounded-input::placeholder {
     color: #feaabb; }
   .rounded-input:focus {

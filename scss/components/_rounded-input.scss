@@ -12,6 +12,7 @@
   color: $primary-dark;
   display: inline-block;
   transition: background 100ms linear, color 100ms linear;
+  font-weight: 300;
 
   &::placeholder {
     color: lighten($primary-dark, 20%);

@@ -5,7 +5,7 @@
   position: relative;
 
   @include media-breakpoint-up(md) {
-    min-height: 30rem;
+    min-height: 27.5rem;
   }
 
   &:before {
@@ -62,7 +62,7 @@
   }
 
   &__feature-image {
-    max-height: 25rem;
+    max-height: 15rem;
   }
 
   &__cta {
