@@ -23,7 +23,7 @@ $event-shadow: 0px 0px 18px 10px rgba(0,0,0,0.05);
   &__header {
     @include step-gradient($step-1-color);
 
-    flex: 0.6;
+    flex: 0.4;
     font-size: 1.3rem;
     line-height: 1.2;
     border-top-left-radius: $event-border-radius;
@@ -37,8 +37,9 @@ $event-shadow: 0px 0px 18px 10px rgba(0,0,0,0.05);
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: flex-start;
       color: $white;
-      padding: 0 1rem;
+      padding: 0 1.5rem;
     }
 
     &--secondary {
@@ -51,7 +52,7 @@ $event-shadow: 0px 0px 18px 10px rgba(0,0,0,0.05);
   }
 
   &__part {
-    $part-size: 5rem;
+    $part-size: 6rem;
     $background-darken: 0%;
 
     color: $primary-light;

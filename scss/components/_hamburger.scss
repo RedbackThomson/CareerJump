@@ -24,16 +24,16 @@
     }
 
     &--cta {
-      background-color: $primary-dark;
+      background-color: $primary-light;
       border-radius: $border-radius;
     }
   }
 
   &__link {
-    color: $primary-dark;
+    color: $primary-light;
 
     &:hover {
-      color: $primary-dark;
+      color: $primary-light;
       text-decoration: none;
     }
 

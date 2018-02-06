@@ -1,6 +1,10 @@
 .footer {
   margin: 3rem 0 3rem;
 
+  &__logo {
+    max-width: 1rem;
+  }
+
   &__links {
     list-style: none;
     padding: 0;

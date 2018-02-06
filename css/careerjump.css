@@ -5608,7 +5608,7 @@ h1 {
         margin-right: 2rem; } }
   .event__header {
     background: linear-gradient(to right top, #a2cc6d, #C6E0A6);
-    flex: 0.6;
+    flex: 0.4;
     font-size: 1.3rem;
     line-height: 1.2;
     border-top-left-radius: 1rem;
@@ -5621,8 +5621,9 @@ h1 {
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: flex-start;
       color: #fff;
-      padding: 0 1rem; }
+      padding: 0 1.5rem; }
     .event__header--secondary {
       background: linear-gradient(to right top, #e5585a, #EF9A9B); }
     .event__header--tertiary {
@@ -5633,15 +5634,15 @@ h1 {
     padding-bottom: 1rem;
     background: #c6e0a6;
     text-align: center;
-    width: 5rem;
-    height: 5rem;
+    width: 6rem;
+    height: 6rem;
     border-radius: 50%;
-    line-height: 5rem;
-    margin: 0 auto -2.5rem;
+    line-height: 6rem;
+    margin: 0 auto -3rem;
     box-shadow: 0px 0px 18px 10px rgba(0, 0, 0, 0.05); }
     .event__part img {
-      max-height: 4rem;
-      max-width: 4rem; }
+      max-height: 5rem;
+      max-width: 5rem; }
     .event__part--secondary {
       background: #ef9a9b; }
     .event__part--tertiary {
@@ -5669,6 +5670,8 @@ h1 {
 
 .footer {
   margin: 3rem 0 3rem; }
+  .footer__logo {
+    max-width: 1rem; }
   .footer__links {
     list-style: none;
     padding: 0; }
@@ -5702,13 +5705,13 @@ h1 {
   margin-bottom: 1rem; }
 
 .hamburger__link-item--cta {
-  background-color: #FC466B;
+  background-color: #3F5EFB;
   border-radius: 0.3rem; }
 
 .hamburger__link {
-  color: #FC466B; }
+  color: #3F5EFB; }
   .hamburger__link:hover {
-    color: #FC466B;
+    color: #3F5EFB;
     text-decoration: none; }
   .hamburger__link--no-color {
     color: inherit; }
