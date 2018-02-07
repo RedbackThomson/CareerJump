@@ -42,7 +42,6 @@ $(".js-contact").click(function() {
 $(".js-faq").click(function() {
   gtag('event', 'faq_click', {
     'event_category': 'FAQ',
-    'event_label': 'Clicked on an FAQ Question',
-    'value': $(this).attr('for')
+    'event_label': 'Clicked on FAQ - ' + $(this).attr('for')
   });
 });
