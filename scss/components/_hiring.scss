@@ -1,5 +1,9 @@
 .hiring {
   &__logo {
-    max-height: 15rem;
+    max-height: 10rem;
+
+    @include media-breakpoint-up(md) {
+      max-height: 15rem;
+    }
   }
 }

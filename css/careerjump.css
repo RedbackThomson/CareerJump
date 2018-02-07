@@ -5940,7 +5940,10 @@ a:hover {
     flex: 1; }
 
 .hiring__logo {
-  max-height: 15rem; }
+  max-height: 10rem; }
+  @media (min-width: 768px) {
+    .hiring__logo {
+      max-height: 15rem; } }
 
 .nav {
   padding: 2rem 0; }
@@ -5962,7 +5965,10 @@ a:hover {
     height: 2rem; }
 
 .register__logo {
-  max-height: 15rem; }
+  max-height: 10rem; }
+  @media (min-width: 768px) {
+    .register__logo {
+      max-height: 15rem; } }
 
 .rounded-input {
   border-radius: 0.3rem;
