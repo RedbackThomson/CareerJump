@@ -5,25 +5,44 @@ gtag('js', new Date());
 gtag('config', 'UA-113706257-1');
 
 $(".js-signup").click(function() {
-  ga('send', 'event', 'Registration', 'Opened Modal')
+  gtag('event', 'registration_modal_open', {
+    'event_category': 'Registration',
+    'event_label': 'Opened the Modal'
+  });
 });
 
 $(".js-submit").click(function() {
-  ga('send', 'event', 'Registration', 'Submitted Hero Form')
+  gtag('event', 'registration_top_register', {
+    'event_category': 'Registration',
+    'event_label': 'Registered using the Top Form'
+  });
 });
 
 $(".js-submit-bottom").click(function() {
-  ga('send', 'event', 'Registration', 'Submitted Bottom Form')
+  gtag('event', 'registration_bottom_register', {
+    'event_category': 'Registration',
+    'event_label': 'Registered using the Bottom Form'
+  });
 });
 
 $(".js-hiring").click(function() {
-  ga('send', 'event', 'Email', 'Started Hiring Email')
+  gtag('event', 'email_hiring', {
+    'event_category': 'Email',
+    'event_label': 'Opened a Hiring Email'
+  });
 });
 
 $(".js-contact").click(function() {
-  ga('send', 'event', 'Email', 'Started Contact Email')
+  gtag('event', 'email_contact', {
+    'event_category': 'Email',
+    'event_label': 'Opened a Contact Email'
+  });
 });
 
 $(".js-faq").click(function() {
-  ga('send', 'event', 'FAQ', $(this).attr('for'));
+  gtag('event', 'faq_click', {
+    'event_category': 'FAQ',
+    'event_label': 'Clicked on an FAQ Question',
+    'value': $(this).attr('for')
+  });
 });

@@ -5783,7 +5783,7 @@ a:hover {
       justify-content: center;
       align-items: flex-start;
       color: #fff;
-      padding: 0 1.5rem; }
+      padding: 1rem 1.5rem 0; }
     .event__header--secondary {
       background: linear-gradient(to right top, #e5585a, #EF9A9B); }
     .event__header--tertiary {
@@ -5926,6 +5926,8 @@ a:hover {
     font-size: 1.2rem; }
   .hero__date {
     font-size: 1rem; }
+  .hero__feature {
+    padding: 4rem 0; }
   .hero__feature-image {
     max-height: 15rem; }
   .hero__cta {
