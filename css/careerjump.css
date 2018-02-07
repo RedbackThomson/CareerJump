@@ -5961,6 +5961,9 @@ a:hover {
   .nav__logo {
     height: 2rem; }
 
+.register__logo {
+  max-height: 15rem; }
+
 .rounded-input {
   border-radius: 0.3rem;
   display: inline;
