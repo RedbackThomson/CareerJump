@@ -16,5 +16,11 @@ h1 {
   color: $header-color;
 }
 
+a {
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 @import 'mixins/all';
 @import 'components/all';

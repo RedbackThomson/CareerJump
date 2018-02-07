@@ -21,4 +21,13 @@
     margin: 0;
     min-width: 0;
   }
+
+  &--invert {
+    background: $primary-dark;
+    
+    &:hover {
+      box-shadow: 0 0 0 5px transparentize($primary-dark, 0.75);
+      border: $primary-dark 1px solid;
+    }
+  }
 }

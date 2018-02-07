@@ -8,7 +8,7 @@
     <meta name="description" content="CareerJump, The Online Career Fair">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#4180AB">
+    <meta name="theme-color" content="##3F5EFB">
 
     <link rel="icon" href="assets/favicon.png">
     <link rel="stylesheet" href="css/careerjump.css">
@@ -43,7 +43,7 @@
               <a class="nav__link" href="#contact">Contact</a>
             </li>
             <li class="nav__link-item white-button white-button--inline">
-              <a class="nav__link nav__link--no-color" href="#" onclick="return showMailingPopUp();">Get First Access</a>
+              <a class="nav__link nav__link--no-color js-signup" href="#" onclick="return showMailingPopUp();">Get First Access</a>
             </li>
           </ul>
           <div class="flex-column ml-auto d-flex d-md-none">
@@ -66,7 +66,7 @@
             <a class="hamburger__link" href="#contact">Contact</a>
           </li>
           <li class="hamburger__link-item hamburger__link-item--cta">
-            <a class="hamburger__link hamburger__link--no-color" href="#" onclick="return showMailingPopUp();">Get First Access</a>
+            <a class="hamburger__link hamburger__link--no-color js-signup" href="#" onclick="return showMailingPopUp();">Get First Access</a>
           </li>
         </ul>
       </div>
@@ -92,7 +92,7 @@
                 <div style="position: absolute; left: -5000px;" aria-hidden="true">
                   <input type="text" name="sanity-check" tabindex="-1" value="">
                 </div>
-                <input type="submit" class="btn white-button" value="Get Early Access!">
+                <input type="submit" class="btn white-button js-submit" value="Get Early Access!">
               </form>
             </div>
           </div>
@@ -171,56 +171,56 @@
         <h1 class="faq__header mb-5">Frequently Asked Questions</h1>
         <div class="accordian">
           <input class="accordian__input" id="accordian-one" type="checkbox" name="faq">
-          <label class="accordian__label" for="accordian-one">What is an online career fair?</label>
+          <label class="accordian__label js-faq" for="accordian-one">What is an online career fair?</label>
           <div class="accordian__content">
             An online career fair is a lot like a normal career fair… except it’s online! Instead of waiting in big lines on the day of the event, you’ll apply online in advance. Once accepted, you’ll be sent video call links at pre-arranged times to chat with recruiters from companies that might be interested in hiring you.
           </div>
         </div>
         <div class="accordian">
           <input class="accordian__input" id="accordian-two" type="checkbox" name="faq">
-          <label class="accordian__label" for="accordian-two">Why is this better than an in-person career fair?</label>
+          <label class="accordian__label js-faq" for="accordian-two">Why is this better than an in-person career fair?</label>
           <div class="accordian__content">
             Most career fairs have long lines. You have to arrive early and wait forever. Once you get in, it might be impossible to talk to more than a few companies, and you don’t even know if those companies consider you eligible for the role. When moved online, you can instantly connect with companies at a set time through a video call. That means no unnecessary waiting. It also means the companies thought you might be a good fit from the beginning, making every conversation worth your time. Plus, you can do all of this while staying relaxed in the without leaving home.
           </div>
         </div>
         <div class="accordian">
           <input class="accordian__input" id="accordian-three" type="checkbox" name="faq">
-          <label class="accordian__label" for="accordian-three">Is there an application process to be a part of the fair?</label>
+          <label class="accordian__label js-faq" for="accordian-three">Is there an application process to be a part of the fair?</label>
           <div class="accordian__content">
             Yes. Right now we are taking early sign-ups. These people will be the first to have access to the career fair application when the event date is set.
           </div>
         </div>
         <div class="accordian">
           <input class="accordian__input" id="accordian-four" type="checkbox" name="faq">
-          <label class="accordian__label" for="accordian-four">Is everyone guaranteed a call with a recruiter?</label>
+          <label class="accordian__label js-faq" for="accordian-four">Is everyone guaranteed a call with a recruiter?</label>
           <div class="accordian__content">
             While we’d like to do our best to find a place for everyone, it is one of our core beliefs that we shouldn’t be wasting students’ time and energy if a company doesn’t believe they meet the requirements for the job. No one likes getting their hopes up for nothing. You might want to work for a company that doesn’t have an open role in your field. Or maybe they can’t sponsor work visas right now. Whatever the case might be, we can’t promise that everyone will get a call – it depends on company needs.
           </div>
         </div>
         <div class="accordian">
           <input class="accordian__input" id="accordian-five" type="checkbox" name="faq">
-          <label class="accordian__label" for="accordian-five">How is this different than a job search site?</label>
+          <label class="accordian__label js-faq" for="accordian-five">How is this different than a job search site?</label>
           <div class="accordian__content">
             When filling out job applications listed on a job board, your application isn’t guaranteed to be reviewed by a real person. An online career fair is an actual event with real people talking to you. You will get to make an impression on the recruiters that you talk to, and ask whatever you’d like about the company.
           </div>
         </div>
         <div class="accordian">
           <input class="accordian__input" id="accordian-six" type="checkbox" name="faq">
-          <label class="accordian__label" for="accordian-six">What roles are companies hiring for?</label>
+          <label class="accordian__label js-faq" for="accordian-six">What roles are companies hiring for?</label>
           <div class="accordian__content">
             Right now we are focusing on intern and new grad hires for software engineering. In the future, we will also be working with companies to hire for data science, product management, design and other technically focused roles.
           </div>
         </div>
         <div class="accordian">
           <input class="accordian__input" id="accordian-seven" type="checkbox" name="faq">
-          <label class="accordian__label" for="accordian-seven">How long do I get to talk to each recruiter?</label>
+          <label class="accordian__label js-faq" for="accordian-seven">How long do I get to talk to each recruiter?</label>
           <div class="accordian__content">
             Each recruiter chat should be no longer than 10-15 minutes. This is a time for informal conversation, not a technical interview. Just relax and say the same things you would do at a traditional career fair!
           </div>
         </div>
         <div class="accordian">
           <input class="accordian__input" id="accordian-eight" type="checkbox" name="faq">
-          <label class="accordian__label" for="accordian-eight">Can I pick which companies I would prefer to have a call with?</label>
+          <label class="accordian__label js-faq" for="accordian-eight">Can I pick which companies I would prefer to have a call with?</label>
           <div class="accordian__content">
             Yes! We’ll ask students during the application process if they have any dream companies they’d like to chat with, as well as general preferences (for example: startup vs large company). However, note that many students may have the same favorite companies as you. Your preference does not guarantee you a conversation with every company you want, but we’ll do our best.
           </div>
@@ -248,15 +248,45 @@
         </div>
       </div>
     </section>
-
-    <section class="contact" id="contact">
+    
+    <section class="hiring" id="hiring">
       <div class="container d-flex align-items-center h-100">
-        <h1 class="contact__header m-auto">
-          <a class="contact__link" href="mailto:theonlinecareerfair@gmail.com">Let us know</a> if you have any 
-          other questions.</h1>
+        <div class="col-md-3">
+          <img class="hiring__logo" src="/assets/lfh.svg" />
+        </div>
+        <div class="col-md-9">
+          <h1>Are you a company looking to hire? 
+          <a href="mailto:theonlinecareerfair+hiring@gmail.com?subject=Looking%20to%20Hire" class="hiring__link js-hiring">Learn More</a></h1>
+        </div>
       </div>
     </section>
 
+    <section class="register" id="register">
+      <div class="container d-flex align-items-center h-100">
+        <div class="col-md-9">
+          <h1>Sign up with your .edu address to be the first to know when the event is live.</h1>
+          <form class="form-inline mt-1" method="post" target="_blank"
+          action="https://online.us17.list-manage.com/subscribe/post?u=8532b1a36690f15d851e99f6b&amp;id=f50beee1db">
+            <input type="text" name="EMAIL" class="register__email form-control rounded-input" placeholder="example@email.edu" required>
+            <div style="position: absolute; left: -5000px;" aria-hidden="true">
+              <input type="text" name="sanity-check" tabindex="-1" value="">
+            </div>
+            <input type="submit" class="btn white-button white-button--invert white-button--inline js-submit-bottom" value="Get Early Access!">
+          </form>
+        </div>
+        <div class="col-md-3">
+          <img class="register__logo" src="/assets/register.svg" />
+        </div>
+      </div>
+    </section>
+      
+    <section class="contact mt-4" id="contact">
+      <div class="container d-flex align-items-center h-100">
+        <h1 class="contact__header m-auto">
+          <a class="contact__link js-contact" href="mailto:theonlinecareerfair@gmail.com">Let us know</a> if you have any 
+          other questions.</h1>
+      </div>
+    </section>
     <footer class="footer" id="footer">
       <div class="container">
           <ul class="footer__links flex-column ml-md-auto d-flex flex-md-row justify-content-between text-center text-md-left">
@@ -291,5 +321,7 @@
           document.cookie = "MCPopupClosed=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
       };
     </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113706257-1"></script>
+    <script type="text/javascript" src="/js/ga.js"></script>
   </body>
 </html>
