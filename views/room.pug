@@ -1,0 +1,12 @@
+extends layouts/main
+
+block content
+  section#room
+    #local-media-ctr
+    #remote-media-div
+
+block scripts
+  script(src="//media.twiliocdn.com/sdk/js/video/v1/twilio-video.min.js")
+  script(type="text/javascript").
+    roomName="#{roomName}";
+  script(type="text/javascript" src="/js/room.js")

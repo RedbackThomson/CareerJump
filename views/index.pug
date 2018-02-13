@@ -1,210 +1,190 @@
-doctype html
-html(lang="en")
-  head
-    meta(charset="utf-8")
-    title CareerJump
-    meta(name="description" content="CareerJump, The Online Career Fair")
-    meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
-    meta(name="theme-color" content="#3F5EFB")
-    link(rel="icon" href="assets/favicon.png")
-    link(rel="stylesheet" href="css/careerjump.css")
-    meta(property="og:url" content="https://careerjump.io/")
-    meta(property="og:type" content="website")
-    meta(property="og:title" content="CareerJump")
-    meta(property="og:description" content="Be a part of the world's first online career fair")
-    meta(property="og:image" content="http://careerjump.io/assets/meta-image.png")
-    meta(property="og:image:secure_url" content="https://careerjump.io/assets/meta-image.png")
-    //if lt IE 9
-      script(src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js")
-  body
-    section#hero.hero
-      .container
-        nav.nav.flex-row.align-items-md-center.align-items-start
-          .flex-row
-            img.nav__logo(src="assets/logo-white.svg")
-            |             CareerJump
-          ul.nav__links.flex-row.ml-md-auto.d-none.d-md-flex.align-items-center
-            li.nav__link-item
-              a.nav__link(href="#about") About
-            li.nav__link-item
-              a.nav__link(href="#faq") FAQ
-            li.nav__link-item
-              a.nav__link(href="#contact") Contact
-            li.nav__link-item.white-button.white-button--inline
-              a.nav__link.nav__link--no-color.js-signup(href="#" onclick="return showMailingPopUp();") Get First Access
-          .flex-column.ml-auto.d-flex.d-md-none
-            button.navbar-toggler.hamburger__toggler(type="button" data-toggle="collapse" data-target="#hamburgerMenu")
-              span.navbar-toggler-icon.hamburger__toggle-icon
-      #hamburgerMenu.hamburger.collapse.flex-column
-        ul.hamburger__links
-          li.hamburger__link-item
-            a.hamburger__link(href="#about") About
-          li.hamburger__link-item
-            a.hamburger__link(href="#faq") FAQ
-          li.hamburger__link-item
-            a.hamburger__link(href="#contact") Contact
-          li.hamburger__link-item.hamburger__link-item--cta
-            a.hamburger__link.hamburger__link--no-color.js-signup(href="#" onclick="return showMailingPopUp();") Get First Access
-      .container
-        .hero__feature.row
-          .hero__image.text-center.col-md-6.my-2
-            img.hero__feature-image(src="assets/hero-feature.svg")
-          .hero__info.text-left.col-md-6.my-2.order-md-first.pb-5
-            h1.hero__logo
-              | Be a part of the world's first online career fair.
-            .hero__date
-              | No more lines. Attend a career fair and get hired in tech from the comfort of your home.
-            .hero__cta
-              | Sign up with your .edu address for priority access.
-              form.hero__fields(method="post" target="_blank" action="https://online.us17.list-manage.com/subscribe/post?u=8532b1a36690f15d851e99f6b&id=f50beee1db")
-                input.hero__email.form-control.rounded-input(type="text" name="EMAIL" placeholder="example@email.edu" required="")
-                div(style="position: absolute; left: -5000px;" aria-hidden="true")
-                  input(type="text" name="sanity-check" tabindex="-1" value="")
-                input.btn.white-button.js-submit(type="submit" value="Get Early Access!")
-    section#about.about
-      .container
-        h1.about__header.mb-5
-          | Imagine a career fair. 
-          small Without all the bad stuff.
-        p.about__contents.text-left
-          | In a normal career fair, you need to show up early, wait in line, and maybe get a chance to talk to your dream company. Instead, through CareerJump, after filling out a single application online, you'll be scheduled for calls on the day of the event. You’ll get a list of participating companies before the event, and will have a set amount of time to chat via a video call from anywhere you’d like.
-    section#steps.steps.text-center.mb-5
-      .container
-        .steps__cards.d-md-flex
-          .event.col-md-4
-            .event__header
-              span.event__header-title
-                | Step 1
-              .event__part
-                img(src="/assets/step-1.svg")
-            .event__step
-              | Sign Up
-            .event__description
-              | Sign up online to get early access to the application process. By applying online, we’ll learn more about you and the types of companies you’re interested in.
-          .event.col-md-4
-            .event__header.event__header--secondary
-              span.event__header-title
-                | Step 2
-              .event__part.event__part--secondary
-                img(src="/assets/step-2.svg")
-            .event__step
-              | Acceptances are Announced
-            .event__description
-              | Accepted students will be notified of the companies that they will be meeting on the day of the online career fair, as well as the times they will need to be available.
-          .event.col-md-4
-            .event__header.event__header--tertiary
-              span.event__header-title
-                | Step 3
-              .event__part.event__part--tertiary
-                img(src="/assets/step-3.svg")
-            .event__step
-              | Attend the Video Calls
-            .event__description
-              | On the day of the event, students will be sent links to the video calls to meet top companies looking for hires. Enjoy your career fair from the comfort of your laptop.
-    section#faq.faq
-      .container
-        h1.faq__header.mb-5 Frequently Asked Questions
-        .accordian
-          input#accordian-one.accordian__input(type="checkbox" name="faq")
-          label.accordian__label.js-faq(for="accordian-one") What is an online career fair?
-          .accordian__content
-            | An online career fair is a lot like a normal career fair… except it’s online! Instead of waiting in big lines on the day of the event, you’ll apply online in advance. Once accepted, you’ll be sent video call links at pre-arranged times to chat with recruiters from companies that might be interested in hiring you.
-        .accordian
-          input#accordian-two.accordian__input(type="checkbox" name="faq")
-          label.accordian__label.js-faq(for="accordian-two") Why is this better than an in-person career fair?
-          .accordian__content
-            | Most career fairs have long lines. You have to arrive early and wait forever. Once you get in, it might be impossible to talk to more than a few companies, and you don’t even know if those companies consider you eligible for the role. When moved online, you can instantly connect with companies at a set time through a video call. That means no unnecessary waiting. It also means the companies thought you might be a good fit from the beginning, making every conversation worth your time. Plus, you can do all of this while staying relaxed in the without leaving home.
-        .accordian
-          input#accordian-three.accordian__input(type="checkbox" name="faq")
-          label.accordian__label.js-faq(for="accordian-three") Is there an application process to be a part of the fair?
-          .accordian__content
-            | Yes. Right now we are taking early sign-ups. These people will be the first to have access to the career fair application when the event date is set.
-        .accordian
-          input#accordian-four.accordian__input(type="checkbox" name="faq")
-          label.accordian__label.js-faq(for="accordian-four") Is everyone guaranteed a call with a recruiter?
-          .accordian__content
-            | While we’d like to do our best to find a place for everyone, it is one of our core beliefs that we shouldn’t be wasting students’ time and energy if a company doesn’t believe they meet the requirements for the job. No one likes getting their hopes up for nothing. You might want to work for a company that doesn’t have an open role in your field. Or maybe they can’t sponsor work visas right now. Whatever the case might be, we can’t promise that everyone will get a call – it depends on company needs.
-        .accordian
-          input#accordian-five.accordian__input(type="checkbox" name="faq")
-          label.accordian__label.js-faq(for="accordian-five") How is this different than a job search site?
-          .accordian__content
-            | When filling out job applications listed on a job board, your application isn’t guaranteed to be reviewed by a real person. An online career fair is an actual event with real people talking to you. You will get to make an impression on the recruiters that you talk to, and ask whatever you’d like about the company.
-        .accordian
-          input#accordian-six.accordian__input(type="checkbox" name="faq")
-          label.accordian__label.js-faq(for="accordian-six") What roles are companies hiring for?
-          .accordian__content
-            | Right now we are focusing on intern and new grad hires for software engineering. In the future, we will also be working with companies to hire for data science, product management, design and other technically focused roles.
-        .accordian
-          input#accordian-seven.accordian__input(type="checkbox" name="faq")
-          label.accordian__label.js-faq(for="accordian-seven") How long do I get to talk to each recruiter?
-          .accordian__content
-            | Each recruiter chat should be no longer than 10-15 minutes. This is a time for informal conversation, not a technical interview. Just relax and say the same things you would do at a traditional career fair!
-        .accordian
-          input#accordian-eight.accordian__input(type="checkbox" name="faq")
-          label.accordian__label.js-faq(for="accordian-eight") Can I pick which companies I would prefer to have a call with?
-          .accordian__content
-            | Yes! We’ll ask students during the application process if they have any dream companies they’d like to chat with, as well as general preferences (for example: startup vs large company). However, note that many students may have the same favorite companies as you. Your preference does not guarantee you a conversation with every company you want, but we’ll do our best.
-    section#companies.companies.d-none
-      .container
-        h1.companies__header.mb-5 Corporate Sponsors
-        .companies__grid.row
-          .col-lg-3.col-md-4
-            a.d-block.mb-4.h-100(href="#")
-              img.companies__logo.img-fluid.img-thumbnail(src="#" alt="")
-          .col-lg-3.col-md-4
-            a.d-block.mb-4.h-100(href="#")
-              img#hp.companies__logo.img-fluid.img-thumbnail.companies__logo--padded(src="#" alt="")
-    section#hiring.hiring
-      .container.h-100
-        .row.d-flex.align-items-center
-          .col-md-3
-            img.hiring__logo(src="/assets/lfh.svg")
-          .col-md-9
-            h1
-              | Are you a company looking to hire? 
-              a.hiring__link.js-hiring(href="mailto:theonlinecareerfair+hiring@gmail.com?subject=Looking%20to%20Hire") Learn More
-    section#register.register
-      .container.h-100
-        .row.d-flex.align-items-center
-          .col-md-3
-            img.register__logo(src="/assets/register.svg")
-          .col-md-9.order-md-first
-            h1 Sign up with your .edu address to be the first to know when the event is live.
-            form.form-inline.mt-1(method="post" target="_blank" action="https://online.us17.list-manage.com/subscribe/post?u=8532b1a36690f15d851e99f6b&id=f50beee1db")
-              input.register__email.form-control.rounded-input(type="text" name="EMAIL" placeholder="example@email.edu" required="")
+extends layouts/main
+
+block content
+  section#hero.hero
+    .container
+      nav.nav.flex-row.align-items-md-center.align-items-start
+        .flex-row
+          img.nav__logo(src="assets/logo-white.svg")
+          |             CareerJump
+        ul.nav__links.flex-row.ml-md-auto.d-none.d-md-flex.align-items-center
+          li.nav__link-item
+            a.nav__link(href="#about") About
+          li.nav__link-item
+            a.nav__link(href="#faq") FAQ
+          li.nav__link-item
+            a.nav__link(href="#contact") Contact
+          li.nav__link-item.white-button.white-button--inline
+            a.nav__link.nav__link--no-color.js-signup(href="#" onclick="return showMailingPopUp();") Get First Access
+        .flex-column.ml-auto.d-flex.d-md-none
+          button.navbar-toggler.hamburger__toggler(type="button" data-toggle="collapse" data-target="#hamburgerMenu")
+            span.navbar-toggler-icon.hamburger__toggle-icon
+    #hamburgerMenu.hamburger.collapse.flex-column
+      ul.hamburger__links
+        li.hamburger__link-item
+          a.hamburger__link(href="#about") About
+        li.hamburger__link-item
+          a.hamburger__link(href="#faq") FAQ
+        li.hamburger__link-item
+          a.hamburger__link(href="#contact") Contact
+        li.hamburger__link-item.hamburger__link-item--cta
+          a.hamburger__link.hamburger__link--no-color.js-signup(href="#" onclick="return showMailingPopUp();") Get First Access
+    .container
+      .hero__feature.row
+        .hero__image.text-center.col-md-6.my-2
+          img.hero__feature-image(src="assets/hero-feature.svg")
+        .hero__info.text-left.col-md-6.my-2.order-md-first.pb-5
+          h1.hero__logo
+            | Be a part of the world's first online career fair.
+          .hero__date
+            | No more lines. Attend a career fair and get hired in tech from the comfort of your home.
+          .hero__cta
+            | Sign up with your .edu address for priority access.
+            form.hero__fields(method="post" target="_blank" action="https://online.us17.list-manage.com/subscribe/post?u=8532b1a36690f15d851e99f6b&id=f50beee1db")
+              input.hero__email.form-control.rounded-input(type="text" name="EMAIL" placeholder="example@email.edu" required="")
               div(style="position: absolute; left: -5000px;" aria-hidden="true")
                 input(type="text" name="sanity-check" tabindex="-1" value="")
-              input.btn.white-button.white-button--invert.white-button--inline.mt-2.mt-md-0.js-submit-bottom(type="submit" value="Get Early Access!")
-    section#contact.contact.mt-4
-      .container.d-flex.align-items-center.h-100
-        h1.contact__header.m-auto
-          a.contact__link.js-contact(href="mailto:theonlinecareerfair@gmail.com") Let us know
-          |  if you have any
-          |           other questions.
-    footer#footer.footer
-      .container
-        ul.footer__links.flex-column.ml-md-auto.d-flex.flex-md-row.justify-content-between.text-center.text-md-left
-          li.footer__link-item
-            a.footer__link(href="#") Home
-          li.footer__link-item
-            a.footer__link(href="#about") About
-          li.footer__link-item.footer__link-item--logo
-            a.footer__link(href="//careerjump.io/")
-              img.footer__logo(src="/assets/logo.svg")
-              |  CareerJump 2018
-          li.footer__link-item
-            a.footer__link(href="#faq") FAQ
-          li.footer__link-item
-            a.footer__link(href="#contact") Contact
-    script(src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous")
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous")
-    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous")
-    script(type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false")
-    script(type="text/javascript").
-      function showMailingPopUp() {
-      require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us17.list-manage.com","uuid":"8532b1a36690f15d851e99f6b","lid":"f50beee1db"}) })
-      document.cookie = "MCPopupClosed=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
-      };
-    script(async="" src="https://www.googletagmanager.com/gtag/js?id=UA-113706257-1")
-    script(type="text/javascript" src="/js/ga.js")
-    
+              input.btn.white-button.js-submit(type="submit" value="Get Early Access!")
+  section#about.about
+    .container
+      h1.about__header.mb-5
+        | Imagine a career fair. 
+        small Without all the bad stuff.
+      p.about__contents.text-left
+        | In a normal career fair, you need to show up early, wait in line, and maybe get a chance to talk to your dream company. Instead, through CareerJump, after filling out a single application online, you'll be scheduled for calls on the day of the event. You’ll get a list of participating companies before the event, and will have a set amount of time to chat via a video call from anywhere you’d like.
+  section#steps.steps.text-center.mb-5
+    .container
+      .steps__cards.d-md-flex
+        .event.col-md-4
+          .event__header
+            span.event__header-title
+              | Step 1
+            .event__part
+              img(src="/assets/step-1.svg")
+          .event__step
+            | Sign Up
+          .event__description
+            | Sign up online to get early access to the application process. By applying online, we’ll learn more about you and the types of companies you’re interested in.
+        .event.col-md-4
+          .event__header.event__header--secondary
+            span.event__header-title
+              | Step 2
+            .event__part.event__part--secondary
+              img(src="/assets/step-2.svg")
+          .event__step
+            | Acceptances are Announced
+          .event__description
+            | Accepted students will be notified of the companies that they will be meeting on the day of the online career fair, as well as the times they will need to be available.
+        .event.col-md-4
+          .event__header.event__header--tertiary
+            span.event__header-title
+              | Step 3
+            .event__part.event__part--tertiary
+              img(src="/assets/step-3.svg")
+          .event__step
+            | Attend the Video Calls
+          .event__description
+            | On the day of the event, students will be sent links to the video calls to meet top companies looking for hires. Enjoy your career fair from the comfort of your laptop.
+  section#faq.faq
+    .container
+      h1.faq__header.mb-5 Frequently Asked Questions
+      .accordian
+        input#accordian-one.accordian__input(type="checkbox" name="faq")
+        label.accordian__label.js-faq(for="accordian-one") What is an online career fair?
+        .accordian__content
+          | An online career fair is a lot like a normal career fair… except it’s online! Instead of waiting in big lines on the day of the event, you’ll apply online in advance. Once accepted, you’ll be sent video call links at pre-arranged times to chat with recruiters from companies that might be interested in hiring you.
+      .accordian
+        input#accordian-two.accordian__input(type="checkbox" name="faq")
+        label.accordian__label.js-faq(for="accordian-two") Why is this better than an in-person career fair?
+        .accordian__content
+          | Most career fairs have long lines. You have to arrive early and wait forever. Once you get in, it might be impossible to talk to more than a few companies, and you don’t even know if those companies consider you eligible for the role. When moved online, you can instantly connect with companies at a set time through a video call. That means no unnecessary waiting. It also means the companies thought you might be a good fit from the beginning, making every conversation worth your time. Plus, you can do all of this while staying relaxed, without leaving home.
+      .accordian
+        input#accordian-three.accordian__input(type="checkbox" name="faq")
+        label.accordian__label.js-faq(for="accordian-three") Is there an application process to be a part of the fair?
+        .accordian__content
+          | Yes. Right now we are taking early sign-ups. These people will be the first to have access to the career fair application when the event date is set.
+      .accordian
+        input#accordian-four.accordian__input(type="checkbox" name="faq")
+        label.accordian__label.js-faq(for="accordian-four") Is everyone guaranteed a call with a recruiter?
+        .accordian__content
+          | While we’d like to do our best to find a place for everyone, it is one of our core beliefs that we shouldn’t be wasting students’ time and energy if a company doesn’t believe they meet the requirements for the job. No one likes getting their hopes up for nothing. You might want to work for a company that doesn’t have an open role in your field. Or maybe they can’t sponsor work visas right now. Whatever the case might be, we can’t promise that everyone will get a call – it depends on company needs.
+      .accordian
+        input#accordian-five.accordian__input(type="checkbox" name="faq")
+        label.accordian__label.js-faq(for="accordian-five") How is this different than a job search site?
+        .accordian__content
+          | When filling out job applications listed on a job board, your application isn’t guaranteed to be reviewed by a real person. An online career fair is an actual event with real people talking to you. You will get to make an impression on the recruiters that you talk to, and ask whatever you’d like about the company.
+      .accordian
+        input#accordian-six.accordian__input(type="checkbox" name="faq")
+        label.accordian__label.js-faq(for="accordian-six") What roles are companies hiring for?
+        .accordian__content
+          | Right now we are focusing on intern and new grad hires for software engineering. In the future, we will also be working with companies to hire for data science, product management, design and other technically focused roles.
+      .accordian
+        input#accordian-seven.accordian__input(type="checkbox" name="faq")
+        label.accordian__label.js-faq(for="accordian-seven") How long do I get to talk to each recruiter?
+        .accordian__content
+          | Each recruiter chat should be no longer than 10-15 minutes. This is a time for informal conversation, not a technical interview. Just relax and say the same things you would do at a traditional career fair!
+      .accordian
+        input#accordian-eight.accordian__input(type="checkbox" name="faq")
+        label.accordian__label.js-faq(for="accordian-eight") Can I pick which companies I would prefer to have a call with?
+        .accordian__content
+          | Yes! We’ll ask students during the application process if they have any dream companies they’d like to chat with, as well as general preferences (for example: startup vs large company). However, note that many students may have the same favorite companies as you. Your preference does not guarantee you a conversation with every company you want, but we’ll do our best.
+  section#companies.companies.d-none
+    .container
+      h1.companies__header.mb-5 Corporate Sponsors
+      .companies__grid.row
+        .col-lg-3.col-md-4
+          a.d-block.mb-4.h-100(href="#")
+            img.companies__logo.img-fluid.img-thumbnail(src="#" alt="")
+        .col-lg-3.col-md-4
+          a.d-block.mb-4.h-100(href="#")
+            img#hp.companies__logo.img-fluid.img-thumbnail.companies__logo--padded(src="#" alt="")
+  section#hiring.hiring
+    .container.h-100
+      .row.d-flex.align-items-center
+        .col-md-3
+          img.hiring__logo(src="/assets/lfh.svg")
+        .col-md-9
+          h1
+            | Are you a company looking to hire? 
+            a.hiring__link.js-hiring(href="mailto:theonlinecareerfair+hiring@gmail.com?subject=Looking%20to%20Hire") Learn More
+  section#register.register
+    .container.h-100
+      .row.d-flex.align-items-center
+        .col-md-3
+          img.register__logo(src="/assets/register.svg")
+        .col-md-9.order-md-first
+          h1 Sign up with your .edu address to be the first to know when the event is live.
+          form.form-inline.mt-1(method="post" target="_blank" action="https://online.us17.list-manage.com/subscribe/post?u=8532b1a36690f15d851e99f6b&id=f50beee1db")
+            input.register__email.form-control.rounded-input(type="text" name="EMAIL" placeholder="example@email.edu" required="")
+            div(style="position: absolute; left: -5000px;" aria-hidden="true")
+              input(type="text" name="sanity-check" tabindex="-1" value="")
+            input.btn.white-button.white-button--invert.white-button--inline.mt-2.mt-md-0.js-submit-bottom(type="submit" value="Get Early Access!")
+  section#contact.contact.mt-4
+    .container.d-flex.align-items-center.h-100
+      h1.contact__header.m-auto
+        a.contact__link.js-contact(href="mailto:theonlinecareerfair@gmail.com") Let us know
+        |  if you have any
+        |           other questions.
+  footer#footer.footer
+    .container
+      ul.footer__links.flex-column.ml-md-auto.d-flex.flex-md-row.justify-content-between.text-center.text-md-left
+        li.footer__link-item
+          a.footer__link(href="#") Home
+        li.footer__link-item
+          a.footer__link(href="#about") About
+        li.footer__link-item.footer__link-item--logo
+          a.footer__link(href="//careerjump.io/")
+            img.footer__logo(src="/assets/logo.svg")
+            |  CareerJump 2018
+        li.footer__link-item
+          a.footer__link(href="#faq") FAQ
+        li.footer__link-item
+          a.footer__link(href="#contact") Contact
+
+block scripts
+  script(type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false")
+  script(type="text/javascript").
+    function showMailingPopUp() {
+    require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us17.list-manage.com","uuid":"8532b1a36690f15d851e99f6b","lid":"f50beee1db"}) })
+    document.cookie = "MCPopupClosed=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+    };
