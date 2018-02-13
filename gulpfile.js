@@ -16,7 +16,7 @@ gulp.task('serve', ['sass'], function() {
 gulp.task('sass', function() {
     return gulp.src("scss/careerjump.scss")
         .pipe(sass())
-        .pipe(gulp.dest("css"))
+        .pipe(gulp.dest("public/css"))
         .pipe(browserSync.stream());
 });
 
