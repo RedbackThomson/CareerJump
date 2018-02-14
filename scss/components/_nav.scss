@@ -1,6 +1,6 @@
 .nav {
   padding: 2rem 0;
-  
+
   &__links {
     list-style: none;
     margin-bottom: 0;
@@ -8,6 +8,15 @@
 
   &__link {
     color: $link-inactive;
+
+    &--dark {
+      color: $primary-dark;
+
+      &:hover {
+        color: darken($primary-dark, 10%);
+        text-decoration: none;
+      }
+    }
 
     &:hover {
       color: $link-active;

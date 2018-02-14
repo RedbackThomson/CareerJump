@@ -1,0 +1,28 @@
+$local-video-size: 15rem;
+$remote-video-size: 35rem;
+
+.video-feeds {
+  &__local {
+    height: $local-video-size;
+    display: flex;
+    justify-content: center;
+
+    video {
+      max-height: $local-video-size;
+      max-width: 100%;
+    }
+  }
+
+  &__remote {
+    height: $remote-video-size;
+    background: linear-gradient(to right top, lighten($primary-dark, 25%),
+      lighten($primary-light, 25%));
+    display: flex;
+    justify-content: center;
+
+    video {
+      max-height: $remote-video-size;
+      max-width: 100%;
+    }
+  }
+}

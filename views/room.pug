@@ -1,9 +1,54 @@
 extends layouts/main
 
 block content
-  section#room
-    #local-media-ctr
-    #remote-media-div
+  section.header#header
+    .container
+      nav.nav.nav--dark.flex-row.align-items-md-center.align-items-start
+        .flex-row
+          img.nav__logo(src="/assets/logo.svg")
+          | CareerJump
+        ul.nav__links.flex-row.ml-md-auto.d-none.d-md-flex.align-items-center
+          li.nav__link-item
+            a.nav__link.nav__link--dark(href="#about") Dashboard
+          li.nav__link-item
+            a.nav__link.nav__link--dark(href="#faq") Events
+          li.nav__link-item
+            a.nav__link.nav__link--dark(href="#contact") Logout
+        .flex-column.ml-auto.d-flex.d-md-none
+          button.navbar-toggler.hamburger__toggler(type="button" data-toggle="collapse" data-target="#hamburgerMenu")
+            span.navbar-toggler-icon.hamburger__toggle-icon.hamburger__toggle-icon--dark
+    #hamburgerMenu.hamburger.collapse.flex-column
+      ul.hamburger__links
+        li.hamburger__link-item
+          a.hamburger__link(href="#about") Dashboard
+        li.hamburger__link-item
+          a.hamburger__link(href="#faq") Events
+        li.hamburger__link-item
+          a.hamburger__link(href="#contact") Logout
+
+  section.room#room
+    .container
+      .row
+        .col
+          h1 Room 
+            span#room-name
+      .video-feeds
+        .row
+          .col-md-8
+            h2 Their Feed (Replace with Name)
+            .video-feeds__remote#remote-media-div
+          .col-md-4
+            h2 You
+            .video-feeds__local#local-media-ctr
+            .row
+              .col
+                h3 Your Guest
+                .font-weight-bold Name
+                p RedbackThomson
+                .font-weight-bold University
+                p University of Disappearance
+                .font-weight-bold Major
+                p Mathematics-Computer Science
 
 block scripts
   script(src="//media.twiliocdn.com/sdk/js/video/v1/twilio-video.min.js")

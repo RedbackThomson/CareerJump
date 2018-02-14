@@ -7,7 +7,6 @@ function addParticipantTracks(participant) {
 function setupRoom(room) {
   const localParticipant = room.localParticipant;
   console.log('Connected to the Room as LocalParticipant "%s"', localParticipant.identity);
-  console.log('%s previously connected participants', room.participants.length);
 
   // Log any Participants already connected to the Room
   room.participants.forEach(addParticipantTracks);
@@ -33,13 +32,15 @@ function setupRoom(room) {
   });
 }
 
+$("#room-name").text(`'${roomName}'`);
+
 $.getJSON("/api/createRoom/" + roomName, function(data) {
   let token = data.token;
 
   Twilio.Video.connect(token, {
     audio: true,
     name: roomName,
-    video: { width: 640 }
+    video: true
   }).then(setupRoom);
 });
 
