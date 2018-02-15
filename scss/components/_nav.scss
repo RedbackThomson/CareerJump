@@ -1,5 +1,14 @@
 .nav {
   padding: 2rem 0;
+
+  &__company {
+    color: $link-inactive;
+
+    &:hover {
+      color: $link-active;
+      text-decoration: none;
+    }
+  }
   
   &__links {
     list-style: none;
