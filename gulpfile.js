@@ -19,7 +19,7 @@ gulp.task('browser-sync', ['nodemon'], function() {
 gulp.task('nodemon', ['sass'], function(cb) {
   return nodemon({
     exec: 'node --inspect=9229',
-    script: 'server.js',
+    script: 'src/server.js',
     ext: 'js html',
     env: {
       'NODE_ENV': 'development',
