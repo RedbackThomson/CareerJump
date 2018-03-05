@@ -12,8 +12,8 @@ gulp.task('browser-sync', ['nodemon'], function() {
     }
   });
 
-  gulp.watch("scss/**/*.scss", ['sass']);
-  gulp.watch("views/**/*.pug").on('change', browserSync.reload);
+  gulp.watch('scss/**/*.scss', ['sass']);
+  gulp.watch('views/**/*.pug').on('change', browserSync.reload);
 });
 
 gulp.task('nodemon', ['sass'], function(cb) {
@@ -36,9 +36,9 @@ gulp.task('nodemon', ['sass'], function(cb) {
 
 // Compile sass into CSS & auto-inject into browsers
 gulp.task('sass', function() {
-  return gulp.src("scss/careerjump.scss")
+  return gulp.src('scss/careerjump.scss')
     .pipe(sass())
-    .pipe(gulp.dest("public/css"))
+    .pipe(gulp.dest('public/css'))
     .pipe(browserSync.stream())
     .on('end', function() {
       browserSync.reload();
