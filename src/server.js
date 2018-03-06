@@ -39,7 +39,7 @@ function startInstance() {
           port, WORKERS);
       });
     })
-    .catch(logger.error);
+    .catch(console.error);
 };
 
 if (process.env.NODE_ENV === 'development') {

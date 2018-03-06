@@ -1,8 +1,15 @@
-var gulp        = require('gulp');
-var browserSync = require('browser-sync').create();
-var sass        = require('gulp-sass');
-var nodemon     = require('gulp-nodemon');
-var eslint      = require('gulp-eslint');
+var gulp = require('gulp');
+var sass = require('gulp-sass');
+var gutil = require('gulp-util');
+let autoprefixer = require('gulp-autoprefixer');
+let rename = require('gulp-rename');
+let cssnano = require('gulp-cssnano');
+let sourcemaps = require('gulp-sourcemaps');
+let gulpif = require('gulp-if');
+let eslint = gutil.env.production ? undefined : require('gulp-eslint');
+let browserSync = gutil.env.production ?
+  undefined : require('browser-sync').create();
+let nodemon = gutil.env.production ? undefined : require('gulp-nodemon');
 
 // Static Server + watching scss/html files
 gulp.task('browser-sync', ['nodemon'], function() {
@@ -37,13 +44,21 @@ gulp.task('nodemon', ['sass'], function(cb) {
 
 // Compile sass into CSS & auto-inject into browsers
 gulp.task('sass', function() {
-  return gulp.src('scss/careerjump.scss')
-    .pipe(sass())
-    .pipe(gulp.dest('public/css'))
-    .pipe(browserSync.stream())
-    .on('end', function() {
-      browserSync.reload();
-    });
+  let tasks = gulp.src('scss/careerjump.scss')
+    .pipe(sourcemaps.init())
+    .pipe(sass().on('error', sass.logError))
+    .pipe(autoprefixer('last 4 version'))
+    .pipe(gulp.dest('src/assets/public/css'))
+    .pipe(cssnano())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(gulpif(!gutil.env.production, sourcemaps.write()))
+    .pipe(gulp.dest('public/css'));
+
+  if (browserSync) {
+    tasks
+      .pipe(browserSync.stream());
+  }
+  return tasks;
 });
 
 gulp.task('eslint', function() {
@@ -53,5 +68,7 @@ gulp.task('eslint', function() {
 });
 
 gulp.task('default', ['browser-sync']);
+
+gulp.task('prod', ['sass']);
 
 gulp.task('test', ['eslint']);

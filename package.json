@@ -7,7 +7,7 @@
   "scripts": {
     "start": "gulp",
     "migrate": "./node_modules/.bin/sequelize db:migrate",
-    "heroku-postbuild": "npm run migrate"
+    "heroku-postbuild": "npm run migrate && ./node_modules/.bin/gulp prod --production"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.2",
@@ -23,6 +23,12 @@
     "body-parser": "^1.18.2",
     "dotenv": "^5.0.0",
     "express": "^4.16.2",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-if": "^2.0.2",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-util": "^3.0.8",
     "pg": "^7.4.1",
     "pug": "^2.0.0-rc.4",
     "sequelize": "^4.35.2",
