@@ -5,3 +5,7 @@
 node_modules/
 
 \.vscode/
+
+public/css/
+
+src/assets/public/css/

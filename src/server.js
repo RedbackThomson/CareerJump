@@ -6,6 +6,7 @@ const http = require('http');
 const express = require('express');
 const bodyParser = require('body-parser');
 const throng = require('throng');
+const compression = require('compression');
 
 const database = require('./models');
 const logger = require('./config/logging');
@@ -20,6 +21,7 @@ function startInstance() {
       var port = process.env.PORT || 3000;
       app.listen(port);
 
+      app.use(compression());
       app.use(bodyParser.json({type: 'application/json', limit: '50mb'}));
       app.use(bodyParser.urlencoded({
         extended: true,
@@ -39,7 +41,7 @@ function startInstance() {
           port, WORKERS);
       });
     })
-    .catch(logger.error);
+    .catch(console.error);
 };
 
 if (process.env.NODE_ENV === 'development') {
