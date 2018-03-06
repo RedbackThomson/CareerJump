@@ -6,7 +6,8 @@
   "license": "ISC",
   "scripts": {
     "start": "gulp",
-    "migrate": "./node_modules/.bin/sequelize db:migrate"
+    "migrate": "./node_modules/.bin/sequelize db:migrate",
+    "heroku-postbuild": "npm run migrate"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.2",
