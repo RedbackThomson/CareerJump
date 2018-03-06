@@ -1,0 +1,32 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    if title
+      title CareerJump - #{title}
+    else
+      title CareerJump
+    meta(name="description" content="CareerJump, The Online Career Fair")
+    meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    meta(name="theme-color" content="#3F5EFB")
+    link(rel="icon" href="/assets/favicon.png")
+    link(rel="stylesheet" href="/css/careerjump.css")
+    meta(property="og:url" content="https://careerjump.io/")
+    meta(property="og:type" content="website")
+    meta(property="og:title" content="CareerJump")
+    meta(property="og:description" content="Be a part of the world's first online career fair")
+    meta(property="og:image" content="http://careerjump.io/assets/meta-image.png")
+    meta(property="og:image:secure_url" content="https://careerjump.io/assets/meta-image.png")
+    //if lt IE 9
+      script(src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js")
+    block styles
+
+  body
+    block content
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" crossorigin="anonymous")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous")
+    block scripts
+    script(async="" src="https://www.googletagmanager.com/gtag/js?id=UA-113706257-1")
+    script(type="text/javascript" src="/js/ga.js")
+    

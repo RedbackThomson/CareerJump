@@ -1,3 +1,7 @@
+*.log
+
+.env
+
 node_modules/
 
-\.env
+\.vscode/

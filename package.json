@@ -4,10 +4,30 @@
   "description": "The World's First Online Career Fair",
   "author": "",
   "license": "ISC",
+  "scripts": {
+    "start": "gulp",
+    "migrate": "./node_modules/.bin/sequelize db:migrate"
+  },
   "devDependencies": {
+    "babel-eslint": "^8.2.2",
     "bootstrap": "^4.0.0-beta.2",
     "browser-sync": "^2.18.13",
+    "eslint-plugin-import": "^2.9.0",
     "gulp": "^3.9.1",
+    "gulp-eslint": "^4.0.2",
+    "gulp-nodemon": "^2.2.1",
     "gulp-sass": "^3.1.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "dotenv": "^5.0.0",
+    "express": "^4.16.2",
+    "pg": "^7.4.1",
+    "pug": "^2.0.0-rc.4",
+    "sequelize": "^4.35.2",
+    "sequelize-cli": "^4.0.0",
+    "throng": "^4.0.0",
+    "twilio": "^3.11.3",
+    "winston": "^3.0.0-rc1"
   }
 }
