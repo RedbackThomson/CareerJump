@@ -1,45 +1,47 @@
 window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
+function gtag(){
+  dataLayer.push(arguments);
+}
 gtag('js', new Date());
 
 gtag('config', 'UA-113706257-1');
 
-$(".js-signup").click(function() {
-  gtag('event', 'registration_modal_open', {
-    'event_category': 'Registration',
-    'event_label': 'Opened the Modal'
+$('.js-signup').click(function() {
+  gtag('event', 'application_nav', {
+    'event_category': 'Application',
+    'event_label': 'Clicked the Nav Apply Button'
   });
 });
 
-$(".js-submit").click(function() {
-  gtag('event', 'registration_top_register', {
-    'event_category': 'Registration',
-    'event_label': 'Registered using the Top Form'
+$('.js-submit').click(function() {
+  gtag('event', 'application_hero', {
+    'event_category': 'Application',
+    'event_label': 'Clicked the Hero Apply Button'
   });
 });
 
-$(".js-submit-bottom").click(function() {
-  gtag('event', 'registration_bottom_register', {
-    'event_category': 'Registration',
-    'event_label': 'Registered using the Bottom Form'
+$('.js-submit-bottom').click(function() {
+  gtag('event', 'application_footer', {
+    'event_category': 'Application',
+    'event_label': 'Clicked the Footer Apply Button'
   });
 });
 
-$(".js-hiring").click(function() {
+$('.js-hiring').click(function() {
   gtag('event', 'email_hiring', {
     'event_category': 'Email',
     'event_label': 'Opened a Hiring Email'
   });
 });
 
-$(".js-contact").click(function() {
+$('.js-contact').click(function() {
   gtag('event', 'email_contact', {
     'event_category': 'Email',
     'event_label': 'Opened a Contact Email'
   });
 });
 
-$(".js-faq").click(function() {
+$('.js-faq').click(function() {
   gtag('event', 'faq_click', {
     'event_category': 'FAQ',
     'event_label': 'Clicked on FAQ - ' + $(this).attr('for')
