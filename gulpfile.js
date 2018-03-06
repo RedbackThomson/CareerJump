@@ -2,6 +2,7 @@ var gulp        = require('gulp');
 var browserSync = require('browser-sync').create();
 var sass        = require('gulp-sass');
 var nodemon     = require('gulp-nodemon');
+var eslint      = require('gulp-eslint');
 
 // Static Server + watching scss/html files
 gulp.task('browser-sync', ['nodemon'], function() {
@@ -45,4 +46,12 @@ gulp.task('sass', function() {
     });
 });
 
+gulp.task('eslint', function() {
+  return gulp.src('src/**/*.js')
+    .pipe(eslint())
+    .pipe(eslint.format());
+});
+
 gulp.task('default', ['browser-sync']);
+
+gulp.task('test', ['eslint']);

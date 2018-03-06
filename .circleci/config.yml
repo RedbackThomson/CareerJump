@@ -1,0 +1,101 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8.9
+      - image: circleci/postgres:10-alpine-postgis
+    environment:
+      - MONGODB_URI: "postgres://root@localhost:5432/circle_test"
+      - NODE_ENV: "test"
+    steps:
+      - checkout
+      - restore_cache:
+          key: package-cache-{{checksum "package.json"}}
+      - run: 
+          name: Install NPM
+          command: npm install
+      - save_cache:
+          key: package-cache-{{checksum "package.json"}}
+          paths:
+            - node_modules
+      - run:
+          name: Migrate DB
+          command: npm run migrate
+
+  test:
+    docker:
+      - image: circleci/node:8.9
+      - image: circleci/postgres:10-alpine-postgis
+    environment:
+      - MONGODB_URI: "postgres://root@localhost:5432/circle_test"
+    steps:
+      - checkout
+      - restore_cache:
+          key: package-cache-{{checksum "package.json"}}
+      - run: 
+          name: Install NPM
+          command: npm install
+      - save_cache:
+          key: package-cache-{{checksum "package.json"}}
+          paths:
+            - node_modules
+      - run:
+          name: Test
+          command: ./node_modules/.bin/gulp test
+
+  deploy_staging:
+    docker:
+      - image: circleci/node:8.9
+    environment:
+      HEROKU_APP_NAME: careerjump-staging
+    steps:
+      - checkout
+      - run:
+          name: Run Setup Script
+          command: bash .circleci/setup-heroku.sh
+      - add_ssh_keys:
+          fingerprints:
+            - "d9:05:a8:9c:0c:23:0d:96:54:c7:8e:80:80:8d:cc:57"
+      - run:
+          name: Deploy Master to Heroku
+          command: |
+            git push --force git@heroku.com:$HEROKU_APP_NAME.git HEAD:refs/heads/master
+
+  deploy_prod:
+    docker:
+      - image: circleci/node:8.9
+    environment:
+      HEROKU_APP_NAME: careerjump-production
+    steps:
+      - checkout
+      - run:
+          name: Run Setup Script
+          command: bash .circleci/setup-heroku.sh
+      - add_ssh_keys:
+          fingerprints:
+            - "d9:05:a8:9c:0c:23:0d:96:54:c7:8e:80:80:8d:cc:57"
+      - run:
+          name: Deploy Master to Heroku
+          command: |
+            git push --force git@heroku.com:$HEROKU_APP_NAME.git HEAD:refs/heads/master
+    
+workflows:
+  version: 2
+  test_and_deploy:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
+      - deploy_staging:
+          requires:
+            - test
+          filters:
+            branches:
+              only: master
+      - deploy_prod:
+          requires:
+            - test
+          filters:
+            branches:
+              only: release
