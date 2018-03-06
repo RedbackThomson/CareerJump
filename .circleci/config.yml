@@ -18,9 +18,6 @@ jobs:
           key: package-cache-{{checksum "package.json"}}
           paths:
             - node_modules
-      - run:
-          name: Migrate DB
-          command: npm run migrate
 
   test:
     docker:
@@ -42,6 +39,9 @@ jobs:
       - run:
           name: Test
           command: ./node_modules/.bin/gulp test
+      - run:
+          name: Migrate DB
+          command: npm run migrate
 
   deploy_staging:
     docker:
