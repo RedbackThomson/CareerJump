@@ -1,31 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Karla:400,600|Poppins:300,400');
 @import 'bootstrap-overrides';
 @import '../node_modules/bootstrap/scss/bootstrap';
 
-$border-radius: 0.3rem;
-
-$white: #fff;
-
-$primary-dark: #FC466B;
-$primary-light: #3F5EFB;
-
-$step-1-color: #C6E0A6;
-$step-2-color: #EF9A9B;
-$step-3-color: #89D3E2;
-
-$careerjump-gradient: linear-gradient(to right top, $primary-dark, $primary-light);
-$careerjump-light-gradient: linear-gradient(to right top, lighten($primary-dark, 8%), lighten($primary-light, 8%));
-
-$link-active: $white;
-$link-inactive: transparentize($link-active, 0.2);
-
-$dark-font: #5A5A5A;
-
-$header-color: #5A5A5A;
-
-$hero-font-color: $white;
-
-$contact-underline: #FEEFAE;
-
-$faq-border-color: #E1E1E1;
-$faq-question-color: #78777C;
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}

@@ -17,6 +17,7 @@ module.exports = {
       'ssl': {
         'require': true
       }
-    }
+    },
+    'logging': false
   }
 };
