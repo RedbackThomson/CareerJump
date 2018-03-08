@@ -5,16 +5,19 @@ const http = require('http');
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const throng = require('throng');
 const compression = require('compression');
+const passport = require('passport');
+const session = require('express-session');
 
-const database = require('./models');
+const models = require('./models');
 const logger = require('./config/logging');
 
 var WORKERS = process.env.WEB_CONCURRENCY || 1;
 
 function startInstance() {
-  database.sequelize
+  models.sequelize
     .authenticate()
     .then(() => {
       var app = express();
@@ -22,18 +25,27 @@ function startInstance() {
       app.listen(port);
 
       app.use(compression());
+
+      app.use(express.static('public'));
+
       app.use(bodyParser.json({type: 'application/json', limit: '50mb'}));
       app.use(bodyParser.urlencoded({
         extended: true,
         limit: '50mb',
         parameterLimit: 3000
       }));
+      app.use(cookieParser(process.env.COOKIE_SECRET));
+      app.use(session({secret: process.env.SESSION_SECRET}));
+
+      app.use(passport.initialize());
+      app.use(passport.session());
+      require('./config/passport')(models);
 
       app.engine('pug', require('pug').__express);
-      app.use(express.static('public'));
+      app.set('view engine', 'pug');
       app.set('views', path.join(__dirname, '../views'));
 
-      require('./config/routes')(app, database);
+      app.use(require('./routing')(models));
 
       http.createServer(app).listen(app.get(port), function(){
         logger.log('info',

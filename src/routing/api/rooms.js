@@ -1,9 +1,12 @@
+const express = require('express');
 const AccessToken = require('twilio').jwt.AccessToken;
+
+const router = express.Router();
 
 const VideoGrant = AccessToken.VideoGrant;
 
-module.exports = (app, models) => {
-  app.get('/api/createRoom/:roomName', (req, res) => {
+module.exports = (models) => {
+  router.get('/createRoom/:roomName', (req, res) => {
     let twilioAccountSid = process.env.TWILIO_ACCOUNT_SID;
     let twilioApiKey = process.env.TWILIO_API_KEY;
     let twilioApiSecret = process.env.TWILIO_API_SECRET;
@@ -24,25 +27,5 @@ module.exports = (app, models) => {
     return res.json({token: token.toJwt()});
   });
 
-  app.get('/room/:roomName', (req, res) => {
-    return res.render('room.pug', {
-      title: req.params.roomName,
-      roomName: req.params.roomName
-    });
-  });
-
-  app.get('/getTestUser', (req, res) => {
-    return models.StudentProfile
-      .findOne({
-        where: {id: 1},
-        include: [
-          {model: models.StudentUser, as: 'user'}
-        ]
-      })
-      .then((profile) => {
-        return res.json(profile);
-      });
-  });
-
-  app.get('/', (req, res) => res.render('index.pug'));
+  return router;
 };

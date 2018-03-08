@@ -1,0 +1,14 @@
+extends ../layouts/main
+
+block content
+  .container.text-center
+    form.form-signin(method="post" action="/auth/login")
+      img.mb-4(src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" width="72" height="72")
+      h1.h3.mb-3.font-weight-normal Please Sign In
+      label.sr-only(for="inputEmail") Email Address
+      input#inputEmail.form-control(type="email" placeholder="Email address" name="email" required autofocus)
+      label.sr-only(for="inputPassword") Password
+      input#inputPassword.form-control(type="password" placeholder="Password" name="password" required)
+      button.btn.btn-lg.btn-primary.btn-block(type="Submit") Sign In
+      p.mt-5.mb-3.text-muted &copy; 2017-2018
+
