@@ -10,6 +10,7 @@ const throng = require('throng');
 const compression = require('compression');
 const passport = require('passport');
 const session = require('express-session');
+const RedisStore = require('connect-redis')(session);
 
 const models = require('./models');
 const logger = require('./config/logging');
@@ -35,7 +36,14 @@ function startInstance() {
         parameterLimit: 3000
       }));
       app.use(cookieParser(process.env.COOKIE_SECRET));
-      app.use(session({secret: process.env.SESSION_SECRET}));
+      app.use(session({
+        store: new RedisStore({
+          url: process.env.REDIS_URL
+        }),
+        secret: process.env.SESSION_SECRET,
+        resave: false,
+        saveUninitialized: false
+      }));
 
       app.use(passport.initialize());
       app.use(passport.session());
