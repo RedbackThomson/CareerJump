@@ -1,0 +1,11 @@
+.sidebar {
+  border-radius: $card-border-radius;
+  margin: 0 2rem 2rem 5rem;
+  padding: 0 2rem;
+  
+  @include media-breakpoint-up(lg) {
+    padding: 2rem;
+    min-height: 30rem;
+    box-shadow: $card-shadow;
+  }
+}

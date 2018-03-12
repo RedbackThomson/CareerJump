@@ -1,8 +1,7 @@
-extends ../layouts/main
+extends ../layouts/user-dashboard
 
-block content
-  .container.text-center
-    h1 Dashboard
-    h2 Hello #{user.email}
-    h3
-      a(href="/logout") Logout
+block primary
+  h1 Dashboard
+  h2 Hello #{user.profile.firstName}
+  h3
+    a(href="/logout") Logout

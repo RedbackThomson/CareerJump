@@ -1,0 +1,14 @@
+extends main
+
+include ../mixins/sidebar
+include ../mixins/header
+
+block content
+  +header
+  .container-fluid
+    .row.d-flex
+      .col-lg-3
+        +sidebar
+          block sidebar
+      .content.col-lg-6
+        block primary

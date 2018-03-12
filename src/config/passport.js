@@ -37,6 +37,7 @@ module.exports = (models) => {
             req.authError = LOGIN_ERRORS.NO_USER_FOUND;
             return done(null, false, {error: LOGIN_ERRORS.NO_USER_FOUND});
           }
+
           return done(null, _user);
         })
         .catch(done);
@@ -46,8 +47,16 @@ module.exports = (models) => {
   passport.serializeUser((user, done) => done(null, user.id));
 
   passport.deserializeUser((id, done) => {
-    models.StudentUser.findById(id)
-      .then(user => done(null, user))
+    models.StudentUser.findOne({
+      where: {id},
+      include: [{
+        model: models.StudentProfile,
+        as: 'profile'
+      }]
+    })
+      .then(user => {
+        return done(null, user);
+      })
       .catch(err => done(err, null));
   });
 };
