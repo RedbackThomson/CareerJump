@@ -14,6 +14,10 @@ module.exports = (models) => {
   router.get('/logout', (req, res) => res.redirect('/auth/logout'));
   router.get('/dashboard', isAuthenticated,
     (req, res) => res.render('pages/dashboard'));
+  router.get('/support', isAuthenticated,
+    (req, res) => res.render('pages/support'));
+  router.get('/profile', isAuthenticated,
+    (req, res) => res.render('pages/profile'));
 
   router.get('/', (req, res) => res.render('index'));
   return router;

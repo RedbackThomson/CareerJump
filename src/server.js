@@ -58,6 +58,7 @@ function startInstance() {
         res.locals.user = req.user;
         next();
       });
+      app.locals.env = app.settings.env;
       app.use(require('./routing')(models));
 
       http.createServer(app).listen(app.get(port), function(){

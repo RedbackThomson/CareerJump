@@ -1,6 +1,8 @@
 mixin sidebar
   .sidebar.collapse.show.width#sidebar
-    a.h4(href="#")= user.profile.firstName + " " + user.profile.lastName
-    if block
-      block  
+    ul.sidebar__list
+      a.h5.sidebar__link(href="/profile")
+        li.sidebar__item.sidebar__item--header Welcome, #{user.profile.firstName}
+      if block
+        block
     

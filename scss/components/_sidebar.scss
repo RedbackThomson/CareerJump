@@ -1,11 +1,41 @@
 .sidebar {
-  border-radius: $card-border-radius;
   margin: 0 2rem 2rem 5rem;
-  padding: 0 2rem;
+  padding: 1rem 0 0;
   
   @include media-breakpoint-up(lg) {
-    padding: 2rem;
     min-height: 30rem;
-    box-shadow: $card-shadow;
+    box-shadow: $sidebar-shadow;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+  }
+
+  &__link {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &__icon {
+    color: lighten($dark-font, 15%);
+  }
+
+  &__item {
+    $item-tb-padding: 0.8rem;
+    list-style: none;
+    padding: $item-tb-padding 2rem;
+    color: $black;
+
+    &--header {
+      margin-bottom: 1rem;
+    }
+
+    &:hover {
+      border-left: 2px $primary-light solid;
+      padding: $item-tb-padding 2rem $item-tb-padding calc(2rem - 2px);
+      background-color: lighten($primary-light, 37%);
+    }
   }
 }
