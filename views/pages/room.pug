@@ -1,31 +1,6 @@
-extends ../layouts/main
+extends ../layouts/user-dashboard
 
-block content
-  section.header#header
-    .container
-      nav.nav.nav--dark.flex-row.align-items-md-center.align-items-start
-        .flex-row
-          img.nav__logo(src="/assets/logo.svg")
-          | CareerJump
-        ul.nav__links.flex-row.ml-md-auto.d-none.d-md-flex.align-items-center
-          li.nav__link-item
-            a.nav__link.nav__link--dark(href="#about") Dashboard
-          li.nav__link-item
-            a.nav__link.nav__link--dark(href="#faq") Events
-          li.nav__link-item
-            a.nav__link.nav__link--dark(href="#contact") Logout
-        .flex-column.ml-auto.d-flex.d-md-none
-          button.navbar-toggler.hamburger__toggler(type="button" data-toggle="collapse" data-target="#hamburgerMenu")
-            span.navbar-toggler-icon.hamburger__toggle-icon.hamburger__toggle-icon--dark
-    #hamburgerMenu.hamburger.collapse.flex-column
-      ul.hamburger__links
-        li.hamburger__link-item
-          a.hamburger__link(href="#about") Dashboard
-        li.hamburger__link-item
-          a.hamburger__link(href="#faq") Events
-        li.hamburger__link-item
-          a.hamburger__link(href="#contact") Logout
-
+block primary
   section.room#room
     .container
       .row

@@ -1,17 +1,11 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var Referral = sequelize.define('Referral', {
-    referrer: {
-      allowNull: false,
-      type: DataTypes.INTEGER
-    },
-    referral: {
-      allowNull: false,
-      type: DataTypes.INTEGER
-    }
-  }, {});
-  Referral.associate = function() {
 
+  }, {});
+  Referral.associate = function(models) {
+    Referral.belongsTo(models.StudentUser, {as: 'referrer'});
+    Referral.belongsTo(models.StudentUser, {as: 'referral'});
   };
   return Referral;
 };

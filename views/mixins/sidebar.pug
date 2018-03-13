@@ -1,0 +1,8 @@
+mixin sidebar
+  .sidebar.collapse.show.width#sidebar
+    ul.sidebar__list
+      a.h5.sidebar__link(href="/profile")
+        li.sidebar__item.sidebar__item--header Welcome, #{user.profile.firstName}
+      if block
+        block
+    

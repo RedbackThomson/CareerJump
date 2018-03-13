@@ -1,0 +1,33 @@
+$border-radius: 0.3rem;
+
+$white: #fff;
+$black: #000;
+
+$primary-dark: #FC466B;
+$primary-light: #3F5EFB;
+
+$step-1-color: #C6E0A6;
+$step-2-color: #EF9A9B;
+$step-3-color: #89D3E2;
+
+$careerjump-gradient: linear-gradient(to right top, $primary-dark, $primary-light);
+$careerjump-light-gradient: linear-gradient(to right top, lighten($primary-dark, 8%), lighten($primary-light, 8%));
+
+$link-active: $white;
+$link-inactive: transparentize($link-active, 0.2);
+
+$dark-font: #5A5A5A;
+
+$header-color: #5A5A5A;
+
+$hero-font-color: $white;
+
+$contact-underline: #FEEFAE;
+
+$faq-border-color: #E1E1E1;
+$faq-question-color: #78777C;
+
+$card-border-radius: 1rem;
+$card-shadow: 0px 0px 18px 10px rgba(0,0,0,0.05);
+
+$sidebar-shadow: 0 0 15px rgba(0,0,0,.10);

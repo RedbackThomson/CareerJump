@@ -28,7 +28,7 @@ gulp.task('nodemon', ['sass'], function(cb) {
   return nodemon({
     exec: 'node --inspect=9229',
     script: 'src/server.js',
-    ext: 'js html',
+    ext: 'js',
     env: {
       'NODE_ENV': 'development',
       'PORT': 3000
@@ -36,9 +36,6 @@ gulp.task('nodemon', ['sass'], function(cb) {
   })
     .once('start', function() {
       cb();
-    })
-    .on('restart', function() {
-      gulp.start('sass');
     });
 });
 

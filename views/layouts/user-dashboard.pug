@@ -1,0 +1,36 @@
+extends main
+
+include ../mixins/sidebar
+include ../mixins/header
+
+block content
+  +header
+  .container-fluid
+    .row.d-flex
+      .col-lg-3.sidebar__column
+        +sidebar
+          a.sidebar__link(href="/dashboard")
+            li.sidebar__item
+              i.fas.fa-columns.mr-3.sidebar__icon
+              | Dashboard
+          a.sidebar__link(href="/profile")
+            li.sidebar__item
+              i.fas.fa-user.mr-3.sidebar__icon
+              | Profile
+          a.sidebar__link(href="/support")
+            li.sidebar__item
+              i.fas.fa-life-ring.mr-3.sidebar__icon
+              | Support
+          if env == 'development'
+            a.sidebar__link(href="/rooms/test")
+              li.sidebar__item
+                i.fa-layers.fa-fw.mr-3.sidebar__icon
+                  .far.fa-comment-alt
+                | Test Room
+          a.sidebar__link(href="/logout")
+            li.sidebar__item
+              i.fas.fa-power-off.mr-3.sidebar__icon
+              | Log Out
+          block sidebar
+      .content.col-lg-6
+        block primary

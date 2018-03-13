@@ -53,6 +53,12 @@ function startInstance() {
       app.set('view engine', 'pug');
       app.set('views', path.join(__dirname, '../views'));
 
+      // User injection
+      app.use((req, res, next) => {
+        res.locals.user = req.user;
+        next();
+      });
+      app.locals.env = app.settings.env;
       app.use(require('./routing')(models));
 
       http.createServer(app).listen(app.get(port), function(){

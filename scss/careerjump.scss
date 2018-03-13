@@ -1,26 +1,8 @@
 @import 'base';
-
-html, body{
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Karla', sans-serif;
-  font-weight: 600;
-}
-
-h1 {
-  font-size: 1.8rem;
-  color: $header-color;
-}
-
-a {
-  &:hover {
-    text-decoration: underline;
-  }
-}
+@import 'variables';
+@import 'typography';
 
 @import 'mixins/all';
 @import 'components/all';
+
+@import 'pages/all';

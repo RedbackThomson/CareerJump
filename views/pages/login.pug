@@ -1,14 +1,23 @@
 extends ../layouts/main
 
 block content
-  .container.text-center
-    form.form-signin(method="post" action="/auth/login")
-      img.mb-4(src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" width="72" height="72")
-      h1.h3.mb-3.font-weight-normal Please Sign In
-      label.sr-only(for="inputEmail") Email Address
-      input#inputEmail.form-control(type="email" placeholder="Email address" name="email" required autofocus)
-      label.sr-only(for="inputPassword") Password
-      input#inputPassword.form-control(type="password" placeholder="Password" name="password" required)
-      button.btn.btn-lg.btn-primary.btn-block(type="Submit") Sign In
-      p.mt-5.mb-3.text-muted &copy; 2017-2018
+  .login-page.h-100.text-center
+    .login-page__before.d-flex.flex-column.justify-content-end.container
+      if error
+        .login-page__error.alert.alert-danger.alert-dismissible.fade.show
+          span #{error}
+          button.close(type="button" data-dismiss="alert" aria-label="Close")
+            span(aria-hidden="true") &times;
 
+    .login-page__content.container
+      form.login(method="post" action="/auth/login")
+        img.login__logo.mb-4(src="/assets/logo.svg")
+        h1 CareerJump
+        h2.h3.mb-3 Student Login
+        label.sr-only(for="inputEmail") Email Address
+        input#inputEmail.form-control(type="email" placeholder="Email address" name="email" required autofocus)
+        label.sr-only(for="inputPassword") Password
+        input#inputPassword.form-control(type="password" placeholder="Password" name="password" required)
+        button.mt-4.btn.btn-lg.btn-primary.btn-block(type="Submit") Sign In
+        p.mt-5.text-muted &copy; 2017-2018
+    .login-page__after

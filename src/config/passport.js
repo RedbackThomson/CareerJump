@@ -2,7 +2,8 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
 const localUserOptions = {
-  usernameField: 'email'
+  usernameField: 'email',
+  passReqToCallback: true
 };
 
 const LOGIN_ERRORS = {
@@ -12,18 +13,20 @@ const LOGIN_ERRORS = {
 
 module.exports = (models) => {
   passport.use('StudentUser',
-    new LocalStrategy(localUserOptions, (email, password, done) => {
+    new LocalStrategy(localUserOptions, (req, email, password, done) => {
       let _user;
       models.StudentUser.findOne({
         where: {email: {ilike: email}}
       })
         .then(user => {
           if (!user) {
-            return done(LOGIN_ERRORS.NO_USER_FOUND, null);
+            req.authError = LOGIN_ERRORS.NO_USER_FOUND;
+            return done(null, false);
           }
 
           if (user.deleted) {
-            return done(LOGIN_ERRORS.ACCOUNT_DELETED, null);
+            req.authError = LOGIN_ERRORS.ACCOUNT_DELETED;
+            return done(null, false);
           }
 
           _user = user;
@@ -31,8 +34,10 @@ module.exports = (models) => {
         })
         .then(valid => {
           if (!valid) {
-            return done(null, false);
+            req.authError = LOGIN_ERRORS.NO_USER_FOUND;
+            return done(null, false, {error: LOGIN_ERRORS.NO_USER_FOUND});
           }
+
           return done(null, _user);
         })
         .catch(done);
@@ -42,8 +47,16 @@ module.exports = (models) => {
   passport.serializeUser((user, done) => done(null, user.id));
 
   passport.deserializeUser((id, done) => {
-    models.StudentUser.findById(id)
-      .then(user => done(null, user))
+    models.StudentUser.findOne({
+      where: {id},
+      include: [{
+        model: models.StudentProfile,
+        as: 'profile'
+      }]
+    })
+      .then(user => {
+        return done(null, user);
+      })
       .catch(err => done(err, null));
   });
 };

@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Karla:400,600|Poppins:300,400');
+
+html, body{
+  font-family: 'Poppins', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Karla', sans-serif;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 1.8rem;
+  color: $header-color;
+}
+
+a {
+  &:hover {
+    text-decoration: underline;
+  }
+}

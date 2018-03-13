@@ -1,0 +1,53 @@
+.sidebar {
+  margin: 0 2rem 2rem 0rem;
+  padding: 1rem 0 0;
+  
+  @include media-breakpoint-up(lg) {
+    min-height: 30rem;
+    box-shadow: $sidebar-shadow;
+  }
+
+  @include media-breakpoint-only(lg) {
+    margin: 0 2rem 2rem 2rem;
+  }
+
+  @include media-breakpoint-up(xl) {
+    margin: 0 2rem 2rem 5rem;
+  }
+
+  &__column {
+    min-width: 20rem;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+  }
+
+  &__link {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &__icon {
+    color: lighten($dark-font, 15%);
+  }
+
+  &__item {
+    $item-tb-padding: 0.8rem;
+    list-style: none;
+    padding: $item-tb-padding 2rem;
+    color: $black;
+
+    &--header {
+      margin-bottom: 1rem;
+    }
+
+    &:hover {
+      border-left: 2px $primary-light solid;
+      padding: $item-tb-padding 2rem $item-tb-padding calc(2rem - 2px);
+      background-color: lighten($primary-light, 37%);
+    }
+  }
+}

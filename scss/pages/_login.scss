@@ -1,0 +1,12 @@
+.login-page {
+  display: flex;
+  flex-direction: column;
+
+  &__before, &__after {
+    flex: 1;
+  }
+
+  &__content {
+    flex: 1;
+  }
+}
