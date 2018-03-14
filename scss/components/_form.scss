@@ -2,6 +2,7 @@
   input:-webkit-autofill {
     background: $primary-light-hover !important;
     -webkit-box-shadow:0 0 0 50px $white inset;
+    -webkit-text-fill-color: $primary-light;
 
     &:focus {
       -webkit-box-shadow:0 0 0 50px $primary-light-hover inset;
