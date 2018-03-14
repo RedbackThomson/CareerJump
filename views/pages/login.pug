@@ -12,14 +12,16 @@ block content
     .login-page__content.container
       if messages.error
         .alert.alert-danger= messages.error
-      form.login(method="post" action="/auth/login")
+      form.login.form(method="post" action="/auth/login")
         img.login__logo.mb-4(src="/assets/logo.svg")
         h1 CareerJump
         h2.h3.mb-3 Student Login
-        label.sr-only(for="inputEmail") Email Address
-        input#inputEmail.form-control(type="email" placeholder="Email address" name="email" required autofocus)
-        label.sr-only(for="inputPassword") Password
-        input#inputPassword.form-control(type="password" placeholder="Password" name="password" required)
+        div.form__field.text-left
+          label.form__label(for="inputEmail") Email Address
+          input#inputEmail.form__text(type="email" placeholder="Email address" name="email" required autofocus)
+        div.form__field.text-left
+          label.form__label(for="inputPassword") Password
+          input#inputPassword.form__text(type="password" placeholder="Password" name="password" required)
         button.mt-4.btn.btn-lg.btn-primary.btn-block(type="Submit") Sign In
         p.mt-5.text-muted &copy; 2017-2018
     .login-page__after

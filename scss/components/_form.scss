@@ -1,0 +1,72 @@
+.form {
+  input:-webkit-autofill {
+    background: $primary-light-hover !important;
+    -webkit-box-shadow:0 0 0 50px $white inset;
+    -webkit-text-fill-color: $primary-light;
+
+    &:focus {
+      -webkit-box-shadow:0 0 0 50px $primary-light-hover inset;
+    }
+  }
+
+  &__field {
+    position: relative;
+    border: 1px solid $faq-border-color;
+    padding: 1rem;
+    margin-right: -1px;
+    margin-bottom: -1px;
+
+    &:focus-within {
+      border: 1px solid $primary-light;
+      background-color: $primary-light-hover;
+      z-index: 100;
+      box-shadow: $sidebar-shadow;
+    }
+  }
+
+  &__label {
+    display: block;
+    color: $header-color;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    font-family: $header-font-family;
+  }
+
+  &__checkbox {
+    margin-right: 0.5rem;
+    border-radius: 3px;
+    border: 2px solid $primary-dark;
+    background: none;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-bottom: -2px;
+    -webkit-appearance: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:checked {
+      background: $primary-dark;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__text {
+    border: none;
+    width: 100%;
+
+    &:focus {
+      outline: none;
+      background-color: $primary-light-hover;
+    }
+  }
+
+  &__hidden {
+    display: none;
+  }
+}

@@ -9,3 +9,5 @@ node_modules/
 public/css/
 
 src/assets/public/css/
+
+public/js/vendor\.js

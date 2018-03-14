@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Karla:400,600|Poppins:300,400');
 
 html, body{
-  font-family: 'Poppins', sans-serif;
+  font-family: $body-font-family;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Karla', sans-serif;
+  font-family: $header-font-family;
   font-weight: 600;
 }
 

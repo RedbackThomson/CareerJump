@@ -5,11 +5,20 @@ let autoprefixer = require('gulp-autoprefixer');
 let rename = require('gulp-rename');
 let cssnano = require('gulp-cssnano');
 let sourcemaps = require('gulp-sourcemaps');
+let concat = require('gulp-concat');
 let gulpif = require('gulp-if');
 let eslint = gutil.env.production ? undefined : require('gulp-eslint');
 let browserSync = gutil.env.production ?
   undefined : require('browser-sync').create();
 let nodemon = gutil.env.production ? undefined : require('gulp-nodemon');
+
+let vendorJS = [
+  'node_modules/tags-input/tags-input.js'
+];
+
+let vendorCSS = [
+
+];
 
 // Static Server + watching scss/html files
 gulp.task('browser-sync', ['nodemon'], function() {
@@ -24,7 +33,7 @@ gulp.task('browser-sync', ['nodemon'], function() {
   gulp.watch('views/**/*.pug').on('change', browserSync.reload);
 });
 
-gulp.task('nodemon', ['sass'], function(cb) {
+gulp.task('nodemon', ['sass', 'vendor-css', 'vendor-js'], function(cb) {
   return nodemon({
     exec: 'node --inspect=9229',
     script: 'src/server.js',
@@ -58,6 +67,21 @@ gulp.task('sass', function() {
   return tasks;
 });
 
+gulp.task('vendor-js', function() {
+  gulp.src(vendorJS)
+    .pipe(concat('vendor.js'))
+    .pipe(gulp.dest('public/js'));
+});
+
+gulp.task('vendor-css', function() {
+  gulp.src(vendorCSS)
+    .pipe(concat('vendor.css'))
+    .pipe(cssnano())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(gulp.dest('public/css'));
+
+});
+
 gulp.task('eslint', function() {
   return gulp.src('src/**/*.js')
     .pipe(eslint())
@@ -66,6 +90,6 @@ gulp.task('eslint', function() {
 
 gulp.task('default', ['browser-sync']);
 
-gulp.task('prod', ['sass']);
+gulp.task('prod', ['sass', 'vendor-js', 'vendor-css']);
 
 gulp.task('test', ['eslint']);

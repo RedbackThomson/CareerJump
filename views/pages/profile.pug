@@ -1,4 +1,61 @@
 extends ../layouts/user-dashboard
 
+block title
+  | Profile
+
 block primary
-  h1 Profile
+  form.profile.form
+    .row
+      .col
+        h2.h3.form__subheading Your Personal Details
+    .row
+      .col-sm-6.col-md-4.form__field
+        label.form__label First Name
+        input.form__text(type="text" name="firstName" placeholder="First")
+      .col-sm-6.col-md-4.form__field
+        label.form__label Last Name
+        input.form__text(type="text" name="lastName" placeholder="Last")
+      .col-md-4.form__field
+        label.form__label Major
+        input.form__text(type="text" name="major" placeholder="Computer Science")
+    .row
+      .col-md-7.form__field
+        label.form__label University
+        input.form__text(type="text" name="university" placeholder="The University of California, San Diego")
+      .col-sm-6.col-md-3.form__field
+        label.form__label Graduation Date
+        input.form__text(type="date" name="gradDate" value="2018-01-31")
+      .col-sm-6.col-md-2.form__field
+        label.form__label GPA
+        input.form__text(type="number" name="gpa" placeholder="3.0" min="0" max="4" step="0.5")
+    .row
+      .col
+        h2.h3.form__subheading.mt-4 Your Job Details
+    .row
+      .col-sm-6.col-md-4.form__field
+        label.form__label Sponsorship
+        input.form__checkbox(type="checkbox" name="sponsorship" value="true")
+        | I Require Sponsorship
+      .col-sm-6.col-md-4.form__field
+        label.form__label Looking For
+        select.form__text(type="text" name="position")
+          option(value="fulltime") Full Time
+          option(value="internship") Internship
+      .col-md-4.form__field
+        label.form__label Company Preference
+        select.form__text(type="text" name="preference")
+          option(value="startup") Startup
+          option(value="large") Large
+          option(value="") None
+    .row
+      .col-md-7.form__field
+        label.form__label Skills
+        input.form__text.form__tags(type="text" name="skills" value="Front-End Development, Web Design")
+      .col-md-5.form__field
+        label.form__label LinkedIn Profile
+        input.form__text(type="url" name="linkedIn" placeholder="https://linkedin.com/in/example")
+      .col-md-12.form__field
+        label.form__label Resume
+
+append scripts
+  script(src="js/fields.js")
