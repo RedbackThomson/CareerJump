@@ -30,6 +30,7 @@
     "express-flash": "0.0.2",
     "express-session": "^1.15.6",
     "gulp-autoprefixer": "^5.0.0",
+    "gulp-concat": "^2.6.1",
     "gulp-cssnano": "^2.1.2",
     "gulp-if": "^2.0.2",
     "gulp-rename": "^1.2.2",
@@ -41,6 +42,7 @@
     "pug": "^2.0.0-rc.4",
     "sequelize": "^4.35.2",
     "sequelize-cli": "^4.0.0",
+    "tags-input": "^1.1.1",
     "throng": "^4.0.0",
     "twilio": "^3.11.3",
     "winston": "^3.0.0-rc1"

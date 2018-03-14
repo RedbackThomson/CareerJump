@@ -6,6 +6,8 @@ $black: #000;
 $primary-dark: #FC466B;
 $primary-light: #3F5EFB;
 
+$primary-light-hover: lighten($primary-light, 37%);
+
 $step-1-color: #C6E0A6;
 $step-2-color: #EF9A9B;
 $step-3-color: #89D3E2;
@@ -30,4 +32,7 @@ $faq-question-color: #78777C;
 $card-border-radius: 1rem;
 $card-shadow: 0px 0px 18px 10px rgba(0,0,0,0.05);
 
-$sidebar-shadow: 0 0 15px rgba(0,0,0,.10);
+$sidebar-shadow: 0 0 5px rgba(0,0,0,.10);
+
+$header-font-family: 'Karla', sans-serif;
+$body-font-family: 'Poppins', sans-serif;
