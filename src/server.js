@@ -6,6 +6,7 @@ const http = require('http');
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const flash = require('express-flash');
 const throng = require('throng');
 const compression = require('compression');
 const passport = require('passport');
@@ -44,6 +45,7 @@ function startInstance() {
         resave: false,
         saveUninitialized: false
       }));
+      app.use(flash());
 
       app.use(passport.initialize());
       app.use(passport.session());

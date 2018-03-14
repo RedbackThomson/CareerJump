@@ -10,6 +10,8 @@ block content
             span(aria-hidden="true") &times;
 
     .login-page__content.container
+      if messages.error
+        .alert.alert-danger= messages.error
       form.login(method="post" action="/auth/login")
         img.login__logo.mb-4(src="/assets/logo.svg")
         h1 CareerJump

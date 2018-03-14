@@ -17,7 +17,8 @@ module.exports = () => {
           return next(err);
         }
         if (info && info.error) {
-          return res.redirect(pages.LOGIN, {error: info.error});
+          req.flash('error', info.error);
+          return res.redirect(pages.LOGIN);
         }
 
         return req.logIn(user, function(err) {
