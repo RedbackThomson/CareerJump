@@ -1,0 +1,21 @@
+.header {
+  background: $careerjump-gradient;
+  color: $white;
+  position: relative;
+  margin-bottom: 1rem;
+
+  &:after {
+    display: block;
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: -0.1em;
+    left: 0;
+    background-image: url(../assets/header-clip.svg);
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    pointer-events: none;
+  }
+}

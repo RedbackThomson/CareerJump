@@ -1,10 +1,10 @@
 mixin header
   section.header#header
-    .container
+    .container-fluid
       nav.nav.nav--dark.flex-row.align-items-md-center.align-items-start
-        .flex-row
-          img.nav__logo(src="/assets/logo.svg")
+        .mx-auto
+          img.nav__logo(src="/assets/logo-white.svg")
           | CareerJump
-        .flex-column.ml-auto.d-flex.d-lg-none
+        .float-right.d-lg-none
           button.navbar-toggler.hamburger__toggler(type="button" data-toggle="collapse" data-target="#sidebar")
-            span.navbar-toggler-icon.hamburger__toggle-icon.hamburger__toggle-icon--dark
+            span.navbar-toggler-icon.hamburger__toggle-icon

@@ -4,8 +4,13 @@ $remote-video-size: 35rem;
 .video-feeds {
   &__local {
     height: $local-video-size;
+    background: $video-background;
+    box-shadow: $sidebar-shadow;
     display: flex;
+    flex-direction: column;
+    text-align: center;
     justify-content: center;
+    margin-bottom: 1.5rem;
 
     video {
       max-height: $local-video-size;
@@ -15,9 +20,11 @@ $remote-video-size: 35rem;
 
   &__remote {
     height: $remote-video-size;
-    background: linear-gradient(to right top, lighten($primary-dark, 25%),
-      lighten($primary-light, 25%));
+    background: $video-background;
+    box-shadow: $sidebar-shadow;
     display: flex;
+    flex-direction: column;
+    text-align: center;
     justify-content: center;
 
     video {

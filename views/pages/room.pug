@@ -17,9 +17,17 @@ block primary
           h2= `${interview.companyUser.firstName} ${interview.companyUser.lastName} `
             span.room__company-name= `(${interview.companyUser.company.name})`
           .video-feeds__remote#remote-media-div
+            span.video-feeds__connecting
+              div.fa-2x.mb-4
+                i.fas.fa-spinner.fa-pulse.mr-1
+              | Waiting for #{interview.companyUser.firstName} to Connect...
         .col-md-4
           h2 You
           .video-feeds__local#local-media-ctr
+            span.video-feeds__camera
+              div.fa-2x.mb-4
+                i.fas.fa-exclamation-triangle
+              | Your Camera is not Connected
           .row.form
             .col-12
               h3.h4 Student Profile

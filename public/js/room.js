@@ -1,5 +1,6 @@
 function addParticipantTracks(participant) {
   participant.on('trackAdded', track => {
+    $('.video-feeds__connecting').hide();
     document.getElementById('remote-media-div').appendChild(track.attach());
   });
 }
@@ -21,6 +22,7 @@ function setupRoom(room) {
   room.once('participantDisconnected', participant => {
     console.log('Participant "%s" has disconnected from the room',
       participant.identity);
+    $('.video-feeds__connecting').show();
     participant.tracks.forEach(track => {
       track.detach().forEach(element => element.remove());
     });
@@ -47,5 +49,6 @@ $.getJSON('/api/rooms/joinRoom/' + roomName, function(data) {
 
 Twilio.Video.createLocalVideoTrack().then(track => {
   var localMediaContainer = document.getElementById('local-media-ctr');
+  $('.video-feeds__camera').hide();
   localMediaContainer.appendChild(track.attach());
 });
