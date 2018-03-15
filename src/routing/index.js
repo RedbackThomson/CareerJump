@@ -21,7 +21,12 @@ module.exports = (models) => {
   router.get('/support', isAuthenticated,
     (req, res) => res.render('pages/support'));
   router.get('/profile', isAuthenticated,
-    (req, res) => res.render('pages/profile'));
+    (req, res, next) =>
+      models.Skillset.findAll()
+        .then(skillsets => res.render('pages/profile',
+          {user: req.user, skillsets}))
+        .catch(next)
+  );
 
   router.get('/', (req, res) => res.render('index'));
   return router;

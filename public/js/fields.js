@@ -1,6 +1,9 @@
 $(function() {
-  $('.form__tags').each(function() {
-    tagsInput(this);
+  $('.form__tags').tagsInput({
+    'autocomplete_url': '/api/profile/tags',
+    'defaultText': '',
+    height: '',
+    width: ''
   });
-  $('.tags-input input[type="text"]').addClass('form__text');
+  $('.tagsinput input').addClass('form__text');
 });

@@ -13,7 +13,7 @@ let browserSync = gutil.env.production ?
 let nodemon = gutil.env.production ? undefined : require('gulp-nodemon');
 
 let vendorJS = [
-  'node_modules/tags-input/tags-input.js'
+  'node_modules/jquery-tags-input/dist/jquery.tagsinput.min.js'
 ];
 
 let vendorCSS = [

@@ -1,10 +1,21 @@
-.tags-input {
+.tagsinput {
+  line-height: 1.6rem;
+
   .tag {
     display: inline-block;
     background-color: $primary-dark;
     color: $white;
-    padding: 0.25rem;
-    margin-right: 0.25rem;
-    margin-bottom: 0.25rem;
+    padding: 0.15rem;
+    margin-right: 0.2rem;
+    margin-bottom: .2rem;
+
+    a {
+      color: $white;
+
+      &:hover {
+        color: $black;
+        text-decoration: none;
+      }
+    }
   }
 }
