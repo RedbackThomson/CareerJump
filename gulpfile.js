@@ -13,7 +13,7 @@ let browserSync = gutil.env.production ?
 let nodemon = gutil.env.production ? undefined : require('gulp-nodemon');
 
 let vendorJS = [
-  'node_modules/tags-input/tags-input.js'
+  'node_modules/jquery-tags-input/dist/jquery.tagsinput.min.js'
 ];
 
 let vendorCSS = [
@@ -23,7 +23,7 @@ let vendorCSS = [
 // Static Server + watching scss/html files
 gulp.task('browser-sync', ['nodemon'], function() {
   browserSync.init(null, {
-    port: 8000,
+    port: 80,
     proxy: {
       target: 'localhost:3000'
     }

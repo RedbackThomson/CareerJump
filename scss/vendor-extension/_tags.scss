@@ -1,10 +1,41 @@
-.tags-input {
+.tagsinput {
+  line-height: 1.6rem;
+
   .tag {
     display: inline-block;
     background-color: $primary-dark;
     color: $white;
-    padding: 0.25rem;
-    margin-right: 0.25rem;
-    margin-bottom: 0.25rem;
+    padding: 0.15rem;
+    margin-right: 0.2rem;
+    margin-bottom: 0.2rem;
+
+    a {
+      color: $white;
+
+      &:hover {
+        color: $black;
+        text-decoration: none;
+      }
+    }
   }
+}
+
+.ui-menu {
+  list-style: none;
+  padding-left: 0;
+  position: relative;
+  z-index: 99999;
+
+  .ui-menu-item {
+    display: table;
+    background: $primary-dark;
+    padding: 0.15rem;
+    color: $white;
+    margin-bottom: 0.2rem;
+    cursor: pointer;
+  }
+}
+
+.ui-helper-hidden-accessible {
+  display: none;
 }

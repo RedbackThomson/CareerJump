@@ -11,6 +11,7 @@ const throng = require('throng');
 const compression = require('compression');
 const passport = require('passport');
 const session = require('express-session');
+const moment = require('moment');
 const RedisStore = require('connect-redis')(session);
 
 const models = require('./models');
@@ -60,6 +61,7 @@ function startInstance() {
         res.locals.user = req.user;
         next();
       });
+      app.locals.moment = moment;
       app.locals.env = app.settings.env;
       app.use(require('./routing')(models));
 

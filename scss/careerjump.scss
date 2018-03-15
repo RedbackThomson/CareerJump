@@ -1,12 +1,13 @@
-@import 'vendor-override/all';
-
 @import 'base';
 @import 'variables';
+
+@import 'vendor-override/all';
 @import 'typography';
 
 @import 'mixins/all';
 @import 'components/all';
 
+@import 'layouts/all';
 @import 'pages/all';
 
 @import 'vendor-extension/all';

@@ -11,51 +11,55 @@ block primary
     .row
       .col-sm-6.col-md-4.form__field
         label.form__label First Name
-        input.form__text(type="text" name="firstName" placeholder="First")
+        input.form__text(type="text" name="firstName" placeholder="First" value=user.profile.firstName)
       .col-sm-6.col-md-4.form__field
         label.form__label Last Name
-        input.form__text(type="text" name="lastName" placeholder="Last")
+        input.form__text(type="text" name="lastName" placeholder="Last" value=user.profile.lastName)
       .col-md-4.form__field
         label.form__label Major
-        input.form__text(type="text" name="major" placeholder="Computer Science")
+        input.form__text(type="text" name="major" placeholder="Computer Science" value=user.profile.major)
     .row
       .col-md-7.form__field
         label.form__label University
-        input.form__text(type="text" name="university" placeholder="The University of California, San Diego")
+        input.form__text(type="text" name="university" placeholder="The University of California, San Diego" value=user.profile.university)
       .col-sm-6.col-md-3.form__field
         label.form__label Graduation Date
-        input.form__text(type="date" name="gradDate" value="2018-01-31")
+        input.form__text(type="date" name="gradDate" value=moment(user.profile.gradDate).format('YYYY-MM-DD'))
       .col-sm-6.col-md-2.form__field
         label.form__label GPA
-        input.form__text(type="number" name="gpa" placeholder="3.0" min="0" max="4" step="0.5")
+        input.form__text(type="number" name="gpa" placeholder="3.0" min="0" max="4" step="0.5" value=user.profile.gpa)
     .row
       .col
         h2.h3.form__subheading.mt-4 Your Job Details
     .row
       .col-sm-6.col-md-4.form__field
         label.form__label Sponsorship
-        input.form__checkbox(type="checkbox" name="sponsorship" value="true")
+        input.form__checkbox(type="checkbox" name="sponsorship" checked=user.profile.sponsorship)
         | I Require Sponsorship
       .col-sm-6.col-md-4.form__field
         label.form__label Looking For
         select.form__text(type="text" name="position")
-          option(value="fulltime") Full Time
-          option(value="internship") Internship
+
+          option(value="fulltime" selected=user.profile.position=="fulltime") Full Time
+          option(value="internship" selected=user.profile.position=="internship") Internship
       .col-md-4.form__field
         label.form__label Company Preference
         select.form__text(type="text" name="preference")
-          option(value="startup") Startup
-          option(value="large") Large
-          option(value="") None
+          option(value="startup" selected=user.profile.preference=="startup") Startup
+          option(value="large" selected=user.profile.preference=="large") Large
+          option(value="" selected=(!user.profile.preference || user.profile.preference=="")) None
     .row
       .col-md-7.form__field
         label.form__label Skills
-        input.form__text.form__tags(type="text" name="skills" value="Front-End Development, Web Design")
+        input.form__text.form__tags(type="text" name="skills"  value=skillsets.filter(skill => user.profile.skills.indexOf(skill.id) !== -1).map(skill => skill.name).join(","))
       .col-md-5.form__field
         label.form__label LinkedIn Profile
-        input.form__text(type="url" name="linkedIn" placeholder="https://linkedin.com/in/example")
+        input.form__text(type="url" name="linkedIn" placeholder="https://linkedin.com/in/example" value=user.profile.linkedIn)
       .col-md-12.form__field
         label.form__label Resume
 
 append scripts
+  script(type="text/javascript")
+    include ../scripts/profile-tags.pug
+  script(src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous")
   script(src="js/fields.js")

@@ -1,32 +1,49 @@
 extends ../layouts/user-dashboard
 
+include ../mixins/user-sidebar
+include ../mixins/header
+
+block title
+  | Your Interview
+
+append vars
+  - var collapseSidebar = true
+
 block primary
-  section.room#room
-    .container
+  section.room#room.mb-3.mb-md-0
+    .video-feeds
       .row
-        .col
-          h1 Room 
-            span#room-name
-      .video-feeds
-        .row
-          .col-md-8
-            h2 Their Feed (Replace with Name)
-            .video-feeds__remote#remote-media-div
-          .col-md-4
-            h2 You
-            .video-feeds__local#local-media-ctr
-            .row
-              .col
-                h3 Your Guest
-                .font-weight-bold Name
-                p RedbackThomson
-                .font-weight-bold University
-                p University of Disappearance
-                .font-weight-bold Major
-                p Mathematics-Computer Science
+        .col-md-8
+          h2= `${interview.companyUser.firstName} ${interview.companyUser.lastName} `
+            span.room__company-name= `(${interview.companyUser.company.name})`
+          .video-feeds__remote#remote-media-div
+        .col-md-4
+          h2 You
+          .video-feeds__local#local-media-ctr
+          .row.form
+            .col-12
+              h3.h4 Student Profile
+            .col-12.form__field
+              label.form__label Name
+              span= interview.studentUser.profile.firstName + " " + interview.studentUser.profile.lastName
+            .col-12.form__field
+              label.form__label University
+              span= interview.studentUser.profile.university
+            .col-12.form__field
+              label.form__label Major
+              span= interview.studentUser.profile.major
+
+block right
+  .container.room__resume-container
+    .row
+      .col
+        h1 Your Resume
+    .row.room__resume-row
+      .col
+        iframe.room__resume(src=`http://docs.google.com/gview?url=${interview.studentUser.profile.resume}&embedded=true` frameborder="0")
 
 block scripts
   script(src="//media.twiliocdn.com/sdk/js/video/v1/twilio-video.min.js")
   script(type="text/javascript").
-    roomName="#{roomName}";
+    roomName="#{interview.dataValues.roomName}";
   script(type="text/javascript" src="/js/room.js")
