@@ -7,13 +7,14 @@ module.exports = (sequelize, DataTypes) => {
     },
     roomName: {
       allowNull: false,
+      unique: true,
       type: DataTypes.STRING
     }
   }, {});
   Interview.associate = function(models) {
     Interview.belongsTo(models.CompanyUser, {as: 'companyUser'});
     Interview.belongsTo(models.StudentUser, {as: 'studentUser'});
-    Interview.belongsTo(models.Fair, {as: 'fairId'});
+    Interview.belongsTo(models.Fair, {as: 'fair'});
   };
   return Interview;
 };

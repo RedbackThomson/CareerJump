@@ -1,0 +1,26 @@
+include ../mixins/sidebar
+
+mixin user-sidebar(collapse)
+  +sidebar(collapse)
+    a.sidebar__link(href="/dashboard")
+      li.sidebar__item
+        i.fas.fa-columns.mr-3.sidebar__icon
+        span.sidebar__text Dashboard
+    a.sidebar__link(href="/profile")
+      li.sidebar__item
+        i.fas.fa-user.mr-3.sidebar__icon
+        span.sidebar__text Profile
+    a.sidebar__link(href="/support")
+      li.sidebar__item
+        i.fas.fa-life-ring.mr-3.sidebar__icon
+        span.sidebar__text Support
+    if env == 'development'
+      a.sidebar__link(href="/rooms/test")
+        li.sidebar__item
+          i.far.fa-comment-alt.mr-3.sidebar__icon
+          span.sidebar__text Test Room
+    a.sidebar__link(href="/logout")
+      li.sidebar__item
+        i.fas.fa-power-off.mr-3.sidebar__icon
+        span.sidebar__text Log Out
+    block sidebar

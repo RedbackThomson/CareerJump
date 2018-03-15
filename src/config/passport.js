@@ -21,12 +21,12 @@ module.exports = (models) => {
         .then(user => {
           if (!user) {
             req.authError = LOGIN_ERRORS.NO_USER_FOUND;
-            return done(null, false);
+            return done(null);
           }
 
           if (user.deleted) {
             req.authError = LOGIN_ERRORS.ACCOUNT_DELETED;
-            return done(null, false);
+            return done(null);
           }
 
           _user = user;
@@ -35,7 +35,7 @@ module.exports = (models) => {
         .then(valid => {
           if (!valid) {
             req.authError = LOGIN_ERRORS.NO_USER_FOUND;
-            return done(null, false, {error: LOGIN_ERRORS.NO_USER_FOUND});
+            return done(null);
           }
 
           return done(null, _user);

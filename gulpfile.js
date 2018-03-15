@@ -23,7 +23,7 @@ let vendorCSS = [
 // Static Server + watching scss/html files
 gulp.task('browser-sync', ['nodemon'], function() {
   browserSync.init(null, {
-    port: 8000,
+    port: 80,
     proxy: {
       target: 'localhost:3000'
     }

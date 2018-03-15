@@ -1,0 +1,7 @@
+.user-dashboard {
+  flex-direction: column;
+  
+  @include media-breakpoint-up(lg) {
+    flex-direction: row;
+  }
+}

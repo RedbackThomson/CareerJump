@@ -1,4 +1,26 @@
 extends ../layouts/user-dashboard
 
+block title
+  | Dashboard
+
 block primary
-  h1 Dashboard
+  .interviews.form
+    .row
+      .col
+        h2.h3.form__subheading Upcoming Interviews
+    each interview in interviews
+      .row.mb-3.mb-md-0
+        .col-sm-6.col-md-2.form__field.interviews__logo-field
+          img.interviews__logo(src=interview.companyUser.company.logo)
+        .col-sm-6.col-md-4.form__field
+          label.form__label= interview.companyUser.company.name
+            span.interviews__companyUser-title (#{interview.companyUser.jobTitle})
+          label.interviews__companyUser-name= interview.companyUser.firstName + " " + interview.companyUser.lastName
+        .col-sm-8.col-md-4.form__field
+          label.form__label Interview Time
+          span.interviews__time= moment(interview.dataValues.scheduled).format('llll')
+        .col-sm-4.col-md-2.form__field
+          label.form__label Room
+          a.btn.btn-primary(href="/rooms/"+interview.dataValues.roomName)
+            i.fas.fa-angle-right.mr-3
+            | Go

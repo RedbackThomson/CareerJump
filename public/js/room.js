@@ -35,9 +35,7 @@ function setupRoom(room) {
   });
 }
 
-$('#room-name').text(`'${roomName}'`);
-
-$.getJSON('/api/rooms/createRoom/' + roomName, function(data) {
+$.getJSON('/api/rooms/joinRoom/' + roomName, function(data) {
   let token = data.token;
 
   Twilio.Video.connect(token, {

@@ -1,0 +1,18 @@
+.interviews {
+  &__logo {
+    max-height: 4rem;
+    width: auto;
+    max-width: 100%;
+    align-self: center;
+  }
+
+  &__logo-field {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__companyUser-title {
+    margin-left: 0.5rem;
+  }
+}
