@@ -1,2 +1,10 @@
 @import 'login';
 @import 'room';
+
+.content {
+  flex: 2;
+}
+
+.right-content {
+  flex: 1;
+}

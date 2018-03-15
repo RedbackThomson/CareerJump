@@ -2,24 +2,19 @@ include ../mixins/sidebar
 
 mixin user-sidebar(collapse)
   +sidebar(collapse)
-    a.sidebar__link(href="/dashboard")
+    a.sidebar__link(href="/dashboard" data-toggle=(collapse ? "tooltip" : "") data-placement="right" title="Dashboard")
       li.sidebar__item
         i.fas.fa-columns.mr-3.sidebar__icon
         span.sidebar__text Dashboard
-    a.sidebar__link(href="/profile")
+    a.sidebar__link(href="/profile" data-toggle=(collapse ? "tooltip" : "") data-placement="right" title="Profile")
       li.sidebar__item
         i.fas.fa-user.mr-3.sidebar__icon
         span.sidebar__text Profile
-    a.sidebar__link(href="/support")
+    a.sidebar__link(href="/support" data-toggle=(collapse ? "tooltip" : "") data-placement="right" title="Support")
       li.sidebar__item
         i.fas.fa-life-ring.mr-3.sidebar__icon
         span.sidebar__text Support
-    if env == 'development'
-      a.sidebar__link(href="/rooms/test")
-        li.sidebar__item
-          i.far.fa-comment-alt.mr-3.sidebar__icon
-          span.sidebar__text Test Room
-    a.sidebar__link(href="/logout")
+    a.sidebar__link(href="/logout" data-toggle=(collapse ? "tooltip" : "") data-placement="right" title="Log Out")
       li.sidebar__item
         i.fas.fa-power-off.mr-3.sidebar__icon
         span.sidebar__text Log Out
