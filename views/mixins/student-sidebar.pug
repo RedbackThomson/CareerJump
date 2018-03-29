@@ -1,7 +1,7 @@
 include ../mixins/sidebar
 
-mixin user-sidebar(collapse)
-  +sidebar(collapse)
+mixin student-sidebar(collapse)
+  +sidebar(collapse, firstName=user.profile.firstName)
     a.sidebar__link(href="/dashboard" data-toggle=(collapse ? "tooltip" : "") data-placement="right" title="Dashboard")
       li.sidebar__item
         i.fas.fa-columns.mr-3.sidebar__icon

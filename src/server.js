@@ -61,6 +61,8 @@ function startInstance() {
         res.locals.user = req.user;
         next();
       });
+      // Routing Strategies
+      app.use(require('./routing/strategies')(models));
       app.locals.moment = moment;
       app.locals.env = app.settings.env;
       app.use(require('./routing')(models));

@@ -27,7 +27,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   });
   StudentUser.associate = function(models) {
-    StudentUser.hasOne(models.StudentProfile, {as: 'profile', foreignKey: 'userId'});
+    StudentUser.hasOne(models.StudentProfile, {as: 'profile',
+      foreignKey: 'userId'});
   };
   StudentUser.prototype.validPassword = function (testPassword) {
     return new Promise((resolve, reject) => {
