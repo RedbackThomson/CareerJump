@@ -30,8 +30,11 @@ getInterviews = (models) => (req, res, next) => {
 };
 
 module.exports = (models) =>
-  (req, res) => {
-    getInterviews(models)(req, res, () => {
+  (req, res, next) => {
+    getInterviews(models)(req, res, (err) => {
+      if (err) {
+        next(err);
+      }
       return res.render('pages/dashboard/student',
         {interviews: req.interviews});
     });
