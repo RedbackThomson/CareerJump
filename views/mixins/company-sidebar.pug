@@ -4,31 +4,33 @@ mixin company-sidebar(collapse)
   +sidebar(collapse, firstName=user.firstName)
     a.sidebar__link(href="/dashboard" data-toggle=(collapse ? "tooltip" : "") data-placement="right" title="Dashboard")
       li.sidebar__item
-        i.fas.fa-columns.mr-3.sidebar__icon
+        i.fa-fw.fas.fa-columns.mr-3.sidebar__icon
         span.sidebar__text Dashboard
 
     a.sidebar__link(href="/profile" data-toggle=(collapse ? "tooltip" : "") data-placement="right" title="Profile Profile")
       li.sidebar__item
-        i.fas.fa-user.mr-3.sidebar__icon
+        i.fa-fw.fas.fa-user.mr-3.sidebar__icon
         span.sidebar__text Employee Profile
 
     a.sidebar__link(href="/company" data-toggle=(collapse ? "tooltip" : "") data-placement="right" title="Company Profile")
       li.sidebar__item
-        i.fas.fa-users.mr-3.sidebar__icon
+        i.fa-fw.fas.fa-users.mr-3.sidebar__icon
         span.sidebar__text Company Profile
 
-    a.sidebar__link(href="/billing" data-toggle=(collapse ? "tooltip" : "") data-placement="right" title="Billing")
-      li.sidebar__item
-        i.fas.fa-credit-card.mr-3.sidebar__icon
-        span.sidebar__text Billing
+    //- Only for company admins 
+    if user.admin
+      a.sidebar__link(href="/billing" data-toggle=(collapse ? "tooltip" : "") data-placement="right" title="Billing")
+        li.sidebar__item
+          i.fa-fw.fas.fa-credit-card.mr-3.sidebar__icon
+          span.sidebar__text Billing
 
-    a.sidebar__link(href="/suppert" data-toggle=(collapse ? "tooltip" : "") data-placement="right" title="Support")
+    a.sidebar__link(href="/support" data-toggle=(collapse ? "tooltip" : "") data-placement="right" title="Support")
       li.sidebar__item
-        i.fas.fa-life-ring.mr-3.sidebar__icon
+        i.fa-fw.fas.fa-life-ring.mr-3.sidebar__icon
         span.sidebar__text Support
 
     a.sidebar__link(href="/logout" data-toggle=(collapse ? "tooltip" : "") data-placement="right" title="Log Out")
       li.sidebar__item
-        i.fas.fa-power-off.mr-3.sidebar__icon
+        i.fa-fw.fas.fa-power-off.mr-3.sidebar__icon
         span.sidebar__text Log Out
     block sidebar

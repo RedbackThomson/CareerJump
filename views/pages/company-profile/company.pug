@@ -1,0 +1,21 @@
+extends ../../layouts/company-dashboard
+
+block title
+  | Company Profile
+
+block primary
+  form.profile.form
+    .row
+      .col
+        img.d-inline.profile__logo(src=user.company.logo)
+        h2.h3.d-inline.form__subheading= user.company.name
+    .row
+      .col-sm-6.col-md-4.form__field
+        label.form__label Company Name
+        input.form__text(type="text" name="name" placeholder="First" value=user.company.name)
+      .col-sm-6.col-md-8.form__field
+        label.form__label Description
+        input.form__text(type="text" name="description" placeholder="Last" value=user.company.description)
+      .col-md-4.form__field
+        label.form__label Website
+        input.form__text(type="text" name="website" placeholder="https://example.com/" value=user.company.website)
