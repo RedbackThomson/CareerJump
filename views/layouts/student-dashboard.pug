@@ -1,16 +1,16 @@
 extends main
 
-include ../mixins/user-sidebar
+include ../mixins/student-sidebar
 include ../mixins/header
 
 block vars
   - var collapseSidebar = false
 
 block content
-  +header
+  +header()
   .d-flex.user-dashboard
     .sidebar__column
-      +user-sidebar(collapseSidebar)
+      +student-sidebar(collapseSidebar)
     .content
       .container
         .row

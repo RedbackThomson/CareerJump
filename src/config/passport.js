@@ -44,17 +44,74 @@ module.exports = (models) => {
     })
   );
 
-  passport.serializeUser((user, done) => done(null, user.id));
+  passport.use('CompanyUser',
+    new LocalStrategy(localUserOptions, (req, email, password, done) => {
+      let _user;
+      models.CompanyUser.findOne({
+        where: {email: {ilike: email}}
+      })
+        .then(user => {
+          if (!user) {
+            req.authError = LOGIN_ERRORS.NO_USER_FOUND;
+            return done(req.authError);
+          }
 
-  passport.deserializeUser((id, done) => {
-    models.StudentUser.findOne({
-      where: {id},
+          if (user.deleted) {
+            req.authError = LOGIN_ERRORS.ACCOUNT_DELETED;
+            return done(req.authError);
+          }
+
+          _user = user;
+          return user.validPassword(password);
+        })
+        .then(valid => {
+          if (!valid) {
+            req.authError = LOGIN_ERRORS.NO_USER_FOUND;
+            return done(req.authError);
+          }
+
+          return done(null, _user);
+        })
+        .catch(done);
+    })
+  );
+
+  passport.serializeUser((user, done) =>
+    done(null, {
+      id: user.id,
+      isCompany: user.dataValues.companyId !== undefined
+    })
+  );
+
+  passport.deserializeUser((user, done) => {
+    const isCompany = user.isCompany;
+
+    if (isCompany) {
+      return models.CompanyUser.findOne({
+        where: {id: user.id},
+        include: [{
+          model: models.Company,
+          as: 'company'
+        }]
+      })
+        .then(user => {
+          user.isCompany = true;
+          user.isStudent = false;
+          return done(null, user);
+        })
+        .catch(err => done(err, null));
+    }
+
+    return models.StudentUser.findOne({
+      where: {id: user.id},
       include: [{
         model: models.StudentProfile,
         as: 'profile'
       }]
     })
       .then(user => {
+        user.isCompany = false;
+        user.isStudent = true;
         return done(null, user);
       })
       .catch(err => done(err, null));

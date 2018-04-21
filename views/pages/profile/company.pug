@@ -1,0 +1,20 @@
+extends ../../layouts/company-dashboard
+
+block title
+  | Your Profile
+
+block primary
+  form.profile.form
+    .row
+      .col
+        h2.h3.form__subheading Your Personal Details
+    .row
+      .col-sm-6.col-md-4.form__field
+        label.form__label First Name
+        input.form__text(type="text" name="firstName" placeholder="First" value=user.firstName)
+      .col-sm-6.col-md-4.form__field
+        label.form__label Last Name
+        input.form__text(type="text" name="lastName" placeholder="Last" value=user.lastName)
+      .col-md-4.form__field
+        label.form__label Job Title
+        input.form__text(type="text" name="jobTitle" placeholder="Junior Developer" value=user.jobTitle)

@@ -1,4 +1,6 @@
 'use strict';
+const bcrypt = require('bcrypt-nodejs');
+
 module.exports = (sequelize, DataTypes) => {
   var CompanyUser = sequelize.define('CompanyUser', {
     firstName: DataTypes.STRING,
@@ -22,6 +24,16 @@ module.exports = (sequelize, DataTypes) => {
   });
   CompanyUser.associate = function(models) {
     CompanyUser.belongsTo(models.Company, {as: 'company'});
+  };
+  CompanyUser.prototype.validPassword = function (testPassword) {
+    return new Promise((resolve, reject) => {
+      return bcrypt.compare(testPassword, this.password, (err, res) => {
+        if (err) {
+          return reject(err);
+        }
+        return resolve(res);
+      });
+    });
   };
   return CompanyUser;
 };
