@@ -1,0 +1,46 @@
+.navigation {
+  margin: 0rem;
+  padding: 0rem;
+
+  &__container {
+    flex: 1;
+  }
+
+  &__logo {
+    height: 1rem;
+  }
+
+  &__list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: inline;
+  }
+
+  &__link {
+    &:hover {
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+
+  &__icon {
+    color: $white;
+  }
+
+  &__item {
+    display: inline;
+    list-style: none;
+    padding-right: 1.5rem;
+    color: $white;
+
+    &--header {
+      margin-bottom: 1rem;
+      color: $black;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

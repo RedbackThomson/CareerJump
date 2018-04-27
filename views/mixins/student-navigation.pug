@@ -1,0 +1,11 @@
+include ../mixins/navigation
+
+mixin student-navigation()
+  +navigation(firstName=user.profile.firstName)
+    a.navigation__link(href="/dashboard" data-toggle=(collapse ? "tooltip" : "") data-placement="right" title="Dashboard")
+      li.navigation__item
+        span.navigation__text Dashboard
+    a.navigation__link(href="/support" data-toggle=(collapse ? "tooltip" : "") data-placement="right" title="Support")
+      li.navigation__item
+        span.navigation__text Support
+    block navigation

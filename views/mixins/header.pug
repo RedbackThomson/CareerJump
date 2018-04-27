@@ -1,10 +1,13 @@
 mixin header()
-  section.header#header
-    .container-fluid
-      nav.nav.nav--dark.flex-row.align-items-md-center.align-items-start
-        .mx-auto
-          img.nav__logo(src="/assets/logo-white.svg")
-          | CareerJump
-        .float-right.d-lg-none
-          button.navbar-toggler.hamburger__toggler(type="button" data-toggle="collapse" data-target="#sidebar")
+  .container
+    section.header#header
+      nav.nav.nav--dark.flex-row.align-items-start.py-4
+        .ml-4
+          a.text-white(href="/dashboard")
+            img.navigation__logo(src="/assets/logo-white.svg")
+            | CareerJump
+        .ml-4.navigation__container
+          block
+        .mx-auto.d-lg-none
+          button.navbar-toggler.hamburger__toggler(type="button" data-toggle="collapse" data-target="#navigation")
             span.navbar-toggler-icon.hamburger__toggle-icon

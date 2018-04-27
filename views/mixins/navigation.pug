@@ -1,0 +1,16 @@
+mixin navigation(firstName)
+  .navigation.collapse.show.width#navigation
+    ul.navigation__list
+      if block
+        block
+    ul.float-right.m-inline.navigation__list
+      .btn-group
+        a.h5.navigation__link.navigation__header(data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+          li.navigation__item
+            i.fas.fa-user.mr-3.sidebar__icon
+        .dropdown-menu
+          a.dropdown-item(href='/profile') Profile
+          .dropdown-divider
+          a.dropdown-item(href='/logout') Log Out
+
+    
