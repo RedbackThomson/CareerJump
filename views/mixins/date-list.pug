@@ -2,27 +2,28 @@
 mixin date-list(interviews, resume=false)
   - var dateFormat = 'dddd MMM Do'
   - var interviewDate = 0
-  each interview in interviews
-    - var formattedDate = moment(interview.dataValues.scheduled).format(dateFormat)
-    - var newDate = false
-    if interviewDate != formattedDate
-      - interviewDate = formattedDate
-      - newDate = true
-    
-    .row.mb-3.mb-md-1(class=(newDate ? 'mt-md-1' : 'mt-md-0'))
-      .col-sm-12.col-md-2.text-md-right
-        if newDate
-          =formattedDate
-        
-      .col-sm-3.col-md-2
-        = moment(interview.dataValues.scheduled).format('LT')
-      .col-1.text-right
-        span.user-badge
-      .col-sm-4.col-md-5
-        = interview.companyUser.dataValues.firstName + " " + interview.companyUser.dataValues.lastName
-      .col-sm-4.col-md-2.text-right
-        if resume
-          a.btn.btn-primary.btn-sm(href="#")
-            | Resume
-        a.btn.btn-primary.btn-sm(href="/rooms/"+interview.dataValues.roomName)
-          | Go To Room
+
+  .date-list
+    each interview in interviews
+      - var formattedDate = moment(interview.dataValues.scheduled).format(dateFormat)
+      - var newDate = false
+      if interviewDate != formattedDate
+        - interviewDate = formattedDate
+        - newDate = true
+      
+      .row.mb-3.mb-md-1(class=(newDate ? 'mt-md-1' : 'mt-md-0'))
+        .col-sm-12.col-md-2.text-md-right.date-list__small.date-list__vertical
+          if newDate
+            =formattedDate
+          
+        .col-sm-3.col-md-2.date-list__small.date-list__vertical
+          =moment(interview.dataValues.scheduled).format('LT')
+        .col-sm-5.col-md-6.font-weight-bold.date-list__vertical
+          span.user-badge.mr-2
+          =interview.companyUser.dataValues.firstName + " " + interview.companyUser.dataValues.lastName
+        .col-sm-4.col-md-2.text-right
+          if resume
+            a.btn.btn-primary.btn-sm(href="#")
+              | Resume
+          a.btn.btn-primary.btn-sm(href="/rooms/"+interview.dataValues.roomName)
+            | Go To Room
