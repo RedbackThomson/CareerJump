@@ -1,13 +1,10 @@
 mixin header()
   .container
     section.header#header
-      nav.nav.nav--dark.flex-row.align-items-start.py-4
-        .ml-4
-          a.text-white(href="/dashboard")
-            img.navigation__logo(src="/assets/logo-white.svg")
-            | CareerJump
-        .ml-4.navigation__container
-          block
-        .mx-auto.d-lg-none
-          button.navbar-toggler.hamburger__toggler(type="button" data-toggle="collapse" data-target="#navigation")
-            span.navbar-toggler-icon.hamburger__toggle-icon
+      nav.navbar.navbar-expand-lg.nav.nav--dark.py-3
+        a.text-white.navbar-brand(href="/dashboard")
+          img.d-inline-block.align-top.navigation__logo(src="/assets/logo-white.svg")
+          | CareerJump
+        button.navbar-toggler.hamburger__toggler(type="button" data-toggle="collapse" data-target="#navigation")
+          span.navbar-toggler-icon.hamburger__toggle-icon
+        block
