@@ -1,23 +1,22 @@
 .room {
-  &__company-name {
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    color: $header-color;
+  display: flex;
+  flex-direction: row;
+
+  &__videos {
+    flex: 2;
+    margin-right: 1rem;
   }
 
   &__resume {
+    flex: 1;
+  }
+
+  &__resume-document {
     width: 100%;
     height: 100%;
   }
 
   &__resume-row {
     flex: 1;
-  }
-
-  &__resume-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 35rem;
-    height: 100%;
   }
 }

@@ -1,16 +1,15 @@
-$local-video-size: 15rem;
+$local-video-size: 12rem;
 $remote-video-size: 35rem;
 
 .video-feeds {
   &__local {
+    margin-top: 1rem;
     height: $local-video-size;
     background: $video-background;
-    box-shadow: $sidebar-shadow;
     display: flex;
     flex-direction: column;
     text-align: center;
     justify-content: center;
-    margin-bottom: 1.5rem;
 
     video {
       max-height: $local-video-size;
@@ -21,7 +20,6 @@ $remote-video-size: 35rem;
   &__remote {
     height: $remote-video-size;
     background: $video-background;
-    box-shadow: $sidebar-shadow;
     display: flex;
     flex-direction: column;
     text-align: center;

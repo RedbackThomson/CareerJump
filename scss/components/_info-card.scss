@@ -1,0 +1,12 @@
+.info-card {
+  margin: 1rem 1rem 0 1rem;
+  padding: 1rem;
+  background-color: lighten($primary-light, 35%);
+  color: $primary-light;
+  min-height: 12rem;
+
+  &__name {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+}
