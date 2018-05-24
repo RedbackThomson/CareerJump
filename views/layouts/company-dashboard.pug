@@ -5,13 +5,13 @@ include ../mixins/header
 
 block content
   +header()
-  .d-flex.user-dashboard
-    .content
-      .container
-        .row
-          .col-12
-            h1 
-              block title
-        block primary
-    .right-content
-      block right
+    +company-navigation()
+  .user-dashboard
+    block dashboard-content
+      .content
+        .container
+          .row
+            .col-12
+              h1 
+                block title
+          block primary

@@ -1,0 +1,11 @@
+mixin interviewer-list(companyUsers)
+  .interviewer-list
+    .interviewer-list__title Interviewers 
+      small (#{companyUsers.length})
+    ul.interviewer-list__list
+      each user in companyUsers
+        li.interviewer-list__item
+          span.user-badge.mr-2
+          = user.firstName + " " + user.lastName
+    a.interviewer-list__add(href="#")
+      i.fas.fa-plus-circle

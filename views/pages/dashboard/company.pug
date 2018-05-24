@@ -1,10 +1,25 @@
 extends ../../layouts/company-dashboard
 
+include ../../mixins/date-list
+include ../../mixins/interviewer-list
+
 block title
   | Dashboard
 
 block primary
-  .interviews.form
+  if user.admin
     .row
       .col
-        h2.h3.form__subheading Upcoming Interviews
+        .page-title #{user.company.name}'s Fair Schedule
+          .page-title__subtitle Managing Your Team for the CareerJump Fall Fair
+    .row
+      .col
+        +interviewer-list(interviewers)
+      .col
+  else
+    .row
+      .col
+        .page-title Upcoming Interviews
+          .page-title__subtitle Coming up for the CareerJump Fall Fair
+    
+  //+date-list(interviews)
