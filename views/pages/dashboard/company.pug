@@ -1,5 +1,6 @@
 extends ../../layouts/company-dashboard
 
+include ../../mixins/admin-interview-list
 include ../../mixins/date-list
 include ../../mixins/interviewer-list
 
@@ -13,9 +14,10 @@ block primary
         .page-title #{user.company.name}'s Fair Schedule
           .page-title__subtitle Managing Your Team for the CareerJump Fall Fair
     .row
-      .col
+      .col-md-4
         +interviewer-list(interviewers)
-      .col
+      .col-md-8
+        +admin-interview-list(interviews)
   else
     .row
       .col

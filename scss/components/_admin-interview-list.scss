@@ -1,8 +1,8 @@
-.interviewer-list {
+.admin-interview-list {
   &__title {
     font-weight: bold;
-    margin-bottom: 1rem;
     color: $primary-light;
+    margin-bottom: 1rem;
   }
 
   &__list {
@@ -24,8 +24,7 @@
     }
   }
 
-  &__add {
-    color: $primary-light;
-    font-size: 2.2rem;
+  &__date {
+    font-size: 0.8rem;
   }
 }

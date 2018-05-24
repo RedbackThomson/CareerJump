@@ -1,6 +1,4 @@
-
 mixin date-list(interviews, resume=false)
-  - var dateFormat = 'dddd MMM Do'
   - var interviewDate = 0
 
   .date-list
@@ -17,7 +15,7 @@ mixin date-list(interviews, resume=false)
             =formattedDate
           
         .col-sm-3.col-md-2.date-list__small.date-list__vertical
-          =moment(interview.dataValues.scheduled).format('LT')
+          =moment(interview.dataValues.scheduled).format(timeFormat)
         .col-sm-5.col-md-6.font-weight-bold.date-list__vertical
           span.user-badge.mr-2
           =interview.companyUser.dataValues.firstName + " " + interview.companyUser.dataValues.lastName
