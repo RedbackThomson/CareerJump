@@ -5,6 +5,11 @@ getInterviewers = (models, req, res) =>
     where: {companyId: req.user.company.id}
   });
 
+/**
+ * Gets all interviews for the given list of interviewers.
+ * @param {Object[]} interviewers An array of interviewer models.
+ * @returns {Promise} A promise that contains the list of interview models.
+ */
 getAllInterviews = (models, interviewers) => {
   userIds = interviewers.map(user => user.id);
   let _interviews;
@@ -56,7 +61,10 @@ module.exports = (models) =>
         });
     }
 
-    return res.render('pages/dashboard/company', {
-      interviewers: req.interviews
-    });
+    return getAllInterviews(models, [req.user])
+      .then(interviews => {
+        return res.render('pages/dashboard/company', {
+          interviews: interviews
+        });
+      });
   };

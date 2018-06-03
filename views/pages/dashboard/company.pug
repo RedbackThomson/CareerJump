@@ -1,6 +1,6 @@
 extends ../../layouts/company-dashboard
 
-include ../../mixins/admin-interview-list
+include ../../mixins/admin-tools/interview-list
 include ../../mixins/date-list
 include ../../mixins/interviewer-list
 
@@ -23,5 +23,4 @@ block primary
       .col
         .page-title Upcoming Interviews
           .page-title__subtitle Coming up for the CareerJump Fall Fair
-    
-  //+date-list(interviews)
+    +date-list(interviews, resume=true, company=true)

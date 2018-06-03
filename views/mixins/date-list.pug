@@ -1,4 +1,4 @@
-mixin date-list(interviews, resume=false)
+mixin date-list(interviews, resume=false, company=false)
   - var interviewDate = 0
 
   .date-list
@@ -16,12 +16,15 @@ mixin date-list(interviews, resume=false)
           
         .col-sm-3.col-md-2.date-list__small.date-list__vertical
           =moment(interview.dataValues.scheduled).format(timeFormat)
-        .col-sm-5.col-md-6.font-weight-bold.date-list__vertical
+        .col-sm-5.col-md-5.font-weight-bold.date-list__vertical
           span.user-badge.mr-2
-          =interview.companyUser.dataValues.firstName + " " + interview.companyUser.dataValues.lastName
-        .col-sm-4.col-md-2.text-right
+          if company
+            =interview.studentUser.profile.firstName + " " + interview.studentUser.profile.lastName
+          else
+            =interview.companyUser.dataValues.firstName + " " + interview.companyUser.dataValues.lastName
+        .col-sm-4.col-md-3.text-right
           if resume
-            a.btn.btn-primary.btn-sm(href="#")
+            a.btn.btn-primary.btn-sm.mr-1(href=interview.studentUser.profile.resume, target="_new")
               | Resume
           a.btn.btn-primary.btn-sm(href="/rooms/"+interview.dataValues.roomName)
             | Go To Room
