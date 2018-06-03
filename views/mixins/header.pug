@@ -1,10 +1,9 @@
 mixin header()
-  section.header#header
-    .container-fluid
-      nav.nav.nav--dark.flex-row.align-items-md-center.align-items-start
-        .mx-auto
-          img.nav__logo(src="/assets/logo-white.svg")
-          | CareerJump
-        .float-right.d-lg-none
-          button.navbar-toggler.hamburger__toggler(type="button" data-toggle="collapse" data-target="#sidebar")
-            span.navbar-toggler-icon.hamburger__toggle-icon
+  .container
+    section.header#header
+      nav.navbar.navbar-expand-lg.nav.nav--dark.py-3
+        a.text-white.navbar-brand(href="/dashboard").mr-2
+          img.d-inline-block.align-top.navigation__logo(src="/assets/logo-white.svg")
+        button.navbar-toggler.hamburger__toggler(type="button" data-toggle="collapse" data-target="#navigation")
+          span.navbar-toggler-icon.hamburger__toggle-icon
+        block

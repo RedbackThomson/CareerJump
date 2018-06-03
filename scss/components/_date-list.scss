@@ -1,0 +1,11 @@
+.date-list {
+  &__vertical {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__small {
+    font-size: 0.8rem;
+  }
+}

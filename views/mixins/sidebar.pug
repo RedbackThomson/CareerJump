@@ -1,8 +1,0 @@
-mixin sidebar(collapse, firstName)
-  .sidebar.collapse.show.width#sidebar(class = collapse ? 'sidebar--collapsed' : '')
-    ul.sidebar__list
-      a.h5.sidebar__link(href="/profile").sidebar__header
-        li.sidebar__item.sidebar__item--header Welcome, #{firstName}
-      if block
-        block
-    

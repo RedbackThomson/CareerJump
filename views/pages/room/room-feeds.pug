@@ -1,0 +1,33 @@
+mixin room-feeds
+  section.room#room.mb-3.mb-md-0.p-1
+    .video-feeds.room__videos
+      .row
+        .col-12
+          .video-feeds__remote#remote-media-div
+            span.video-feeds__connecting
+              div.fa-2x.mb-4
+                i.fas.fa-spinner.fa-pulse.mr-1
+              | Waiting for #{contactName} to Connect...
+      .row
+        .col-md-8
+          if block
+            block
+        .col-md-4
+          .row.mt-3
+            .col-12.text-right
+              button.btn.btn-primary.round-button.mr-1
+                i.fas.fa-check
+              button.btn.btn-primary.round-button.mr-1
+                i.fas.fa-check
+              button.btn.btn-outline-primary.round-button
+                i.fas.fa-check
+            .col-12
+              .video-feeds__local#local-media-ctr
+                span.video-feeds__camera
+                  div.fa-2x.mb-4
+                    i.fas.fa-exclamation-triangle
+                  | Your Camera is not Connected
+
+
+    .room__resume.room__resume-container
+      iframe.room__resume-document(src=`https://docs.google.com/gview?url=${interview.studentUser.profile.resume}&embedded=true` frameborder="0")

@@ -19,3 +19,14 @@ a {
     text-decoration: underline;
   }
 }
+
+.page-title {
+  text-align: center;
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
+
+  &__subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+  }
+}

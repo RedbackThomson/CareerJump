@@ -6,6 +6,9 @@ $black: #000;
 $primary-dark: #FC466B;
 $primary-light: #3F5EFB;
 
+$secondary-dark: lighten($primary-dark, 35%);
+$secondary-light: lighten($primary-light, 35%);
+
 $primary-light-hover: lighten($primary-light, 37%);
 
 $step-1-color: #C6E0A6;

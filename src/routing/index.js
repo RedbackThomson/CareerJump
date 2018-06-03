@@ -6,12 +6,13 @@ const {isAuthenticated} = require('./helpers');
 
 module.exports = (models) => {
   router.use('/auth', require('./auth')());
-  router.use('/rooms', require('./rooms')(models));
-
   router.use('/api', require('./api')(models));
 
   /** Shared Routes */
   router.get('/logout', (req, res) => res.redirect('/auth/logout'));
+
+  router.use('/rooms/:roomName', isAuthenticated,
+    (req, res, next) => req.routeStrategy.room(req, res, next));
 
   router.get('/dashboard', isAuthenticated,
     (req, res, next) => req.routeStrategy.dashboard(req, res, next));

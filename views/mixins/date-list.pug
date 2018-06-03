@@ -1,0 +1,30 @@
+mixin date-list(interviews, resume=false, company=false)
+  - var interviewDate = 0
+
+  .date-list
+    each interview in interviews
+      - var formattedDate = moment(interview.dataValues.scheduled).format(dateFormat)
+      - var newDate = false
+      if interviewDate != formattedDate
+        - interviewDate = formattedDate
+        - newDate = true
+      
+      .row.mb-3.mb-md-1(class=(newDate ? 'mt-md-1' : 'mt-md-0'))
+        .col-sm-12.col-md-2.text-md-right.date-list__small.date-list__vertical
+          if newDate
+            =formattedDate
+          
+        .col-sm-3.col-md-2.date-list__small.date-list__vertical
+          =moment(interview.dataValues.scheduled).format(timeFormat)
+        .col-sm-5.col-md-5.font-weight-bold.date-list__vertical
+          span.user-badge.mr-2
+          if company
+            =interview.studentUser.profile.firstName + " " + interview.studentUser.profile.lastName
+          else
+            =interview.companyUser.dataValues.firstName + " " + interview.companyUser.dataValues.lastName
+        .col-sm-4.col-md-3.text-right
+          if resume
+            a.btn.btn-primary.btn-sm.mr-1(href=interview.studentUser.profile.resume, target="_new")
+              | Resume
+          a.btn.btn-primary.btn-sm(href="/rooms/"+interview.dataValues.roomName)
+            | Go To Room

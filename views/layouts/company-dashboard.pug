@@ -1,22 +1,17 @@
 extends main
 
-include ../mixins/company-sidebar
+include ../mixins/company-navigation
 include ../mixins/header
-
-block vars
-  - var collapseSidebar = false
 
 block content
   +header()
-  .d-flex.user-dashboard
-    .sidebar__column
-      +company-sidebar(collapseSidebar)
-    .content
-      .container
-        .row
-          .col-12
-            h1 
-              block title
-        block primary
-    .right-content
-      block right
+    +company-navigation()
+  .user-dashboard
+    block dashboard-content
+      .content
+        .container
+          .row
+            .col-12
+              h1 
+                block title
+          block primary

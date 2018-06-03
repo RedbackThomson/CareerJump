@@ -1,0 +1,21 @@
+extends ../../layouts/company-dashboard
+
+include ./room-feeds
+
+append vars
+ - contactName = interview.studentUser.profile.firstName
+
+block dashboard-content
+  +room-feeds
+    .info-card
+      .info-card__title
+        = interview.studentUser.profile.firstName + " " + interview.studentUser.profile.lastName
+      .info-card__university= interview.studentUser.profile.university
+      .info-card__major= interview.studentUser.profile.major
+
+block scripts
+  script(src="//media.twiliocdn.com/sdk/js/video/v1/twilio-video.min.js")
+  script(type="text/javascript").
+    roomName="#{interview.dataValues.roomName}";
+  script(type="text/javascript" src="/js/room.js")
+

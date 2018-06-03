@@ -1,0 +1,11 @@
+$user-badge-size: 1.2rem;
+
+.user-badge {
+  content: '';
+  width: $user-badge-size;
+  height: $user-badge-size;
+  margin-top: 0.1rem;
+  background: $primary-light;
+  border-radius: 50%;
+  display: inline-block;
+}

@@ -1,0 +1,22 @@
+include ../mixins/navigation
+
+mixin company-navigation()
+  +navigation(firstName=user.firstName)
+    a.navigation__link(href="/dashboard" data-toggle=(collapse ? "tooltip" : "") data-placement="right" title="Dashboard")
+      li.navigation__item
+        span.navigation__text Dashboard
+
+    a.navigation__link(href="/company" data-toggle=(collapse ? "tooltip" : "") data-placement="right" title="Company Profile")
+      li.navigation__item
+        span.navigation__text Company
+
+    //- Only for company admins 
+    if user.admin
+      a.navigation__link(href="/billing" data-toggle=(collapse ? "tooltip" : "") data-placement="right" title="Billing")
+        li.navigation__item
+          span.navigation__text Billing
+
+    a.navigation__link(href="/support" data-toggle=(collapse ? "tooltip" : "") data-placement="right" title="Support")
+      li.navigation__item
+        span.navigation__text Support
+    block navigation
