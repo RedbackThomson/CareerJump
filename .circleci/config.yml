@@ -3,9 +3,7 @@ jobs:
   build:
     docker:
       - image: circleci/node:8.9
-      - image: circleci/postgres:10-alpine-postgis
     environment:
-      - DATABASE_URL: "postgres://root@localhost:5432/circle_test"
       - NODE_ENV: "test"
     steps:
       - checkout
@@ -24,7 +22,7 @@ jobs:
       - image: circleci/node:8.9
       - image: circleci/postgres:10-alpine-postgis
     environment:
-      - DATABASE_URL: "postgres://root@localhost:5432/circle_test"
+      - DATABASE_URL: "postgres://root@localhost/circle_test"
     steps:
       - checkout
       - restore_cache:
