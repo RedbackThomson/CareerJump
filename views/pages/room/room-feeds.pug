@@ -19,8 +19,13 @@ mixin room-feeds
                 i.fas.fa-check
               button.btn.btn-primary.round-button.mr-1
                 i.fas.fa-check
-              button.btn.btn-outline-primary.round-button
-                i.fas.fa-check
+              span.btn-group.dropup
+                button.btn.btn-outline-primary.dropdown-toggle(data-toggle="dropdown")
+                  i.fas.fa-volume-up
+                .dropdown-menu
+                  h6.dropdown-header Your Volume
+                  canvas.video-feeds__volume-metre(id="volume-metre", width="150px", height="10")
+
             .col-12
               .video-feeds__local#local-media-ctr
                 span.video-feeds__camera
