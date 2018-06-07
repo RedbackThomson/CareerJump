@@ -26,6 +26,9 @@ getAllInterviews = (models, interviewers) => {
     }, {
       model: models.StudentUser,
       as: 'studentUser'
+    }, {
+      model: models.CompanyUser,
+      as: 'companyUser'
     }]
   })
     .then(interviews => {

@@ -11,7 +11,8 @@ module.exports = (sequelize, DataTypes) => {
     email: {
       isEmail: true,
       type: DataTypes.STRING
-    }
+    },
+    colour: DataTypes.CHAR(6)
   }, {
     hooks: {
       beforeCreate: (user) => {

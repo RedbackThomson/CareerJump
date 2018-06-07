@@ -6,12 +6,12 @@ mixin company-navigation()
       li.navigation__item
         span.navigation__text Dashboard
 
-    a.navigation__link(href="/company" data-toggle=(collapse ? "tooltip" : "") data-placement="right" title="Company Profile")
-      li.navigation__item
-        span.navigation__text Company
-
     //- Only for company admins 
     if user.admin
+      a.navigation__link(href="/company" data-toggle=(collapse ? "tooltip" : "") data-placement="right" title="Company Profile")
+        li.navigation__item
+          span.navigation__text Company
+
       a.navigation__link(href="/billing" data-toggle=(collapse ? "tooltip" : "") data-placement="right" title="Billing")
         li.navigation__item
           span.navigation__text Billing

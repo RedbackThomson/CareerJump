@@ -6,7 +6,8 @@ module.exports = (sequelize, DataTypes) => {
     field: DataTypes.STRING,
     size: DataTypes.ENUM('startup', 'large'),
     website: DataTypes.STRING,
-    logo: DataTypes.STRING
+    logo: DataTypes.STRING,
+    colour: DataTypes.CHAR(6)
   }, {});
   Company.associate = function(models) {
 

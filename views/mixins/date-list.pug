@@ -17,11 +17,13 @@ mixin date-list(interviews, resume=false, company=false)
         .col-sm-3.col-md-2.date-list__small.date-list__vertical
           =moment(interview.dataValues.scheduled).format(timeFormat)
         .col-sm-5.col-md-5.font-weight-bold.date-list__vertical
-          span.user-badge.mr-2
           if company
+            span.user-badge.mr-2
             =interview.studentUser.profile.firstName + " " + interview.studentUser.profile.lastName
           else
+            span.company-badge.mr-2(badge-colour=interview.companyUser.company.colour data-toggle="tooltip" data-placement="left" title=interview.companyUser.company.name)
             =interview.companyUser.dataValues.firstName + " " + interview.companyUser.dataValues.lastName
+            small.ml-2= interview.companyUser.company.name
         .col-sm-4.col-md-3.text-right
           if resume
             a.btn.btn-primary.btn-sm.mr-1(href=interview.studentUser.profile.resume, target="_new")

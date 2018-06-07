@@ -4,7 +4,8 @@ mixin admin-interview-list(interviews)
     ul.admin-interview-list__list
       each interview in interviews
         li.admin-interview-list__item
-          span.user-badge.mr-2
+          - var interviewerName = interview.companyUser.firstName + " " + interview.companyUser.lastName
+          span.user-badge.mr-2(badge-colour=interview.companyUser.colour data-toggle="tooltip" data-placement="left" title=interviewerName)
           .admin-interview-list__info
             .admin-interview-list__name= interview.studentUser.profile.firstName + " " + interview.studentUser.profile.lastName
             .admin-interview-list__date= moment(interview.dataValues.scheduled).format(dateTimeFormat)
