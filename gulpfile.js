@@ -7,6 +7,7 @@ let cssnano = require('gulp-cssnano');
 let sourcemaps = require('gulp-sourcemaps');
 let concat = require('gulp-concat');
 let gulpif = require('gulp-if');
+let ts = require('gulp-typescript');
 let eslint = gutil.env.production ? undefined : require('gulp-eslint');
 let browserSync = gutil.env.production ?
   undefined : require('browser-sync').create();
@@ -19,6 +20,18 @@ let vendorJS = [
 let vendorCSS = [
 
 ];
+
+let tsProject = ts.createProject('tsconfig.json');
+
+gulp.task('typescript', function() {
+  var tsResult = tsProject.src()
+    .pipe(sourcemaps.init())
+    .pipe(tsProject());
+
+  return tsResult.js
+    .pipe(sourcemaps.write('.', {sourceRoot: '../src'}))
+    .pipe(gulp.dest('lib'));
+});
 
 // Static Server + watching scss/html files
 gulp.task('browser-sync', ['nodemon'], function() {
@@ -33,20 +46,24 @@ gulp.task('browser-sync', ['nodemon'], function() {
   gulp.watch('views/**/*.pug').on('change', browserSync.reload);
 });
 
-gulp.task('nodemon', ['sass', 'vendor-css', 'vendor-js'], function(cb) {
-  return nodemon({
-    exec: 'node --inspect=9229',
-    script: 'src/server.js',
-    ext: 'js',
-    env: {
-      'NODE_ENV': 'development',
-      'PORT': 3000
-    }
-  })
-    .once('start', function() {
-      cb();
-    });
-});
+gulp.task('nodemon', ['typescript', 'sass', 'vendor-css', 'vendor-js'],
+  function(cb) {
+    gulp.watch('src/**/*.ts', ['typescript']);
+
+    return nodemon({
+      exec: 'node --inspect=9229',
+      script: 'lib/app.js',
+      ext: 'js',
+      env: {
+        'NODE_ENV': 'development',
+        'PORT': 3000
+      },
+      delay: 1
+    })
+      .once('start', function() {
+        cb();
+      });
+  });
 
 // Compile sass into CSS & auto-inject into browsers
 gulp.task('sass', function() {
@@ -90,6 +107,6 @@ gulp.task('eslint', function() {
 
 gulp.task('default', ['browser-sync']);
 
-gulp.task('prod', ['sass', 'vendor-js', 'vendor-css']);
+gulp.task('prod', ['typescript', 'sass', 'vendor-js', 'vendor-css']);
 
 gulp.task('test', ['eslint']);
