@@ -8,7 +8,9 @@ import {Encryption} from '../../utils/Encryption';
 
 const HEX_REGEX = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
 
-@Table
+@Table({
+  tableName: 'CompanyUsers'
+})
 export class CompanyUser extends TimestampModel<CompanyUser> {
   @AllowNull(false)
   @Column

@@ -2,7 +2,9 @@ import {AllowNull, Column, Table, Unique, Length, Is, DataType} from 'sequelize-
 
 import {TimestampModel} from './TimestampModel';
 
-@Table
+@Table({
+  tableName: 'Fairs'
+})
 export class Fair extends TimestampModel<Fair> {
   @AllowNull(false)
   @Column

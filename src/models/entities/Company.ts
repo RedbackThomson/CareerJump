@@ -7,7 +7,9 @@ import {CompanySize} from '../enums/CompanySize';
 
 const HEX_REGEX = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
 
-@Table
+@Table({
+  tableName: 'Companies'
+})
 export class Company extends TimestampModel<Company> {
   @AllowNull(false)
   @Unique

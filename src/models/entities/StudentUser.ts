@@ -4,7 +4,9 @@ import {TimestampModel} from './TimestampModel';
 import {StudentProfile} from './StudentProfile';
 import {Encryption} from '../../utils/Encryption';
 
-@Table
+@Table({
+  tableName: 'StudentUsers'
+})
 export class StudentUser extends TimestampModel<StudentUser> {
   @AllowNull(false)
   @Column

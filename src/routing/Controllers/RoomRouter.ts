@@ -1,12 +1,11 @@
 import {Router, Request, Response, NextFunction} from 'express';
+import {Controller, Param, Body, Get} from "routing-controllers";
 
-//import {isAuthenticated, getInterview} from './helpers';
-import {BaseRouter} from './BaseRouter';
-
-export class RoomRouter extends BaseRouter {
-  constructor() {
-    super();
-    // this.buildRoutes();
+@Controller()
+export class RoomRouter {
+  @Get('/room')
+  get() {
+    return "Hello World";
   }
 
   // public async getRoom(req: Request, res: Response, next: NextFunction) {

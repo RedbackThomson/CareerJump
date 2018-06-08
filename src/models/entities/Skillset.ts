@@ -2,7 +2,10 @@ import {AllowNull, Column, Table, Unique, Length, Is, HasOne, DataType} from 'se
 
 import {BaseModel} from './BaseModel';
 
-@Table
+@Table({
+  tableName: 'Skillsets',
+  timestamps: false
+})
 export class Skillset extends BaseModel<Skillset> {
   @AllowNull(false)
   @Column

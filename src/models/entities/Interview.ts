@@ -1,11 +1,13 @@
-import {AllowNull, Column, Table, Unique, Length, Is, HasOne, DataType} from 'sequelize-typescript';
+import {AllowNull, Column, Table, Unique, Length, Is, HasOne, DataType, BelongsTo} from 'sequelize-typescript';
 
 import {TimestampModel} from './TimestampModel';
 import {CompanyUser} from './CompanyUser';
 import {StudentUser} from './StudentUser';
 import {Fair} from './Fair';
 
-@Table
+@Table({
+  tableName: 'Interviews'
+})
 export class Interview extends TimestampModel<Interview> {
   @AllowNull(false)
   @Column
@@ -16,12 +18,12 @@ export class Interview extends TimestampModel<Interview> {
   @Column
   roomName: string;
 
-  @HasOne(() => CompanyUser, 'companyId')
+  @BelongsTo(() => CompanyUser, 'companyId')
   companyUser: CompanyUser;
 
-  @HasOne(() => StudentUser, 'studentId')
+  @BelongsTo(() => StudentUser, 'studentId')
   studentUser: StudentUser;
 
-  @HasOne(() => Fair, 'fairId')
+  @BelongsTo(() => Fair, 'fairId')
   fair: Fair;
 }

@@ -1,4 +1,4 @@
-import {AllowNull, Column, Table, Unique, Length, Is, HasOne, DataType, IsUrl} from 'sequelize-typescript';
+import {AllowNull, Column, Table, Unique, Length, Is, HasOne, DataType, IsUrl, BelongsTo} from 'sequelize-typescript';
 
 import {TimestampModel} from './TimestampModel';
 import {CompanyPayment} from './CompanyPayment';
@@ -6,7 +6,9 @@ import {StudentUser} from './StudentUser';
 import {JobPosition} from '../enums/JobPosition';
 import { CompanySize } from '../enums/CompanySize';
 
-@Table
+@Table({
+  tableName: 'StudentProfiles'
+})
 export class StudentProfile extends TimestampModel<StudentProfile> {
   @AllowNull(false)
   @Column
@@ -58,6 +60,6 @@ export class StudentProfile extends TimestampModel<StudentProfile> {
   @Column
   resume: string;
 
-  @HasOne(() => StudentUser, 'userId')
+  @BelongsTo(() => StudentUser, 'userId')
   user: StudentUser;
 }

@@ -6,7 +6,9 @@ import {Fair} from './Fair';
 
 const HEX_REGEX = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
 
-@Table
+@Table({
+  tableName: 'CompanyPayments'
+})
 export class CompanyPayment extends TimestampModel<Company> {
   @AllowNull(false)
   @Column(DataType.DOUBLE)

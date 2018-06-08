@@ -13,6 +13,7 @@ import * as redisStore from "connect-redis";
 import {Models} from './models';
 import {Router} from './routing';
 import {logger} from './config/logging';
+import {Auth} from './config/Auth';
 import * as dbConfig from '../db/config';
 
 const RedisStore = redisStore(session);
@@ -59,7 +60,11 @@ export class Server {
   }
 
   private static initialiseAuth() {
-
+    Server.app.use(passport.initialize());
+    Server.app.use(passport.session());
+    Auth.serializeUser();
+    Auth.useStudentStrategy();
+    Auth.useCompanyStrategy();
   }
 
   private static configureApp() {
@@ -89,19 +94,3 @@ export class Server {
     Server.app.set('views', path.join(__dirname, '../views'));
   }
 }
-
-// function startInstance() {
-//   app.use(passport.initialize());
-//   app.use(passport.session());
-//   require('./config/passport')(models);
-
-//   // User injection
-//   app.use((req, res, next) => {
-//     res.locals.user = req.user;
-//     next();
-//   });
-//   // Routing Strategies
-//   app.use(require('./routing/strategies')(models));
-//   app.locals.env = app.settings.env;
-//   app.use(require('./routing')(models));
-// };

@@ -10,6 +10,7 @@
     "heroku-postbuild": "npm run migrate && ./node_modules/.bin/gulp prod --production"
   },
   "devDependencies": {
+    "@types/bluebird": "^3.5.20",
     "@types/mocha": "^5.2.1",
     "@types/express": "^4.16.0",
     "@types/node": "10.1.4",
