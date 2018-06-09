@@ -1,4 +1,4 @@
-import {AllowNull, Column, Table, Unique, Length, Is, HasOne, DataType} from 'sequelize-typescript';
+import {AllowNull, Column, Table, Unique, Length, Is, HasOne, DataType, BelongsTo, ForeignKey} from 'sequelize-typescript';
 
 import {TimestampModel} from './TimestampModel';
 import {Company} from './Company';
@@ -18,9 +18,17 @@ export class CompanyPayment extends TimestampModel<Company> {
   @Column
   paymentDate: Date;
 
-  @HasOne(() => Company, 'companyId')
+  @ForeignKey(() => Company)
+  @Column
+  companyId: number;
+
+  @ForeignKey(() => Fair)
+  @Column
+  fairId: number;
+
+  @BelongsTo(() => Company)
   company: Company;
 
-  @HasOne(() => Fair, 'fairId')
+  @BelongsTo(() => Fair)
   fair: Fair[];
 }

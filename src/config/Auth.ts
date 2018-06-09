@@ -90,7 +90,9 @@ export class Auth {
 
             return done(null, _user);
           })
-          .catch(done);
+          .catch((err) => {
+            return done(err);
+          });
       })
     );
   }

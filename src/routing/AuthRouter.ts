@@ -19,7 +19,7 @@ export class AuthRouter {
   }
 
   loginPage(req: express.Request, res: express.Response) {
-    return res.render('pages/login/student')
+    return res.render('pages/login')
   }
 
   studentLoginPost(req: express.Request, res: express.Response, next: express.NextFunction) {
@@ -37,7 +37,7 @@ export class AuthRouter {
     AuthManager.companyAuthenticate((err, user) => {
       if(err) {
         req.flash('error', err);
-        return res.render('pages/login/student');
+        return res.render('pages/login');
       }
       req.login(user, () => {
         return res.redirect('/dashboard');

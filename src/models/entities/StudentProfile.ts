@@ -1,4 +1,4 @@
-import {AllowNull, Column, Table, Unique, Length, Is, HasOne, DataType, IsUrl, BelongsTo} from 'sequelize-typescript';
+import {AllowNull, Column, Table, Unique, Length, Is, HasOne, DataType, IsUrl, BelongsTo, ForeignKey} from 'sequelize-typescript';
 
 import {TimestampModel} from './TimestampModel';
 import {CompanyPayment} from './CompanyPayment';
@@ -60,6 +60,10 @@ export class StudentProfile extends TimestampModel<StudentProfile> {
   @Column
   resume: string;
 
-  @BelongsTo(() => StudentUser, 'userId')
+  @ForeignKey(() => StudentUser)
+  @Column
+  userId: number;
+
+  @BelongsTo(() => StudentUser)
   user: StudentUser;
 }

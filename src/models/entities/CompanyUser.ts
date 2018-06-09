@@ -1,4 +1,4 @@
-import {AllowNull, Column, Table, Unique, Length, Is, HasOne, DataType, IsEmail, BeforeSave, ForeignKey} from 'sequelize-typescript';
+import {AllowNull, Column, Table, Unique, Length, Is, HasOne, DataType, IsEmail, BeforeSave, ForeignKey, BelongsTo} from 'sequelize-typescript';
 
 import {TimestampModel} from './TimestampModel';
 import {CompanyPayment} from './CompanyPayment';
@@ -48,8 +48,12 @@ export class CompanyUser extends TimestampModel<CompanyUser> {
   @Column
   colour: string;
 
-  @HasOne(() => Company, 'companyId')
-  company: Company[];
+  @ForeignKey(() => Company)
+  @Column
+  companyId: number;
+
+  @BelongsTo(() => Company, 'companyId')
+  company: Company;
 
   @BeforeSave
   static encryptPassword(instance: CompanyUser) {

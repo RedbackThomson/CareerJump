@@ -1,13 +1,8 @@
-import {
-  Column, CreatedAt, Default, DeletedAt, IsUUID, Model, PrimaryKey, DataType, Table,
-  UpdatedAt
-} from 'sequelize-typescript';
+import { Column, Model, PrimaryKey, Table } from 'sequelize-typescript';
 
 @Table
 export class BaseModel<T> extends Model<T> {
-  @IsUUID(4)
   @PrimaryKey
-  @Default(DataType.UUIDV4)
-  @Column(DataType.UUID)
-  id: string;
+  @Column
+  id: number;
 }

@@ -46,9 +46,9 @@ export class Company extends TimestampModel<Company> {
   @Column
   colour: string;
 
-  @HasMany(() => CompanyUser, 'companyId')
+  @HasMany(() => CompanyUser)
   companyUsers: CompanyUser[];
 
-  @HasMany(() => CompanyPayment, 'companyId')
+  @HasMany(() => CompanyPayment)
   companyPayments: CompanyPayment[];
 }

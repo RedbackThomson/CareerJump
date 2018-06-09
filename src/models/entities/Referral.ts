@@ -9,9 +9,10 @@ import {Fair} from './Fair';
 })
 export class Referral extends TimestampModel<Referral> {
   @ForeignKey(() => StudentUser)
-  referrer: StudentUser;
+  @Column
+  referrer: number;
 
   @ForeignKey(() => StudentUser)
-  referral: StudentUser;
-
+  @Column
+  referral: number;
 }

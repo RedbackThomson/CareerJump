@@ -1,4 +1,4 @@
-import {AllowNull, Column, Table, Unique, Length, Is, HasOne, DataType, BelongsTo} from 'sequelize-typescript';
+import {AllowNull, Column, Table, Unique, Length, Is, HasOne, DataType, BelongsTo, ForeignKey} from 'sequelize-typescript';
 
 import {TimestampModel} from './TimestampModel';
 import {CompanyUser} from './CompanyUser';
@@ -18,12 +18,24 @@ export class Interview extends TimestampModel<Interview> {
   @Column
   roomName: string;
 
-  @BelongsTo(() => CompanyUser, 'companyId')
+  @ForeignKey(() => CompanyUser)
+  @Column
+  companyUserId: number;
+
+  @ForeignKey(() => StudentUser)
+  @Column
+  studentUserId: number;
+
+  @ForeignKey(() => Fair)
+  @Column
+  fairId: number;
+
+  @BelongsTo(() => CompanyUser)
   companyUser: CompanyUser;
 
-  @BelongsTo(() => StudentUser, 'studentId')
+  @BelongsTo(() => StudentUser)
   studentUser: StudentUser;
 
-  @BelongsTo(() => Fair, 'fairId')
+  @BelongsTo(() => Fair)
   fair: Fair;
 }

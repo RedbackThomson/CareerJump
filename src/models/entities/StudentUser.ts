@@ -1,4 +1,4 @@
-import {AllowNull, Column, Table, Unique, Length, Is, HasOne, DataType, IsEmail, BeforeSave} from 'sequelize-typescript';
+import {AllowNull, Column, Table, Unique, Length, Is, HasOne, DataType, IsEmail, BeforeSave, ForeignKey} from 'sequelize-typescript';
 
 import {TimestampModel} from './TimestampModel';
 import {StudentProfile} from './StudentProfile';
@@ -26,8 +26,8 @@ export class StudentUser extends TimestampModel<StudentUser> {
   @Column
   deleted: boolean;
 
-  @HasOne(() => StudentProfile, 'userId')
-  profile: StudentProfile[];
+  @HasOne(() => StudentProfile)
+  profile: StudentProfile;
 
   @BeforeSave
   static encryptPassword(instance: StudentUser) {
