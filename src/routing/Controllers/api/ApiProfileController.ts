@@ -1,7 +1,7 @@
 import {Router, Request, Response, NextFunction} from 'express';
 import {JsonController, Param, Body, Get, Req, QueryParam} from "routing-controllers";
 import {Op} from 'sequelize';
-import {Skillset} from '../../models';
+import {Skillset} from '../../../models';
 
 @JsonController('/api/profile')
 export class ApiProfileRouter {

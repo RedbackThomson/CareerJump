@@ -10,7 +10,7 @@ export class InterviewManager {
 
   static getInterviewByRoom(roomName: string): Promise<Interview> {
     return new Promise((resolve, reject) => {
-      let _interview;
+      let _interview: Interview;
 
       Interview.findOne({
         where: {roomName: roomName},
@@ -27,11 +27,11 @@ export class InterviewManager {
       })
         .then((interview: Interview) => {
           _interview = interview;
-          return interview.companyUser.getCompany();
+          return interview.companyUser.$get('company');
         })
         .then((company: Company) => {
           _interview.companyUser.company = company;
-          return _interview.studentUser.getProfile();
+          return _interview.studentUser.$get('profile');
         })
         .then((profile: StudentProfile) => {
           _interview.studentUser.profile = profile;
@@ -65,7 +65,7 @@ export class InterviewManager {
       .then((interviews: Interview[]) => {
         _interviews = interviews;
         let interviewStudents = interviews.map((interview) =>
-          interview.studentUser.getProfile()
+          interview.studentUser.$get('profile')
         );
         return Promise.all(interviewStudents);
       })
@@ -94,11 +94,11 @@ export class InterviewManager {
       .then((interviews: Interview[]) => {
         _interviews = interviews;
         let interviewCompanies = interviews.map((interview) =>
-          interview.companyUser.getCompany()
+          interview.companyUser.$get('company')
         );
         return Promise.all(interviewCompanies);
       })
-      .then((companies: Company[]) => {
+      .then((companies) => {
         return _interviews.map((interview, i) => {
           let newInt = Object.assign({}, interview);
           newInt.companyUser.company = companies[i];

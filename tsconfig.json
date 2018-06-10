@@ -16,7 +16,8 @@
     "./node_modules/@types/bluebird/index.d.ts"
   ],
   "include": [
-    "src/**/*.ts"
+    "src/**/*.ts",
+    "./src/definitions/**/*.d.ts"
   ],
   "exclude": [
     "node_modules"
