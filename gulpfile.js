@@ -71,7 +71,6 @@ gulp.task('sass', function() {
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer('last 4 version'))
-    .pipe(gulp.dest('src/assets/public/css'))
     .pipe(cssnano())
     .pipe(rename({suffix: '.min'}))
     .pipe(gulpif(!gutil.env.production, sourcemaps.write()))
