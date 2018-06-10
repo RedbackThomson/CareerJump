@@ -41,14 +41,18 @@ export class StudentProfile extends TimestampModel<StudentProfile> {
   @AllowNull(false)
   @Column(DataType.ARRAY(DataType.STRING))
   workHistory: string[];
-
+  
   @AllowNull(false)
   @Column(DataType.ENUM(CompanySize.LARGE, CompanySize.STARTUP))
   preference: CompanySize;
-
+  
   @AllowNull(false)
   @Column(DataType.ENUM(JobPosition.FULLTIME, JobPosition.INTERNSHIP))
   position: JobPosition;
+
+  @AllowNull(false)
+  @Column(DataType.ARRAY(DataType.INTEGER))
+  skills: number[];
 
   @AllowNull(false)
   @IsUrl

@@ -1,4 +1,3 @@
-import {Router, Request, Response, NextFunction} from 'express';
 import {Controller, Param, Body, Get, Authorized, CurrentUser, Res} from "routing-controllers";
 import { StudentUser, CompanyUser, Interview } from '../../models';
 import { InterviewManager } from '../../managers/InterviewManager';

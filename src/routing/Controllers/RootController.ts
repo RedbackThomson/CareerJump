@@ -1,4 +1,3 @@
-import {Router, Request, Response, NextFunction} from 'express';
 import {Controller, Param, Body, Get, Authorized, Res} from "routing-controllers";
 
 @Controller()
