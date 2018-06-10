@@ -108,4 +108,4 @@ gulp.task('default', ['browser-sync']);
 
 gulp.task('prod', ['typescript', 'sass', 'vendor-js', 'vendor-css']);
 
-gulp.task('test', ['eslint']);
+gulp.task('test', ['eslint', 'typescript']);
