@@ -47,7 +47,8 @@ export class Server {
         logger.log(("Server is running on port %d in %s mode"), Server.app.get("port"), Server.app.get("env"));
       });
     } catch(error) {
-      throw error;
+      logger.error(error);
+      return null;
     }
   }
 
