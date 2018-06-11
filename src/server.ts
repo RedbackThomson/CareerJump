@@ -43,7 +43,9 @@ export class Server {
       }
 
       const port: number = Server.app.get('port');
-      return Server.app.listen(port);
+      return Server.app.listen(port, () => {
+        logger.log(("Server is running on port %d in %s mode"), Server.app.get("port"), Server.app.get("env"));
+      });
     } catch(error) {
       throw error;
     }
