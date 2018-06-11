@@ -14,12 +14,13 @@ export class Router {
       next(); 
     });
      
+    app.use(new AuthRouter().router);
     useExpressServer(app, {
       controllers: [__dirname + "/controllers/**/*.js"],
+      middlewares: [__dirname + "/middleware/**/*.js"],
       authorizationChecker: AuthManager.authorised,
-      currentUserChecker: AuthManager.currentUser
+      currentUserChecker: AuthManager.currentUser,
+      defaultErrorHandler: false
     });
-    app.use('/', new AuthRouter().router);
-
   }
 }

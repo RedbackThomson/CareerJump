@@ -8,10 +8,8 @@ import { Server } from "./server";
 var WORKERS = process.env.WEB_CONCURRENCY || 1;
 
 if (process.env.NODE_ENV === 'development') {
-// Don't multithread for debugging ease
-Server.initialiseApp().then(() => {
-  logger.log(("Development app is running on port %d in %s mode"), Server.app.get("port"), Server.app.get("env"));
-});
+  // Don't multithread for debugging ease
+  Server.initialiseApp();
 } else {
   throng({
     workers: WORKERS,
