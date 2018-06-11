@@ -5,7 +5,7 @@ mixin interviewer-list(companyUsers)
     ul.interviewer-list__list
       each user in companyUsers
         li.interviewer-list__item
-          span.user-badge.mr-2
+          span.user-badge.mr-2(badge-colour=user.colour)
           = user.firstName + " " + user.lastName
     a.interviewer-list__add(href="#")
       i.fas.fa-plus-circle

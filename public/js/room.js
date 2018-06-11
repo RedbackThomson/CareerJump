@@ -1,3 +1,7 @@
+$('.js-show-volume').click(function() {
+
+});
+
 function addParticipantTracks(participant) {
   participant.on('trackAdded', track => {
     $('.video-feeds__connecting').hide();

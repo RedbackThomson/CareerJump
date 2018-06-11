@@ -1,9 +1,10 @@
-.user-badge {
+.company-badge {
   content: '';
   width: $badge-size;
   height: $badge-size;
   margin-top: 0.1rem;
   background: $primary-light;
-  border-radius: 50%;
+  transform: rotate(45deg);
+  border-radius: 0.2rem;
   display: inline-block;
 }

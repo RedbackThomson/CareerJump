@@ -9,5 +9,8 @@ node_modules/
 public/css/
 
 src/assets/public/css/
+src/build/*.js
 
 public/js/vendor\.js
+
+lib/
