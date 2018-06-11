@@ -16,8 +16,8 @@ export class Router {
      
     app.use(new AuthRouter().router);
     useExpressServer(app, {
-      controllers: [__dirname + "/controllers/**/*.js"],
-      middlewares: [__dirname + "/middleware/**/*.js"],
+      controllers: [__dirname + "/Controllers/**/*.js"],
+      middlewares: [__dirname + "/Middleware/**/*.js"],
       authorizationChecker: AuthManager.authorised,
       currentUserChecker: AuthManager.currentUser,
       defaultErrorHandler: false
