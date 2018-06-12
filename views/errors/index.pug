@@ -1,0 +1,16 @@
+extends ../layouts/main
+
+include ../mixins/header
+
+block content
+  +header()
+
+  .container
+    .row
+      .col
+        h1 An Error Occurred!
+        if status
+          h3 #{status}
+    .row
+      .col
+        pre.error= error

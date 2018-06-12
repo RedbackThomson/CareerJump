@@ -19,6 +19,11 @@ export class AuthRouter {
   }
 
   loginPage(req: express.Request, res: express.Response) {
+    // Check for authenticated
+    if(req.user) {
+      return res.redirect('/dashboard');
+    }
+
     return res.render('pages/login')
   }
 

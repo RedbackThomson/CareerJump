@@ -11,13 +11,15 @@ export class RoomsController {
       .then((interview: Interview) => {
         // Conditionally render the company version
         if(user instanceof CompanyUser) {
-          return res.render("pages/room/company", {
+          res.render("pages/room/company", {
             interview
           });
+          return res;
         }
-        return res.render("pages/room/student", {
+        res.render("pages/room/student", {
           interview
         });
+        return res;
       });
   }
 }

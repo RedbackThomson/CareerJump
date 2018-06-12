@@ -22,9 +22,10 @@ export class DashboardController {
 
     return InterviewManager.getInterviewsByInterviewers([user])
       .then(interviews => {
-        return res.render('pages/dashboard/company', {
+        res.render('pages/dashboard/company', {
           interviews: interviews
         });
+        return res;
       });
   }
 
@@ -37,10 +38,11 @@ export class DashboardController {
         return InterviewManager.getInterviewsByInterviewers(interviewers);
       })
       .then((interviews: Interview[]) => {
-        return res.render('pages/dashboard/company', {
+        res.render('pages/dashboard/company', {
           interviewers: _interviewers,
           interviews: interviews
         });
+        return res;
       });
   }
 

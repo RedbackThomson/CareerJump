@@ -7,13 +7,26 @@ export class ProfileController {
   @Authorized()
   get(@CurrentUser() user, @Res() res) {
     if(user instanceof CompanyUser) {
-      return res.render('pages/profile/company');
+      res.render('pages/profile/company');
+      return res
     }
     
     return Skillset.findAll()
-      .then((skillsets: Skillset[]) => res.render('pages/profile/student', {
-        user,
-        skillsets
-      }));
+      .then((skillsets: Skillset[]) => {
+        res.render('pages/profile/student', {
+          user,
+          skillsets
+        });
+        return res;
+      });
+  }
+
+  @Get('/company')
+  @Authorized()
+  getCompany(@CurrentUser() user, @Res() res) {
+    if(user instanceof CompanyUser) {
+      res.render('pages/company-profile/company');
+      return res;
+    }
   }
 }

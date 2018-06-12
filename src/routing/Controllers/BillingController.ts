@@ -1,17 +1,16 @@
 import {Controller, Get, Authorized, CurrentUser, Res} from "routing-controllers";
 import {CompanyUser} from '../../models';
 
-@Controller('/support')
-export class SupportController {
+@Controller('/billing')
+export class BillingController {
   @Get('/')
   @Authorized()
   get(@CurrentUser() user, @Res() res) {
-    if(user instanceof CompanyUser) {
-      res.render('pages/support/company');
+    if(user instanceof CompanyUser && user.admin) {
+      res.render('pages/billing/company');
       return res;
     }
 
-    res.render('pages/support/student');
     return res;
   }
 }

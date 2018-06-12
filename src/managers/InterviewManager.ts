@@ -63,18 +63,7 @@ export class InterviewManager {
       }]
     })
       .then((interviews: Interview[]) => {
-        _interviews = interviews;
-        let interviewStudents = interviews.map((interview) =>
-          interview.studentUser.$get('profile')
-        );
-        return Promise.all(interviewStudents);
-      })
-      .then(profiles => {
-        return _interviews.map((interview, i) => {
-          let newInt = Object.assign({}, interview);
-          newInt.studentUser.profile = profiles[i];
-          return newInt;
-        });
+        return InterviewManager.getInterviewProfiles(interviews);
       });
   }
 
@@ -92,16 +81,45 @@ export class InterviewManager {
       }]
     })
       .then((interviews: Interview[]) => {
-        _interviews = interviews;
-        let interviewCompanies = interviews.map((interview) =>
-          interview.companyUser.$get('company')
-        );
-        return Promise.all(interviewCompanies);
-      })
-      .then((companies) => {
-        return _interviews.map((interview, i) => {
+        return InterviewManager.getInterviewCompanies(interviews);
+      });
+  }
+
+  /**
+   * Adds company information to the company users associated with an interview.
+   * @param interviews The list of interviews to associate with companies.
+   * @returns The interviews with companies attached to the company users.
+   */
+  static getInterviewCompanies(interviews: Interview[]): PromiseLike<Interview[]> {
+    let companyIds = [... new Set(interviews.map(interview => interview.companyUser.companyId))];
+
+    return Company.findAll({
+      where: {
+        id: {
+          [Op.or]: companyIds
+        }
+      }
+    })
+      .then((companies: Company[]): Interview[] => {
+        return interviews.map(interview => {
+          let company = companies.find(company => company.id === interview.companyUser.companyId);
+          let companyUser = Object.assign(interview.companyUser, {company});
+          return Object.assign(interview, {companyUser});
+        });
+      });
+  }
+
+  static getInterviewProfiles(interviews: Interview[]): PromiseLike<Interview[]> {
+    let interviewStudents: PromiseLike<StudentProfile>[] = 
+      interviews.map((interview) =>
+        interview.studentUser.$get('profile')
+      );
+    
+    return Promise.all(interviewStudents)
+      .then(profiles => {
+        return interviews.map((interview: Interview, i) => {
           let newInt = Object.assign({}, interview);
-          newInt.companyUser.company = companies[i];
+          newInt.studentUser.profile = profiles[i];
           return newInt;
         });
       });
