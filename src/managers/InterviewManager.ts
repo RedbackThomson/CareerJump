@@ -16,6 +16,10 @@ export class InterviewManager {
         })
       })
       .then((attendingUsers: AttendingCompanyUser[]) => {
+        if(attendingUsers.length === 0) {
+          return [];
+        }
+
         var userIds = attendingUsers.map(user => user.companyUserId);
         return CompanyUser.findAll({
           where: {

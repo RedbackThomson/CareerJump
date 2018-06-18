@@ -46,7 +46,12 @@ export class FairManager {
         companyId
       }
     })
-      .then(FairManager.getFairsFromAttendance);
+      .then((fairAttendances: FairAttendance[]) => {
+        if(fairAttendances.length === 0) {
+          return [];
+        }
+        return FairManager.getFairsFromAttendance(fairAttendances);
+      });
   }
 
   static getFairsByAttendingUser(companyUserId): PromiseLike<Fair[]> {
