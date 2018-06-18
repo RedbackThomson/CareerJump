@@ -1,5 +1,4 @@
 import { Fair, FairAttendance, AttendingCompanyUser, Interview } from "../models";
-import { OperatorsAliases } from "sequelize";
 
 export class FairManager {
   static getAttendance(fairId: number, companyId: number): PromiseLike<FairAttendance> {
@@ -26,6 +25,10 @@ export class FairManager {
       }
     })
       .then((interviews: Interview[]) => {
+        if(interviews.length === 0) {
+          return [];
+        }
+
         var fairIds = [... new Set(interviews.map((interview: Interview) => interview.fairId))];
         return Fair.findAll({
           where: {
@@ -53,6 +56,10 @@ export class FairManager {
       }
     })
       .then((attendings: AttendingCompanyUser[]) => {
+        if (attendings.length === 0) {
+          return [];
+        }
+
         var fairAttendanceIds = attendings.map((attending: AttendingCompanyUser) => attending.attendanceId);
         return FairAttendance.findAll({
           where: {
@@ -62,7 +69,13 @@ export class FairManager {
           }
         })
       })
-      .then(FairManager.getFairsFromAttendance);
+      .then((fairAttendances: FairAttendance[]) => {
+        if(fairAttendances.length === 0) {
+          return [];
+        }
+        
+        return FairManager.getFairsFromAttendance(fairAttendances);
+      });
   }
 
   static getFairsFromAttendance(fairAttendances: FairAttendance[]): PromiseLike<Fair[]> {

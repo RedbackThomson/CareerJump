@@ -1,5 +1,4 @@
 import { Interview, Company, StudentProfile, Fair, CompanyUser, StudentUser, AttendingCompanyUser, FairAttendance } from "../models";
-import {OperatorsAliases} from "sequelize";
 
 export class InterviewManager {
   static getInterviewersByCompany(fairId: number, companyId: number): PromiseLike<CompanyUser[]> {
