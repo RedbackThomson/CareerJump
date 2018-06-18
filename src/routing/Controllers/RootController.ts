@@ -1,4 +1,4 @@
-import {Controller, Get, Res, CurrentUser} from "routing-controllers";
+import {Controller, Get, Res} from "routing-controllers";
 
 @Controller('/')
 export class RootController {

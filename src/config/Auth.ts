@@ -1,6 +1,5 @@
 import * as passport from "passport";
 import * as LocalStrategy from "passport-local";
-import * as bcrypt from "bcrypt";
 import {StudentUser} from '../models/entities/StudentUser';
 import {StudentProfile} from '../models/entities/StudentProfile';
 import {Company} from '../models/entities/Company';

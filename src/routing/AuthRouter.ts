@@ -1,14 +1,10 @@
 import * as express from "express";
-import * as passport from "passport";
 import {AuthManager} from "../managers/AuthManager";
-import {Controller, Param, Body, Get, Post, Req, Res} from "routing-controllers";
 
 export class AuthRouter {
   public router: express.Router;
-  private authManager: AuthManager;
 
   constructor() {
-    this.authManager = new AuthManager();
     this.router = express.Router();
     this.buildRoutes();
   }

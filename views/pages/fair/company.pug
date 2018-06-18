@@ -1,0 +1,26 @@
+extends ../../layouts/company-dashboard
+
+include ../../mixins/admin-tools/interview-list
+include ../../mixins/date-list
+include ../../mixins/interviewer-list
+
+block title
+  | #{fair.name}
+
+block primary
+  if user.admin
+    .row
+      .col
+        .page-title #{user.company.name}'s Fair Schedule
+          .page-title__subtitle Managing Your Team for the #{fair.name}
+    .row
+      .col-md-4
+        +interviewer-list(interviewers, attendance)
+      .col-md-8
+        +admin-interview-list(interviews)
+  else
+    .row
+      .col
+        .page-title Upcoming Interviews
+          .page-title__subtitle Coming up for #{fair.name}
+    +date-list(interviews, resume=true, company=true)

@@ -1,11 +1,31 @@
-import { Interview, Company, StudentProfile, Fair, CompanyUser, StudentUser } from "../models";
-import { Op } from "sequelize";
+import { Interview, Company, StudentProfile, Fair, CompanyUser, StudentUser, AttendingCompanyUser, FairAttendance } from "../models";
+import {OperatorsAliases} from "sequelize";
 
 export class InterviewManager {
-  static getInterviewersByCompany(companyId): PromiseLike<CompanyUser[]> {
-    return CompanyUser.findAll({
-      where: {companyId: companyId}
-    });
+  static getInterviewersByCompany(fairId: number, companyId: number): PromiseLike<CompanyUser[]> {
+    return FairAttendance.findOne({
+      where: {
+        companyId,
+        fairId
+      }
+    })
+      .then((attendance: FairAttendance) => {
+        return AttendingCompanyUser.findAll({
+          where: {
+            attendanceId: attendance.id
+          }
+        })
+      })
+      .then((attendingUsers: AttendingCompanyUser[]) => {
+        var userIds = attendingUsers.map(user => user.companyUserId);
+        return CompanyUser.findAll({
+          where: {
+            id: {
+              $or: userIds
+            }
+          }
+        })
+      });
   }
 
   static getInterviewByRoom(roomName: string): Promise<Interview> {
@@ -41,14 +61,14 @@ export class InterviewManager {
     })
   }
 
-  static getInterviewsByInterviewers(interviewers: CompanyUser[]): PromiseLike<Interview[]> {
+  static getInterviewsByInterviewers(fairId: number, interviewers: CompanyUser[]): PromiseLike<Interview[]> {
     let userIds = interviewers.map(user => user.id);
-    let _interviews;
 
     return Interview.findAll({
       where: {
+        fairId,
         companyUserId: {
-          [Op.or]: userIds
+          $or: userIds
         }
       },
       include: [{
@@ -67,11 +87,12 @@ export class InterviewManager {
       });
   }
 
-  static getInterviewsByStudent(studentId: number): PromiseLike<Interview[]> {
-    let _interviews;
-
+  static getInterviewsByStudent(fairId: number, studentUserId: number): PromiseLike<Interview[]> {
     return Interview.findAll({
-      where: {studentUserId: studentId},
+      where: {
+        fairId,
+        studentUserId
+      },
       include: [{
         model: Fair,
         as: 'fair'
@@ -96,7 +117,7 @@ export class InterviewManager {
     return Company.findAll({
       where: {
         id: {
-          [Op.or]: companyIds
+          $or: companyIds
         }
       }
     })

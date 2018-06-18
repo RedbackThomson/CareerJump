@@ -1,4 +1,4 @@
-import {AllowNull, Column, Table, Unique, Length, Is, HasOne, DataType, IsEmail, BeforeSave, ForeignKey} from 'sequelize-typescript';
+import {AllowNull, Column, Table, Unique, HasOne, IsEmail, BeforeSave} from 'sequelize-typescript';
 
 import {TimestampModel} from './TimestampModel';
 import {StudentProfile} from './StudentProfile';

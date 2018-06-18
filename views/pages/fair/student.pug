@@ -1,0 +1,14 @@
+extends ../../layouts/student-dashboard
+
+include ../../mixins/date-list
+
+block title
+  | Dashboard
+
+block primary
+  .row
+    .col
+      .page-title Upcoming Interviews
+        .page-title__subtitle Coming up for the CareerJump Fall Fair
+    
+  +date-list(interviews)

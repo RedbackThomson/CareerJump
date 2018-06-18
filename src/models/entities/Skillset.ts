@@ -1,4 +1,4 @@
-import {AllowNull, Column, Table, Unique, Length, Is, HasOne, DataType} from 'sequelize-typescript';
+import {AllowNull, Column, Table} from 'sequelize-typescript';
 
 import {BaseModel} from './BaseModel';
 

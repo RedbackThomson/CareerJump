@@ -1,4 +1,4 @@
-import {Controller, Param, Body, Get, Authorized, CurrentUser, Res} from "routing-controllers";
+import {Controller, Get, Authorized, CurrentUser, Res} from "routing-controllers";
 import { CompanyUser, Skillset} from '../../models';
 
 @Controller('/profile')

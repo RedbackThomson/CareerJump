@@ -1,9 +1,11 @@
 import {Sequelize} from 'sequelize-typescript';
 
+import {AttendingCompanyUser} from "./entities/AttendingCompanyUser";
 import {Company} from "./entities/Company";
 import {CompanyPayment} from "./entities/CompanyPayment";
 import {CompanyUser} from "./entities/CompanyUser";
 import {Fair} from "./entities/Fair";
+import {FairAttendance} from "./entities/FairAttendance";
 import {Interview} from "./entities/Interview";
 import {Referral} from "./entities/Referral";
 import {Skillset} from "./entities/Skillset";
@@ -12,10 +14,12 @@ import {StudentUser} from "./entities/StudentUser";
 
 export {Sequelize} from 'sequelize-typescript';
 
+export {AttendingCompanyUser} from "./entities/AttendingCompanyUser";
 export {Company} from "./entities/Company";
 export {CompanyPayment} from "./entities/CompanyPayment";
 export {CompanyUser} from "./entities/CompanyUser";
 export {Fair} from "./entities/Fair";
+export {FairAttendance} from "./entities/FairAttendance";
 export {Interview} from "./entities/Interview";
 export {Referral} from "./entities/Referral";
 export {Skillset} from "./entities/Skillset";
@@ -41,10 +45,12 @@ export class Models {
 
     private getModels() {
         return [
+            AttendingCompanyUser,
             Company,
             CompanyPayment,
             CompanyUser,
             Fair,
+            FairAttendance,
             Interview,
             Referral,
             Skillset,

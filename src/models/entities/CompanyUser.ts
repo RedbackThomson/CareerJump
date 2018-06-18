@@ -1,9 +1,7 @@
-import {AllowNull, Column, Table, Unique, Length, Is, HasOne, DataType, IsEmail, BeforeSave, ForeignKey, BelongsTo} from 'sequelize-typescript';
+import {AllowNull, Column, Table, Unique, Length, Is, IsEmail, BeforeSave, ForeignKey, BelongsTo} from 'sequelize-typescript';
 
 import {TimestampModel} from './TimestampModel';
-import {CompanyPayment} from './CompanyPayment';
 import {Company} from './Company';
-import {CompanySize} from '../enums/CompanySize';
 import {Encryption} from '../../utils/Encryption';
 
 const HEX_REGEX = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;

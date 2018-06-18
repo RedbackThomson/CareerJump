@@ -1,5 +1,4 @@
-import {Router, Request, Response, NextFunction} from 'express';
-import {JsonController, Param, Body, Get, Req, QueryParam} from "routing-controllers";
+import {JsonController, Get, QueryParam} from "routing-controllers";
 import {Op} from 'sequelize';
 import {Skillset} from '../../../models';
 

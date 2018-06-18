@@ -6,7 +6,6 @@ import * as http from "http";
 import * as path from "path";
 import * as cookieParser from "cookie-parser";
 import * as flash from "express-flash";
-import * as throng from "throng";
 import * as session from "express-session";
 import * as redisStore from "connect-redis";
 

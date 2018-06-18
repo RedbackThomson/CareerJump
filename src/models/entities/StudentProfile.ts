@@ -1,7 +1,6 @@
-import {AllowNull, Column, Table, Unique, Length, Is, HasOne, DataType, IsUrl, BelongsTo, ForeignKey} from 'sequelize-typescript';
+import {AllowNull, Column, Table, DataType, IsUrl, BelongsTo, ForeignKey} from 'sequelize-typescript';
 
 import {TimestampModel} from './TimestampModel';
-import {CompanyPayment} from './CompanyPayment';
 import {StudentUser} from './StudentUser';
 import {JobPosition} from '../enums/JobPosition';
 import { CompanySize } from '../enums/CompanySize';

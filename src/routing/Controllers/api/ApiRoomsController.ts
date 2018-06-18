@@ -1,5 +1,4 @@
-import {Router, Request, Response, NextFunction} from 'express';
-import {JsonController, Body, Get, Req, Param, CurrentUser, Authorized} from 'routing-controllers';
+import {JsonController, Get, Param, CurrentUser, Authorized} from 'routing-controllers';
 import {jwt} from 'twilio';
 
 @JsonController('/api/rooms')

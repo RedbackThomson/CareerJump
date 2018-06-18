@@ -1,26 +1,12 @@
 extends ../../layouts/company-dashboard
 
-include ../../mixins/admin-tools/interview-list
-include ../../mixins/date-list
-include ../../mixins/interviewer-list
-
 block title
   | Dashboard
 
 block primary
-  if user.admin
+  .fair-list.form
     .row
-      .col
-        .page-title #{user.company.name}'s Fair Schedule
-          .page-title__subtitle Managing Your Team for the CareerJump Fall Fair
-    .row
-      .col-md-4
-        +interviewer-list(interviewers)
-      .col-md-8
-        +admin-interview-list(interviews)
-  else
-    .row
-      .col
-        .page-title Upcoming Interviews
-          .page-title__subtitle Coming up for the CareerJump Fall Fair
-    +date-list(interviews, resume=true, company=true)
+      for fair in fairs
+        a(href="/fairs/"+fair.alias).col-sm-6.col-md-4.form__field
+          label.form__label= fair.description
+          .form__title= fair.name

@@ -1,8 +1,7 @@
-import {Router, Request, Response, NextFunction} from 'express';
-import {Controller, Param, Body, Get, Authorized, CurrentUser, Res} from "routing-controllers";
-import { AUTH_TYPES } from '../../managers/AuthManager';
-import { CompanyUser, Interview, StudentUser } from '../../models';
-import { InterviewManager } from '../../managers/InterviewManager';
+import {Response} from 'express';
+import {Controller, Get, Authorized, CurrentUser, Res} from "routing-controllers";
+import { CompanyUser, StudentUser, Fair } from '../../models';
+import { FairManager } from '../../managers/FairManager';
 
 @Controller('/dashboard')
 export class DashboardController {
@@ -16,42 +15,31 @@ export class DashboardController {
   }
 
   getCompany(user: CompanyUser, res: Response) {
+    let query;
+
+    // Show admins all of their companies fairs;
     if (user.admin) {
-      return this.getCompanyAdmin(user, res);
+      query = FairManager.getFairsByCompany(user.companyId)
+    } else {
+      query = FairManager.getFairsByAttendingUser(user.id);
     }
 
-    return InterviewManager.getInterviewsByInterviewers([user])
-      .then(interviews => {
+    return query
+      .then((fairs: Fair[]) => {
         res.render('pages/dashboard/company', {
-          interviews: interviews
-        });
-        return res;
-      });
-  }
-
-  getCompanyAdmin(user: CompanyUser, res: Response) {
-    let _interviewers: CompanyUser[] = [];
-
-    return InterviewManager.getInterviewersByCompany(user.companyId)
-      .then((interviewers: CompanyUser[]) => {
-        _interviewers = interviewers;
-        return InterviewManager.getInterviewsByInterviewers(interviewers);
-      })
-      .then((interviews: Interview[]) => {
-        res.render('pages/dashboard/company', {
-          interviewers: _interviewers,
-          interviews: interviews
+          fairs
         });
         return res;
       });
   }
 
   getStudent(user: StudentUser, res: Response) {
-    return InterviewManager.getInterviewsByStudent(user.id)
-      .then((interviews: Interview[]) => {
-        return res.render("pages/dashboard/student", {
-          interviews
+    return FairManager.getFairsByStudent(user.id)
+      .then((fairs: Fair[]) => {
+        res.render('pages/dashboard/student', {
+          fairs
         });
+        return res;
       });
   }
 }

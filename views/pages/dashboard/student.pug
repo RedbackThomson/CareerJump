@@ -1,14 +1,12 @@
 extends ../../layouts/student-dashboard
 
-include ../../mixins/date-list
-
 block title
   | Dashboard
 
 block primary
-  .row
-    .col
-      .page-title Upcoming Interviews
-        .page-title__subtitle Coming up for the CareerJump Fall Fair
-    
-  +date-list(interviews)
+  .fair-list.form
+    .row
+      for fair in fairs
+        a(href="/fairs/"+fair.alias).col-sm-6.col-md-4.form__field
+          label.form__label= fair.description
+          .form__title= fair.name

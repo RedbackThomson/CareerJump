@@ -1,11 +1,12 @@
-mixin interviewer-list(companyUsers)
+mixin interviewer-list(companyUsers, attendance)
   .interviewer-list
     .interviewer-list__title Interviewers 
-      small (#{companyUsers.length})
+      small (#{companyUsers.length} / #{attendance.userCount})
     ul.interviewer-list__list
       each user in companyUsers
         li.interviewer-list__item
           span.user-badge.mr-2(badge-colour=user.colour)
           = user.firstName + " " + user.lastName
-    a.interviewer-list__add(href="#")
-      i.fas.fa-plus-circle
+    if companyUsers.length < attendance.userCount
+      a.interviewer-list__add(href="#")
+        i.fas.fa-plus-circle

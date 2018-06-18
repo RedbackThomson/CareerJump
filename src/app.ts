@@ -2,7 +2,6 @@
  * Create Server
  */
 import * as throng from 'throng';
-import {logger} from './config/logging';
 import { Server } from "./server";
 
 var WORKERS = process.env.WEB_CONCURRENCY || 1;

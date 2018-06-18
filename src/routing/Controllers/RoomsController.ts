@@ -1,5 +1,5 @@
-import {Controller, Param, Body, Get, Authorized, CurrentUser, Res} from "routing-controllers";
-import { StudentUser, CompanyUser, Interview } from '../../models';
+import {Controller, Param, Get, Authorized, CurrentUser, Res} from "routing-controllers";
+import { CompanyUser, Interview } from '../../models';
 import { InterviewManager } from '../../managers/InterviewManager';
 
 @Controller('/rooms')
