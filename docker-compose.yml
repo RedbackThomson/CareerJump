@@ -1,0 +1,30 @@
+version: '3'
+services:
+  web:
+    build: .
+    command: ["/usr/local/bin/wait-for-it.sh", "postgres:5432", "--", "npm", "run", "migrate-seed"]
+    volumes:
+      - .:/usr/app/
+      - /usr/app/node_modules
+    ports:
+      - "80:80"
+      - "9229:9229"
+      - "3001:3001"
+    depends_on:
+      - redis
+      - postgres
+    environment:
+      DATABASE_URL: postgres://root:password@postgres/careerjump
+      REDIS_URL: redis://redis:6379/
+  
+  postgres:
+    image: postgres:9.6.2-alpine
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_DB: careerjump
+      POSTGRES_PASSWORD: password
+
+  redis:
+    image: redis:4.0.10-alpine
+    volumes:
+      - .dockerdata/redisdata:/data

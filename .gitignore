@@ -2,6 +2,9 @@
 
 .env
 
+.dockerdata/*
+!.dockerdata/.gitkeep
+
 node_modules/
 
 \.vscode/
