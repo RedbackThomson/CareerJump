@@ -36,10 +36,13 @@ gulp.task('typescript', function() {
 // Static Server + watching scss/html files
 gulp.task('browser-sync', ['nodemon'], function() {
   browserSync.init(null, {
-    port: 80,
+    host: '0.0.0.0',
+    port: 8080,
     proxy: {
       target: 'localhost:3000'
-    }
+    },
+    ghostMode: false,
+    open: false
   });
 
   gulp.watch('scss/**/*.scss', ['sass']);
